@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <title>sobre nosotros</title>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../framework/css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../css/style.css" />
@@ -15,7 +16,7 @@
         <nav>
             <div class="nav-wrapper indigo darken-2">
                 <div class="row">
-                    <div class="col s2"><a href="#!" class=""><img src="../images/logos/jellyfishlogob.png" height="64px"
+                    <div class="col s2"><a href="../index.html" class=""><img src="../images/logos/jellyfishlogob.png" height="64px"
                                 alt=""></a>
                     </div>
                     <!--adapta el slogan-->
@@ -23,7 +24,7 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="hide-on-med-and-down right">
                         <!--(a1)pone el texto de color claro-->
-                        <li><a class="grey-text text-lighten-3" href="#">productos</a></li>
+                        <li><a class="grey-text text-lighten-3" href="Productos.html">productos</a></li>
                         <!--(a2) cambia el color de los iconos a blanco-->
                         <li><a href="#"><span class="material-icons md-light">add_shopping_cart</span></a></li>
                         <li><a href="#modal1" class="modal-trigger"><span class="material-icons md-light">account_circle</span></a></li>
@@ -91,7 +92,7 @@
                   <label for="password">contraseña</label>
                 </div>
               </div>
-              <a class="waves-effect  indigo btn">iniciar sesion</a>
+              <a href="../private/index.html" class="waves-effect  indigo btn">iniciar sesion</a>
             </form>
           </div>
           </div>
@@ -111,27 +112,94 @@
     </header>
     <main>
         <!--agregar el contenido aqui-->
-          <div class="row"">
-            <div class="col s4">
-              <h3>mision</h3>  
+          <div class="row">
+
+      <div class="col s4">
+        <!-- mision -->
+        <h2>mision</h2>
+      </div>
+      <div class="col s4">
+        <!--info  -->   
+          <h3>Sobre nosotros</h3>
+          <h6>Jellyfish Hardware es una pagina creada en 2022 por estudiantes del Instituto Tecnico Ricaldone
+              Y ha sido creada para que la obtención de hardware sea fácilmente accesible Para los salvadoreños</h6>
+               
+          <h5>Conozca nuestro equipo de trabajo</h5>
+             
+              
+      </div>
+      <div class="col s4">
+        <!-- vision -->
+        <h2>vision</h2>
+      </div>
+
+    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+              <div class="row valign-wrapper">
+                <div class="col s2">
+                  <img src="../images/about/andres.jpeg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                  <span class="black-text">
+                   Andrés Mauricio Lara Borja
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-            <div class="row"">
-            <div class="col s4">
-              <h1>sobre sonotros</h1>
-          <p>jellyfish Hardware es una pagina creada en 2022 por:<br>
-              Andrés Mauricio Lara Borja,Evelyn Daniela Bonifacio Hernández<br>
-             Gabriel Alessandro Inglés Estrada y Marvin Alexander Torres Molina
-             Y ha sido creada para que la obtención de hardware sea fácilmente accesible<br>
-             Para los salvadoreños
-          </p>
+          
+          <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+              <div class="row valign-wrapper">
+                <div class="col s2">
+                  <img src="../images/about/daniela.jpeg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                  <span class="black-text">
+                   Evelyn Daniela Bonifacio Hernández
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-            <div class="row"">
-            <div class="col s4">
-              <h3>vision</h3>  
+          
+          <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+              <div class="row valign-wrapper">
+                <div class="col s2">
+                  <img src="../images/about/gabriel.jpeg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                  <span class="black-text">
+                    Gabriel Alessandro Inglés Estrada
+                    <!--precionar alt+l-->
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
+                 
+          
+          <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+              <div class="row valign-wrapper">
+                <div class="col s2">
+                  <img src="../images/about/marvin.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                  <span class="black-text">
+                      Marvin Alexander Torres Molina
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+           
     </main>
     <footer class="page-footer indigo darken-2">
         <div class="container">
@@ -170,6 +238,10 @@
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="../framework/js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/jellyfish.js"></script>
+    <a id="ap" href="../html/quejas.html"></a>
+    <script>
+      document.getElementById("ap").accessKey="l";
+    </script>
 </body>
 
 </html>
