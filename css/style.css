@@ -37,3 +37,13 @@ main {
   }
   .material-icons.md-48 { font-size:200px; }
   .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+
+  .carousel.perso .carousel-item {
+    width: 35%;
+    height: 25%;
+    min-height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  }
