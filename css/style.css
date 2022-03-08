@@ -39,8 +39,8 @@ main {
   .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 
   .carousel.perso .carousel-item {
-    width: 35%;
-    height: 25%;
+    width: 45%;
+    height: 35%;
     min-height: 500px;
     position: absolute;
     top: 0;
