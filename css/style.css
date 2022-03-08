@@ -40,7 +40,7 @@ main {
 
   .carousel.perso .carousel-item {
     width: 45%;
-    height: 35%;
+    height: 15%;
     min-height: 500px;
     position: absolute;
     top: 0;
