@@ -41,7 +41,6 @@ main {
   .carousel.perso .carousel-item {
     width:35%;
     height:300px;
-    min-height: 300px;
     position: absolute;
     top: 0;
     left: 0;
