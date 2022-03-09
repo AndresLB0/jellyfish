@@ -1,0 +1,159 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {font-family: "Poppins Bold"; src: url("//db.onlinewebfonts.com/t/07ecc0aa9ce268962dea7356eeff50a6.eot"); src: url("//db.onlinewebfonts.com/t/07ecc0aa9ce268962dea7356eeff50a6.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/07ecc0aa9ce268962dea7356eeff50a6.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/07ecc0aa9ce268962dea7356eeff50a6.woff") format("woff"), url("//db.onlinewebfonts.com/t/07ecc0aa9ce268962dea7356eeff50a6.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/07ecc0aa9ce268962dea7356eeff50a6.svg#Poppins") format("svg"); }
+
+:root{
+    --main-color: #FF5757;
+    --title-font: "Poppins Bold"
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 5px;
+}
+
+.title-hr-1{
+    height: 5px !important;
+    background-color: var(--main-color);
+    width: 300px;
+}
+
+.title-hr-3{
+    height: 5px !important;
+    background-color: var(--main-color);
+    width: 330px;
+}
+.space-home-banner{
+    height: 40px;
+}
+
+.card-product{
+    height: 230px;
+    border-collapse: separate;
+    border-spacing: 10;
+    border-radius: 15px;
+    -moz-border-radius: 20px;
+    padding: 2px;
+    background-color: white;
+    border: 2px solid white;
+    box-shadow: -5px 5px 12px -5px ;
+    
+}
+.card-order{
+    height: 290px;
+    border-collapse: separate;
+    border-spacing: 10;
+    border-radius: 15px;
+    -moz-border-radius: 20px;
+    padding: 2px;
+    background-color: white;
+    border: 2px solid white;
+    box-shadow: -5px 5px 12px -5px ;
+    
+}
+
+.card-estado{
+    height: 100px;
+    border-collapse: separate;
+    border-spacing: 10;
+    border-radius: 15px;
+    -moz-border-radius: 20px;
+    padding: 2px;
+    background-color: white;
+    border: 2px solid white;
+    box-shadow: -5px 5px 12px -5px ;
+}
+
+.card-user{
+    height: 320px;
+    width: 330px;
+    border-collapse: separate;
+    border-spacing: 10;
+    border-radius: 15px;
+    -moz-border-radius: 20px;
+    padding: 2px;
+    background-color: white;
+    border: 2px solid white;
+    box-shadow: -5px 5px 12px -5px ;
+    
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.flex-container-pedido {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .flex-item1-pedido {
+    background-color: white;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 50px;
+  }
+
+.flex-item1 {
+    background-color: white;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 50px;
+  }
+
+h6 , h5{
+    font-family: 'Segoe UI';
+    font-size: 15px;
+    font-weight: 300;
+}
+
+h3, h4{
+    font-family: var(--title-font);
+}
+
+.prize{
+    color: #FF5757;
+    font-family: var(--title-font);
+    justify-content: end;
+    flex-direction: column-reverse;
+}
+.title-link, .title-link:hover{
+    color: #707070;
+    display: flex-end;
+}
+.title-link{
+    justify-content: end;
+}
+
+
+.card-image-product{
+    width: 200px;
+    height: 210px;
+    z-index: -1;
+    border-radius: 45px;
+    float: left;
+    margin-right: 15px;
+    font-family: var(--title-font);
+   
+}
+
+.form-select{
+    border-color: white;
+    font-family: var(--title-font);
+    box-shadow: 0px 5px #FF5757;
+}
+
