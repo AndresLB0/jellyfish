@@ -38,7 +38,8 @@ main {
   .material-icons.md-48 { font-size:200px; }
   .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 
-  .carousel.perso .carousel-item {
+  @media only screen and (min-width: 601px) {
+  .carousel.perso.m .carousel-item {
     width:35%;
     height:25%;
     min-height: 300px;
@@ -46,4 +47,15 @@ main {
     top: 0;
     left: 0;
   }
+}
+@media only screen and (min-width: 993px) {
+  .carousel.perso.l .carousel-item {
+    width:25%;
+    height:15%;
+    min-height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
+}
+
