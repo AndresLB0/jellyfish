@@ -47,6 +47,10 @@ main {
     top: 0;
     left: 0;
   }
+  .adaptable.m{
+    height:20%;
+    width:100%;
+  }
 }
 @media only screen and (min-width: 993px) {
   .carousel.perso.l .carousel-item {
@@ -57,5 +61,15 @@ main {
     top: 0;
     left: 0;
   }
+  .adaptable.l{
+    height:64px;
+    width:60%;
+    float:right;
+  }
 }
-
+@media only screen and (max-width: 600px) {
+  .adaptable.s{
+    height:35%;
+    width:110%;
+  }
+  }
