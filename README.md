@@ -32,7 +32,17 @@
   </tr>
   <tr>
     <td>
-      ascegurarse de tener la version actualizada de la plantilla, preguntarme si no esta seguro
+      ascegurarse de tener la version actualizada de la plantilla, preguntarme si no se esta seguro
+    </td>
+  </tr>
+  <tr>
+    <td>
+      no nombrar los archivos con MAYUSCULAS,espacios(%20) o caracteres especiales áñ
+    </td>
+  </tr>
+  <tr>
+    <td>
+      comentar su codigo,es cierto que yo comente algunas cosas de mi codigo pero aun asi ustedes tienen que comentar el suyo, porque la verdad yo no se que hace cada parte de su codigo
     </td>
   </tr>
   </table>
