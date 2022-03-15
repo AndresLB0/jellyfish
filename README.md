@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <td>
-      III.yo no adaptare codigo de otros trebajos si quieren copiar adptenlo ustedes
+      III.yo no adaptare codigo de otros trabajos si quieren copiar adptenlo ustedes
     </td>
   </tr>
   <tr>
