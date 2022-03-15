@@ -30,6 +30,11 @@
       hacer una rama por cada cambio grande,si se realizan cambios pequeños dederan ser realizados en la rama correspondiente
     </td>
   </tr>
+  <tr>
+    <td>
+      ascegurarse de tener la version actualizada de la plantilla, preguntarme si no esta seguro
+    </td>
+  </tr>
   </table>
   <h3>cosas a decidir</h3>
    <li type=I>tienen que decidirse que framework utilizaran para el sitio privado no pueden estar inercambiando entre boostrap y materialize</li>
