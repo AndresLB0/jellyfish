@@ -35,6 +35,11 @@
       ascegurarse de tener la version actualizada de la plantilla, preguntarme si no esta seguro
     </td>
   </tr>
+  <tr>
+    <td>
+      no nombrar los archivos con MAYUSCULAS,espacios(%20) o caracteres especiales áñ
+    </td>
+  </tr>
   </table>
   <h3>cosas a decidir</h3>
    <li type=I>tienen que decidirse que framework utilizaran para el sitio privado no pueden estar inercambiando entre boostrap y materialize</li>
