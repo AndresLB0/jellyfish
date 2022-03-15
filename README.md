@@ -1,5 +1,5 @@
 
-<table borde="1px">
+<table borde="10px">
   <tr>
     <th>
       cosas a considerar 
