@@ -12,7 +12,7 @@ main {
  .material-icons.md-light {
   color: rgba(255,255,255,1); 
 }
-/*manda a llamar a la fuente icons */
+/*manda a llamar a la fuente material icons */
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
@@ -35,15 +35,50 @@ main {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
   }
+  /*poner iconos oscuros*/
   .material-icons.md-48 { font-size:200px; }
   .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 
-  .carousel.perso .carousel-item {
+  /*adaptable para pantallas medianas*/
+  @media only screen and (min-width: 601px) {
+    /*adapta el caroucel*/
+  .carousel.perso.m .carousel-item {
     width:35%;
     height:25%;
-    min-height: 300px;
+    min-height: 310px;
     position: absolute;
     top: 0;
     left: 0;
+  }
+  /*adapta el eslogan*/
+  .adaptable.m{
+    height:20%;
+    width:100%;
+  }
+}
+/*adaptable para pantallas grandes*/
+@media only screen and (min-width: 1367px) {
+  /*adapta el caroucel*/
+  .carousel.perso.l .carousel-item {
+    width:25%;
+    height:15%;
+    min-height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+   /*adapta el eslogan*/
+  .adaptable.l{
+    height:64px;
+    width:60%;
+    float:right;
+  }
+}
+/*adaptable para pantallas pequeñas*/
+@media only screen and (max-width: 600px) {
+   /*adapta el eslogan*/
+  .adaptable.s{
+    height:35%;
+    width:110%;
   }
   }
