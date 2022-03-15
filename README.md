@@ -32,7 +32,7 @@
   </tr>
   <tr>
     <td>
-      ascegurarse de tener la version actualizada de la plantilla, preguntarme si no esta seguro
+      ascegurarse de tener la version actualizada de la plantilla, preguntarme si no se esta seguro
     </td>
   </tr>
   <tr>
