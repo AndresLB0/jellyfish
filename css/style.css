@@ -52,7 +52,8 @@ main {
   }
   /*adapta el eslogan*/
   .adaptable.m{
-    height:20%;
+    height:72px;
+    width:100%;
   }
 }
 /*adaptable para pantallas grandes*/
