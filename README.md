@@ -40,6 +40,11 @@
       no nombrar los archivos con MAYUSCULAS,espacios(%20) o caracteres especiales áñ
     </td>
   </tr>
+  <tr>
+    <td>
+      comentar su codigo,es cierto que yo comente algunas cosas de mi codigo pero aun asi ustedes tienen que comentar el suyo, porque la verdad yo no se que hace cada parte de su codigo
+    </td>
+  </tr>
   </table>
   <h3>cosas a decidir</h3>
    <li type=I>tienen que decidirse que framework utilizaran para el sitio privado no pueden estar inercambiando entre boostrap y materialize</li>
