@@ -1,8 +1,8 @@
 
-<table borde="10px">
+<table borde="1px">
   <tr>
     <th>
-      cosas a considerar 
+      reglas para el sitio
     </th>
   </tr>
   <tr>
@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <td>
-      hacer una rama por cada cambio grande,si se realizan cambios pequeños dederan ser realizados en la rama correspondiente
+      hacer una rama por cada cambio grande (como la creacion de una o mas paginas),si se realizan cambios pequeños(como cabiar color, poscision,coocar imagenes,etc) dederan ser realizados en ramas creadas con anterioridad
     </td>
   </tr>
   <tr>
@@ -48,4 +48,11 @@
   </table>
   <h3>cosas a decidir</h3>
    <li type=I>tienen que decidirse que framework utilizaran para el sitio privado no pueden estar inercambiando entre boostrap y materialize</li>
+     <h3>cosas por hacer</h3>
+   <li type=I>realizar la pagina del carrito de compras(sitio publico)</li>
+   <li type=I>realizar la pagina de "detalle pedido"(sitio publico)</li>
+     <li type=I>realiza todos los formularios de acuerdo con el <abbr title="diagrama enitidad relacion">DER</abbr></li>
+       <li type=I>modificar el <abbr title="diagrama enitidad relacion">DER</abbr> segun observaciones</li>
+         <li type=I>terminar de modificar la <abbr title="base de datos">DB</abbr> segun el <abbr title="diagrama enitidad relacion">DER</abbr></li>
+           <li type=I>llenar la <abbr title="base de datos">DB</abbr></li>
 
