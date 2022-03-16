@@ -1,8 +1,4 @@
 
-<!DOCTYPE html>
-<html>
-
-<body>
 <table borde="1px">
   <tr>
     <th>
@@ -59,7 +55,3 @@
        <li type=I>modificar el <abbr title="diagrama enitidad relacion">DER</abbr> segun observaciones</li>
          <li type=I>terminar de modificar la <abbr title="base de datos">DB</abbr> segun el <abbr title="diagrama enitidad relacion">DER</abbr></li>
            <li type=I>llenar la <abbr title="base de datos">DB</abbr></li>
-</body>
-
-</html>
-
