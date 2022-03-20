@@ -1,0 +1,777 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.1
+-- Dumped by pg_dump version 14.1
+
+-- Started on 2022-03-20 01:08:06
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 209 (class 1259 OID 24587)
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cliente (
+    nombre character varying(30)[] NOT NULL,
+    apellido character varying(30)[] NOT NULL,
+    correo character varying(40)[] NOT NULL,
+    telefono integer NOT NULL,
+    usuario character varying(30) NOT NULL,
+    "contraseña" character varying(150) NOT NULL,
+    id_cliente integer NOT NULL
+);
+
+
+ALTER TABLE public.cliente OWNER TO postgres;
+
+--
+-- TOC entry 210 (class 1259 OID 24592)
+-- Name: cliente_id_cliente_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cliente_id_cliente_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cliente_id_cliente_seq OWNER TO postgres;
+
+--
+-- TOC entry 3399 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: cliente_id_cliente_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cliente_id_cliente_seq OWNED BY public.cliente.id_cliente;
+
+
+--
+-- TOC entry 211 (class 1259 OID 24593)
+-- Name: detalle_pedido; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.detalle_pedido (
+    precio_actual numeric NOT NULL,
+    cantidad integer NOT NULL,
+    id_pedido integer NOT NULL,
+    id_producto integer NOT NULL,
+    id_detallepedido integer NOT NULL,
+    precio_producto numeric NOT NULL
+);
+
+
+ALTER TABLE public.detalle_pedido OWNER TO postgres;
+
+--
+-- TOC entry 212 (class 1259 OID 24598)
+-- Name: detalle_pedido_id_detallepedido_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.detalle_pedido_id_detallepedido_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.detalle_pedido_id_detallepedido_seq OWNER TO postgres;
+
+--
+-- TOC entry 3400 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: detalle_pedido_id_detallepedido_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.detalle_pedido_id_detallepedido_seq OWNED BY public.detalle_pedido.id_detallepedido;
+
+
+--
+-- TOC entry 213 (class 1259 OID 24599)
+-- Name: empleado; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.empleado (
+    telefono integer NOT NULL,
+    correo character varying(60) NOT NULL,
+    apellido character varying(30) NOT NULL,
+    nombre_empleado character varying(30) NOT NULL,
+    idtipo_empleado integer NOT NULL,
+    usuario character varying(35) NOT NULL,
+    "contraseña" character varying(150) NOT NULL,
+    id_empleado integer NOT NULL
+);
+
+
+ALTER TABLE public.empleado OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 24602)
+-- Name: empleado_id_empleado_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.empleado_id_empleado_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.empleado_id_empleado_seq OWNER TO postgres;
+
+--
+-- TOC entry 3401 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: empleado_id_empleado_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.empleado_id_empleado_seq OWNED BY public.empleado.id_empleado;
+
+
+--
+-- TOC entry 215 (class 1259 OID 24603)
+-- Name: marca; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.marca (
+    nombre_marca character varying(35) NOT NULL,
+    id_marca integer NOT NULL,
+    imagen character varying NOT NULL
+);
+
+
+ALTER TABLE public.marca OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 24608)
+-- Name: marca_id_marca_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.marca_id_marca_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.marca_id_marca_seq OWNER TO postgres;
+
+--
+-- TOC entry 3402 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: marca_id_marca_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.marca_id_marca_seq OWNED BY public.marca.id_marca;
+
+
+--
+-- TOC entry 217 (class 1259 OID 24609)
+-- Name: pedido; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pedido (
+    id_cliente integer NOT NULL,
+    fecha date NOT NULL,
+    pago_total numeric NOT NULL,
+    id_empleado integer NOT NULL,
+    id_pedido integer NOT NULL,
+    estado character varying NOT NULL,
+    direccion character varying NOT NULL
+);
+
+
+ALTER TABLE public.pedido OWNER TO postgres;
+
+--
+-- TOC entry 218 (class 1259 OID 24614)
+-- Name: pedido_id_pedido_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.pedido_id_pedido_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pedido_id_pedido_seq OWNER TO postgres;
+
+--
+-- TOC entry 3403 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: pedido_id_pedido_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.pedido_id_pedido_seq OWNED BY public.pedido.id_pedido;
+
+
+--
+-- TOC entry 219 (class 1259 OID 24615)
+-- Name: producto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.producto (
+    nombre character varying(30) NOT NULL,
+    existencias integer NOT NULL,
+    precio numeric(5,2) NOT NULL,
+    id_marca integer NOT NULL,
+    id_producto integer NOT NULL,
+    descripcion character varying NOT NULL,
+    imagen character varying NOT NULL,
+    estado character varying NOT NULL
+);
+
+
+ALTER TABLE public.producto OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 24620)
+-- Name: producto_id_producto_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.producto_id_producto_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.producto_id_producto_seq OWNER TO postgres;
+
+--
+-- TOC entry 3404 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: producto_id_producto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.producto_id_producto_seq OWNED BY public.producto.id_producto;
+
+
+--
+-- TOC entry 221 (class 1259 OID 24621)
+-- Name: tipo_empleado; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tipo_empleado (
+    tipo_empleado character varying(45) NOT NULL,
+    id_tipoempleado integer NOT NULL
+);
+
+
+ALTER TABLE public.tipo_empleado OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 24624)
+-- Name: tipo_empleado_id_tipoempleado_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.tipo_empleado_id_tipoempleado_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tipo_empleado_id_tipoempleado_seq OWNER TO postgres;
+
+--
+-- TOC entry 3405 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: tipo_empleado_id_tipoempleado_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.tipo_empleado_id_tipoempleado_seq OWNED BY public.tipo_empleado.id_tipoempleado;
+
+
+--
+-- TOC entry 224 (class 1259 OID 24677)
+-- Name: tipo_producto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tipo_producto (
+    idtipo_pruducto integer NOT NULL,
+    tipo_producto character varying NOT NULL
+);
+
+
+ALTER TABLE public.tipo_producto OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 24676)
+-- Name: tipo_producto_idtipo_pruducto_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.tipo_producto_idtipo_pruducto_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tipo_producto_idtipo_pruducto_seq OWNER TO postgres;
+
+--
+-- TOC entry 3406 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: tipo_producto_idtipo_pruducto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.tipo_producto_idtipo_pruducto_seq OWNED BY public.tipo_producto.idtipo_pruducto;
+
+
+--
+-- TOC entry 226 (class 1259 OID 24686)
+-- Name: valoracion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.valoracion (
+    id_valoracion integer NOT NULL,
+    valoracion integer NOT NULL
+);
+
+
+ALTER TABLE public.valoracion OWNER TO postgres;
+
+--
+-- TOC entry 225 (class 1259 OID 24685)
+-- Name: valoracion_id_valoracion_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.valoracion_id_valoracion_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.valoracion_id_valoracion_seq OWNER TO postgres;
+
+--
+-- TOC entry 3407 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: valoracion_id_valoracion_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.valoracion_id_valoracion_seq OWNED BY public.valoracion.id_valoracion;
+
+
+--
+-- TOC entry 3204 (class 2604 OID 24625)
+-- Name: cliente id_cliente; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente ALTER COLUMN id_cliente SET DEFAULT nextval('public.cliente_id_cliente_seq'::regclass);
+
+
+--
+-- TOC entry 3205 (class 2604 OID 24626)
+-- Name: detalle_pedido id_detallepedido; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.detalle_pedido ALTER COLUMN id_detallepedido SET DEFAULT nextval('public.detalle_pedido_id_detallepedido_seq'::regclass);
+
+
+--
+-- TOC entry 3206 (class 2604 OID 24627)
+-- Name: empleado id_empleado; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.empleado ALTER COLUMN id_empleado SET DEFAULT nextval('public.empleado_id_empleado_seq'::regclass);
+
+
+--
+-- TOC entry 3207 (class 2604 OID 24628)
+-- Name: marca id_marca; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.marca ALTER COLUMN id_marca SET DEFAULT nextval('public.marca_id_marca_seq'::regclass);
+
+
+--
+-- TOC entry 3208 (class 2604 OID 24629)
+-- Name: pedido id_pedido; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedido ALTER COLUMN id_pedido SET DEFAULT nextval('public.pedido_id_pedido_seq'::regclass);
+
+
+--
+-- TOC entry 3209 (class 2604 OID 24630)
+-- Name: producto id_producto; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.producto ALTER COLUMN id_producto SET DEFAULT nextval('public.producto_id_producto_seq'::regclass);
+
+
+--
+-- TOC entry 3210 (class 2604 OID 24631)
+-- Name: tipo_empleado id_tipoempleado; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tipo_empleado ALTER COLUMN id_tipoempleado SET DEFAULT nextval('public.tipo_empleado_id_tipoempleado_seq'::regclass);
+
+
+--
+-- TOC entry 3211 (class 2604 OID 24680)
+-- Name: tipo_producto idtipo_pruducto; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tipo_producto ALTER COLUMN idtipo_pruducto SET DEFAULT nextval('public.tipo_producto_idtipo_pruducto_seq'::regclass);
+
+
+--
+-- TOC entry 3212 (class 2604 OID 24689)
+-- Name: valoracion id_valoracion; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.valoracion ALTER COLUMN id_valoracion SET DEFAULT nextval('public.valoracion_id_valoracion_seq'::regclass);
+
+
+--
+-- TOC entry 3376 (class 0 OID 24587)
+-- Dependencies: 209
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cliente (nombre, apellido, correo, telefono, usuario, "contraseña", id_cliente) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3378 (class 0 OID 24593)
+-- Dependencies: 211
+-- Data for Name: detalle_pedido; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.detalle_pedido (precio_actual, cantidad, id_pedido, id_producto, id_detallepedido, precio_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3380 (class 0 OID 24599)
+-- Dependencies: 213
+-- Data for Name: empleado; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.empleado (telefono, correo, apellido, nombre_empleado, idtipo_empleado, usuario, "contraseña", id_empleado) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3382 (class 0 OID 24603)
+-- Dependencies: 215
+-- Data for Name: marca; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.marca (nombre_marca, id_marca, imagen) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3384 (class 0 OID 24609)
+-- Dependencies: 217
+-- Data for Name: pedido; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pedido (id_cliente, fecha, pago_total, id_empleado, id_pedido, estado, direccion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3386 (class 0 OID 24615)
+-- Dependencies: 219
+-- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.producto (nombre, existencias, precio, id_marca, id_producto, descripcion, imagen, estado) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3388 (class 0 OID 24621)
+-- Dependencies: 221
+-- Data for Name: tipo_empleado; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tipo_empleado (tipo_empleado, id_tipoempleado) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3391 (class 0 OID 24677)
+-- Dependencies: 224
+-- Data for Name: tipo_producto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tipo_producto (idtipo_pruducto, tipo_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3393 (class 0 OID 24686)
+-- Dependencies: 226
+-- Data for Name: valoracion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.valoracion (id_valoracion, valoracion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3408 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: cliente_id_cliente_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.cliente_id_cliente_seq', 1, false);
+
+
+--
+-- TOC entry 3409 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: detalle_pedido_id_detallepedido_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.detalle_pedido_id_detallepedido_seq', 1, false);
+
+
+--
+-- TOC entry 3410 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: empleado_id_empleado_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.empleado_id_empleado_seq', 1, false);
+
+
+--
+-- TOC entry 3411 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: marca_id_marca_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.marca_id_marca_seq', 2, true);
+
+
+--
+-- TOC entry 3412 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: pedido_id_pedido_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.pedido_id_pedido_seq', 1, false);
+
+
+--
+-- TOC entry 3413 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: producto_id_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.producto_id_producto_seq', 1, false);
+
+
+--
+-- TOC entry 3414 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: tipo_empleado_id_tipoempleado_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.tipo_empleado_id_tipoempleado_seq', 1, false);
+
+
+--
+-- TOC entry 3415 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: tipo_producto_idtipo_pruducto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.tipo_producto_idtipo_pruducto_seq', 1, false);
+
+
+--
+-- TOC entry 3416 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: valoracion_id_valoracion_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.valoracion_id_valoracion_seq', 1, false);
+
+
+--
+-- TOC entry 3214 (class 2606 OID 24633)
+-- Name: cliente cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente
+    ADD CONSTRAINT cliente_pkey PRIMARY KEY (id_cliente);
+
+
+--
+-- TOC entry 3216 (class 2606 OID 24635)
+-- Name: detalle_pedido detalle_pedido_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.detalle_pedido
+    ADD CONSTRAINT detalle_pedido_pkey PRIMARY KEY (id_detallepedido);
+
+
+--
+-- TOC entry 3218 (class 2606 OID 24637)
+-- Name: empleado empleado_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.empleado
+    ADD CONSTRAINT empleado_pkey PRIMARY KEY (id_empleado);
+
+
+--
+-- TOC entry 3220 (class 2606 OID 24639)
+-- Name: marca marca_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.marca
+    ADD CONSTRAINT marca_pkey PRIMARY KEY (id_marca);
+
+
+--
+-- TOC entry 3222 (class 2606 OID 24641)
+-- Name: pedido pedido_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedido
+    ADD CONSTRAINT pedido_pkey PRIMARY KEY (id_pedido);
+
+
+--
+-- TOC entry 3224 (class 2606 OID 24643)
+-- Name: producto producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.producto
+    ADD CONSTRAINT producto_pkey PRIMARY KEY (id_producto);
+
+
+--
+-- TOC entry 3226 (class 2606 OID 24645)
+-- Name: tipo_empleado tipo_empleado_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tipo_empleado
+    ADD CONSTRAINT tipo_empleado_pkey PRIMARY KEY (id_tipoempleado);
+
+
+--
+-- TOC entry 3228 (class 2606 OID 24684)
+-- Name: tipo_producto tipo_producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tipo_producto
+    ADD CONSTRAINT tipo_producto_pkey PRIMARY KEY (idtipo_pruducto);
+
+
+--
+-- TOC entry 3230 (class 2606 OID 24691)
+-- Name: valoracion valoracion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.valoracion
+    ADD CONSTRAINT valoracion_pkey PRIMARY KEY (id_valoracion);
+
+
+--
+-- TOC entry 3234 (class 2606 OID 24646)
+-- Name: pedido pk_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedido
+    ADD CONSTRAINT pk_cliente FOREIGN KEY (id_cliente) REFERENCES public.cliente(id_cliente) NOT VALID;
+
+
+--
+-- TOC entry 3235 (class 2606 OID 24651)
+-- Name: pedido pk_empleado; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedido
+    ADD CONSTRAINT pk_empleado FOREIGN KEY (id_empleado) REFERENCES public.empleado(id_empleado) NOT VALID;
+
+
+--
+-- TOC entry 3236 (class 2606 OID 24656)
+-- Name: producto pk_marca; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.producto
+    ADD CONSTRAINT pk_marca FOREIGN KEY (id_marca) REFERENCES public.marca(id_marca) NOT VALID;
+
+
+--
+-- TOC entry 3231 (class 2606 OID 24661)
+-- Name: detalle_pedido pk_pedido; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.detalle_pedido
+    ADD CONSTRAINT pk_pedido FOREIGN KEY (id_pedido) REFERENCES public.pedido(id_pedido) NOT VALID;
+
+
+--
+-- TOC entry 3232 (class 2606 OID 24666)
+-- Name: detalle_pedido pk_producto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.detalle_pedido
+    ADD CONSTRAINT pk_producto FOREIGN KEY (id_producto) REFERENCES public.producto(id_producto) NOT VALID;
+
+
+--
+-- TOC entry 3233 (class 2606 OID 24671)
+-- Name: empleado pk_tipoempleado; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.empleado
+    ADD CONSTRAINT pk_tipoempleado FOREIGN KEY (idtipo_empleado) REFERENCES public.tipo_empleado(id_tipoempleado) NOT VALID;
+
+
+-- Completed on 2022-03-20 01:08:07
+
+--
+-- PostgreSQL database dump complete
+--
+
