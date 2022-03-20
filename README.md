@@ -22,7 +22,7 @@
   </tr>
   <tr>
     <td>
-      acuerdense de crear un archivo js por cada pagina que hagan, si el codigo no js no tiene nada especial, no importa, solo hagan otro documento y pegan el codigo js de la plantilla osea jellyfish.js, esto servira para despues
+      acuerdense de crear un archivo js por cada pagina que hagan, si el codigo js no tiene nada especial, no importa, solo hagan otro documento y pegan el codigo js de la plantilla osea jellyfish.js, esto servira para despues
     </td>
   </tr>
   <tr>
@@ -53,5 +53,5 @@
    <li type=I>realizar la pagina de "detalle pedido"(sitio publico)</li>
      <li type=I>realiza todos los formularios de acuerdo con el <abbr title="diagrama enitidad relacion">DER</abbr></li>
        <li type=I>modificar el <abbr title="diagrama enitidad relacion">DER</abbr> segun observaciones</li>
-         <li type=I>terminar de modificar la <abbr title="base de datos">DB</abbr> segun el <abbr title="diagrama enitidad relacion">DER</abbr></li>
+         <li type=I>hacer mision y vision</li>
            <li type=I>llenar la <abbr title="base de datos">DB</abbr></li>
