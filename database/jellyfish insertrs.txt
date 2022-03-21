@@ -1,0 +1,19 @@
+--insert de cliente
+INSERT INTO public.cliente(
+	nombre, apellido, correo, telefono, usuario, contraseña, id_cliente)
+	VALUES ('Daniela', 'Hernandez', 'danihdez9@gmail.com', '25673526', 'Daniela12' , '6792345', 1),('Fernanda','Martinez','Fer2127@gmail.com',73212934,'Fernanda21','Eclips',4),('Monica','Tejada','Sailormoon123@gmail.com',73429543,'SaiToj123','Cyberjar',5),('Sara','De la cruz','SaraIm29@gmail.com',75493214,'SaraM29','MajespecterUnicornKirin',6),('Antonio','Miranda','Anthony76@gmail.com',74328943,'ZackLast1','ThunderDragonColosuss',7),('Moises','Estrada','EstMoi09@gmail.com',78653210,'Moi09','TopologicGlumblarDragon',8),('Marisol','Membreño','Marimmm@gmail.com',78603213,',Mari95','Linkross21',9),('Mariana','Belen','BelenMar3456@gmail.com',60215638,'Mariana34','PotOfGreed',10),('Andres', 'Lara', 'andres.lborja@hotmail.com', '78686573', 'felizonte' , 'gosdytl8',2),('Joe', 'Mcpool', 'JMCpool@yandex.com', '75230965', 'McJoe99' , 'iamasim', 3);
+--select y delete de cliente	
+	select * from cliente
+	delete from cliente
+--insert de pedido(ventas)	
+	INSERT INTO pedido (id_cliente,fecha,pago_total,id_empleado,id_pedido,estado,direccion) 
+	VALUES ('1','2022-02-12','200','3','1','Activo','12 Calle poniente casa 2'),('2','2022-01-27','500','3','2','Inactivo','Fuller ford 521 main st dallas tx 72'),('3','2022-03-19','300','3','3','Activo','Comunidad del sol pasaje 2 casa 11'),('4','2022-05-17','400','2','4','Inctivo','colonia "los tucanes" poligono 16 casa 8'),('5','2022-03-21','1000','1','5','Activo','colonia "los ayotes",pasaje "C5",casa 56'),('6','2021-03-12','200','3','6','Activo','16 Calle poniente casa 45'),('7','2022-01-27','700','3','7','Inactivo','colonia Las flores pasaje 2,casa 2'),('8','2022-03-05','300','2','8','Activo','Comunidad de la luna pasaje 1 casa 32'),('9','2022-04-18','1400','3','9','Inctivo','colonia "CORINTO" poligono 8 casa 5'),('10','2022-01-21','300','2','10','Activo','colonia "los ayotes",pasaje "A3",casa 34');
+--select de pedido
+select * from pedido
+--insert de marca
+INSERT INTO marca(nombre_marca,id_marca,imagen)VALUES('cooller master',1,'https://github.com/AndresLB0/jellyfish/blob/main/images/carrousel/coolermaster.png'),('Gforce',2,'https://github.com/AndresLB0/jellyfish/blob/main/images/carrousel/geforce.png'),('intel',3,'https://github.com/AndresLB0/jellyfish/blob/main/images/carrousel/intel.png')
+--select de marca	
+select * from marca
+INSERT INTO empleado (telefono,correo,apellido,nombre_empleado,idtipo_empleado,usuario,"contraseña",id_empleado) VALUES ('73434801','Mariotoj@gmail.com','Toj','Mario','3','Marxo','Blueeyesdefinitive','4') ,('70902176','Allister54@gmail.com','Villafuerte','Alex','3','Alexvilla76','Duellinks','5') 
+--select empleados
+select * from empleado
