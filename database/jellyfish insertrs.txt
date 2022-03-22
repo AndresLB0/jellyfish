@@ -1,15 +1,15 @@
 
+select pro.id_producto,pro.nombre,pro.estado,pro.precio,tp.tipo_producto,va.valoracion,pro.existencias,ma.nombre_marca,pro.descripcion from producto pro,marca ma,valoracion va,tipo_producto tp where pro.id_marca=ma.id_marca and pro.idtipo_producto=tp.idtipo_pruducto and pro.id_valoracion=va.id_valoracion order by nombre;
 
---order by
-	select * from producto order by nombre;
-	--between
+
+
 	select nombre, precio 
 	from producto
-	where precio between 2 and 5
-	--peraciones
-	select  id_producto , cantidad ,precio_producto,precio_producto*(cantidad)
+	where precio between 200 and 500
+	
+	select  id_producto , cantidad ,precio,precio*(cantidad)
 	from detalle_pedido;
-	--join
+	
 	select * from detalle_pedido
 	inner join producto
 	on detalle_pedido.id_detallepedido = producto.id_producto
@@ -18,13 +18,15 @@
 	as
 	$$
 	
-	select sum (precio_producto) from detalle_pedido
+	select  cantidad*precio from detalle_pedido
 	where id_detallepedido = id
 	
 	$$
 	language SQL 
-	
-	select pagoTotal ("1") 
+	drop function pagototal
+	select pagoTotal (3) 
+	 
+	 select dp.id_detallepedido,dp.cantidad,pro.nombre,dp.precio,cl.nombre,pagototal(id_detallepedido) from detalle_pedido dp,producto pro,cliente cl where dp.id_producto=pro.id_producto and cl.id_cliente=dp.id_cliente
 	
 	create function actualizar_existencias() returns trigger as
 	$$
@@ -34,13 +36,17 @@
 	where id_producto=new. id_producto;
 	return new;
 	end;
-	$$ language 'plpsql';
+	$$ language 'plpgsql';
 	
 	create trigger actualizar_existencias after insert on detalle_pedido
 	for each row execute procedure actualizar_existencias(); 
 	
+		
 	UPDATE public. empleado
 	SET telefono= 22826753
 	WHERE id_empleado=2;
 	
-	select id_pedido,fecha from pedido where fecha between cast('2022-01-08' as date) and '2022-08-25'
+	select id_pedido,fecha from pedido where fecha between cast('2022-01-08' as date) and '2022-03-25'
+	
+	
+	
