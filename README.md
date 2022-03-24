@@ -54,4 +54,4 @@
      <li type=I>realiza todos los formularios de acuerdo con el <abbr title="diagrama enitidad relacion">DER</abbr></li>
        <li type=I>modificar el <abbr title="diagrama enitidad relacion">DER</abbr> segun observaciones</li>
          <li type=I>hacer mision y vision</li>
-           <li type=I>llenar la <abbr title="base de datos">DB</abbr></li>
+
