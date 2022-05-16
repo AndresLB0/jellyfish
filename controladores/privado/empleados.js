@@ -13,3 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('pag2').innerHTML='<a class="grey-text text-lighten-3" href="marcas.html">marcas</a>'
 document.getElementById('mob1').innerHTML='<a class="grey-text text-lighten-3" href="productos.html">productos</a>'
 document.getElementById('mob2').innerHTML='<a class="grey-text text-lighten-3" href="marcas.html">marcas</a>'
+document.getElementById('pag3').innerHTML='<a class="grey-text text-lighten-3" href="dashboard.html">dashboard</a>'
+document.getElementById('mob3').innerHTML='<a class="grey-text text-lighten-3" href="dashboard.html">dashboard</a>'
+document.getElementById('login').innerHTML='<a class="waves-effect indigo btn" href="../publico/index.html">cerrar secion</a>'
