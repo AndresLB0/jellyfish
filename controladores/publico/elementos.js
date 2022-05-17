@@ -77,13 +77,6 @@ document.getElementById('menu').innerHTML=
       '</ul>'+
       //registro
       '<div id="test-swipe-1" class="col s12 indigo darken-2">'+
-        '<div class="file-field input-field">'+
-          '<span class="material-icons md-48 md-dark">account_circle</span>'+
-          '<input type="file" accept="image/*" />'+
-          '<div class="file-path-wrapper">'+
-            '<input class="file-path validate" type="text" />'+
-          '</div>'+
-        '</div>'+
         '<form class="col s12">'+
           '<div class="row">'+
             '<div class="input-field col s6">'+
@@ -112,7 +105,6 @@ document.getElementById('menu').innerHTML=
       '</div>'+
       //inicio de sesion
       '<div id="test-swipe-2" class="col s12 indigo darken-2">'+
-        '<span class="material-icons md-48 md-dark">account_circle</span>'+
         '<form class="col s12">'+
           '<div class="row">'+
             '<div class="input-field col s6">'+

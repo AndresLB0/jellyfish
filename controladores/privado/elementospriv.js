@@ -69,13 +69,6 @@ document.getElementById('menu').innerHTML=
     'modificar perfil'+
     '</h5>'+
       //registro
-        '<div class="file-field input-field">'+
-          '<span class="material-icons md-48 md-dark">account_circle</span>'+
-          '<input type="file" accept="image/*" />'+
-          '<div class="file-path-wrapper">'+
-            '<input class="file-path validate" type="text" />'+
-          '</div>'+
-        '</div>'+
         '<form class="col s12">'+
           '<div class="row">'+
             '<div class="input-field col s6">'+
@@ -83,18 +76,22 @@ document.getElementById('menu').innerHTML=
               '<label for="name">nombre</label>'+
             '</div>'+
             '<div class="input-field col s6">'+
-              '<input placeholder="Jelly_fish_by_2022" id="user" type="text" class="validate" />'+
-              '<label for="user">usuario</label>'+
+            '<input placeholder="fish" id="apellido" type="text" class="validate" />'+
+            '<label for="apellido">apellido</label>'+
             '</div>'+
           '</div>'+
           '<div class="row">'+
-            '<div class="input-field col s12">'+
+            '<div class="input-field col s6">'+
               '<input placeholder="••••••••••••••••••••" id="password" type="password" class="validate" />'+
               '<label for="password">contraseña</label>'+
             '</div>'+
+            '<div class="input-field col s6">'+
+            '<input placeholder="Jelly_fish_by_2022" id="user" type="text" class="validate" />'+
+              '<label for="user">usuario</label>'+
+              
           '</div>'+
           '<div class="row">'+
-            '<div class="input-field col s12">'+
+            '<div class="input-field col s6">'+
               '<input placeholder="Jellyfish@info.com" id="email" type="email" class="validate" />'+
               '<label for="email">Email</label>'+
             '</div>'+
