@@ -65,17 +65,10 @@ document.getElementById('menu').innerHTML=
 '<div id="modal1" class="modal indigo darken-2">'+
   '<div class="modal-content center-align">'+
     '<div class="row">'+
-      //pestañas
-      '<ul id="tabs-swipe-demo" class="tabs indigo darken-2">'+
-        '<li class="tab col s3">'+
-          '<a href="#test-swipe-1">registrarse</a>'+
-        '</li>'+
-        '<li class="tab col s3">'+
-          '<a class="active" href="#test-swipe-2">iniciar sesion</a>'+
-        '</li>'+
-      '</ul>'+
+    '<h5>'+
+    'modificar perfil'+
+    '</h5>'+
       //registro
-      '<div id="test-swipe-1" class="col s12 indigo darken-2">'+
         '<div class="file-field input-field">'+
           '<span class="material-icons md-48 md-dark">account_circle</span>'+
           '<input type="file" accept="image/*" />'+
@@ -106,32 +99,10 @@ document.getElementById('menu').innerHTML=
               '<label for="email">Email</label>'+
             '</div>'+
           '</div>'+
-          '<a class="waves-effect indigo btn">registrarse</a>'+
-        '</form>'+
-      '</div>'+
+          '<a class="waves-effect indigo btn">modificar perfil</a>'+
+          '<a class="waves-effect indigo btn" href="../publico/index.html">cerrar secion</a>'+
+        '</form>'
       //inicio de sesion
-      '<div id="test-swipe-2" class="col s12 indigo darken-2">'+
-        '<span class="material-icons md-48 md-dark">account_circle</span>'+
-        '<form class="col s12">'+
-          '<div class="row">'+
-            '<div class="input-field col s6">'+
-              '<input placeholder="Jelly_fish_by_2022" id="user" type="text" class="validate" />'+
-              '<label for="user">usuario</label>'+
-            '</div>'+
-          '</div>'+
-          '<div class="row">'+
-            '<div class="input-field col s12">'+
-              '<input placeholder="••••••••••••••••••••" id="password" type="password" class="validate" />'+
-              '<label for="password">contraseña</label>'+
-            '</div>'+
-          '</div>'+
-          '<div id="login">'+
-          '</div>'+
-        '</form>'+
-      '</div>'+
-    '</div>'+
-  '</div>'+
-'</div>'
 
   document.getElementById('mobile-demo').innerHTML=
   '<li><img src="../../recursos/img/logos/jellyfishanimated.gif" width="90%" /></li>'+

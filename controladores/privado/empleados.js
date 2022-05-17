@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }));
   });
   
-  document.getElementById('pag1').innerHTML='<a class="grey-text text-lighten-3" href="#">productos</a>'
+  document.getElementById('pag1').innerHTML='<a class="grey-text text-lighten-3" href="agregarprod.html">productos</a>'
 document.getElementById('pag2').innerHTML='<a class="grey-text text-lighten-3" href="marcas.html">marcas</a>'
-document.getElementById('mob1').innerHTML='<a class="grey-text text-lighten-3" href="productos.html">productos</a>'
+document.getElementById('mob1').innerHTML='<a class="grey-text text-lighten-3" href="agregarprod.html">productos</a>'
 document.getElementById('mob2').innerHTML='<a class="grey-text text-lighten-3" href="marcas.html">marcas</a>'
 document.getElementById('pag3').innerHTML='<a class="grey-text text-lighten-3" href="dashboard.html">dashboard</a>'
 document.getElementById('mob3').innerHTML='<a class="grey-text text-lighten-3" href="dashboard.html">dashboard</a>'

@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
    swipeable:true,
       }));
   });
-  document.getElementById('pag1').innerHTML='<a class="grey-text text-lighten-3" href="agregarprod.html">productos</a>'
+  document.getElementById('pag1').innerHTML='<a class="grey-text text-lighten-3" href="dashboard.html">dashboard</a>'
   document.getElementById('pag2').innerHTML='<a class="grey-text text-lighten-3" href="empleados.html">empleados</a>'
-  document.getElementById('mob1').innerHTML='<a class="grey-text text-lighten-3" href="agregarprod.html">productos</a>'
+  document.getElementById('mob1').innerHTML='<a class="grey-text text-lighten-3" href="dashboard.html">dashboard</a>'
   document.getElementById('mob2').innerHTML='<a class="grey-text text-lighten-3" href="empleados.html">empleados</a>'
   document.getElementById('pag3').innerHTML='<a class="grey-text text-lighten-3" href="marcas.html">marca</a>'
   document.getElementById('mob3').innerHTML='<a class="grey-text text-lighten-3" href="marcas.html">marca</a>'
+  document.getElementById('login').innerHTML='<a class="waves-effect indigo btn" href="../publico/index.html">cerrar secion</a>'
