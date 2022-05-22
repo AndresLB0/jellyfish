@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <title>catalogo</title>
+
 <head>
   <meta charset="UTF-8">
   <!--Import materialize.css-->
@@ -14,7 +15,7 @@
 <body>
   <header>
     <div class="navbar-fixed" id="menu">
-      
+
     </div>
     <!--menu movil-->
     <!--agrega un gif en el menu de la version mobil-->
@@ -37,80 +38,31 @@
           </div>
       </header>
       <main>
-        <div class="row">
-      <div class="col s12 m12 l6 x6 ">
-
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="../../api/images/productos/RX570.jfif" width="70 px" height="200 px">
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h5>RTX 570</h5>
-              <h5>$200.00 </h5>
-            </div>
-            <div class="card-action">
-              <a href="#" class="blue-text">Mas detalles</a> <a href="#" class="blue-text">Añadir al carrito</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6 x6">
-          <div class="card horizontal">
-            <div class="card-image">
-              <img src="../../api/images/productos/2080.jfif" width="70 px" height="200 px">
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-               <h5> Geforce 2080</h5>
-                <h5>$400.00 </h5>
-              </div>
-              <div class="card-action">
-                <a href="#" class="blue-text">Mas detalles</a> <a href="#" class="blue-text">Añadir al carrito</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m12 l6 x6 ">
-
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="../../api/images//productos/RX5700.jfif" width="70 px" height="200 px">
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-             <h5>RTX 570</h5>
-              <h5>$200.00 </h5>
-            </div>
-            <div class="card-action">
-              <a href="#" class="blue-text">Mas detalles</a> <a href="#" class="blue-text">Añadir al carrito</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6 x6">
-          <div class="card horizontal">
-            <div class="card-image">
-              <img src="../../api/images/productos/GTX1660 TI.jfif" width="70 px" height="200 px">
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                <h5>Geforce 2080</h5>
-                <h5>$400.00 </h5>
-              </div>
-              <div class="card-action">
-                <a href="#" class="blue-text">Mas detalles</a> <a href="#" class="blue-text">Añadir al carrito</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="row" id="productos">
     </div>
+    <!-- valorar producto -->
+    <div id="modalval" class="modal indigo darken-2">
+      <div class="modal-content center-align">
+        <h5>como calificas este producto</h5>
+        <!-- agregar contenido abajo de este comentario -->
+        <form id="valoracion">
+          <!-- codigo sacado de  https://es.stackoverflow.com/questions/126046/valoracion-estrellas-1-5-diseño-estrellas-php-html -->
+          <p class="clasificacion ">
+            <input id="radio1" type="radio" name="estrellas" value="5">
+              <label for="radio1">★</label>
+              <input id="radio2" type="radio" name="estrellas" value="4">
+                <label for="radio2">★</label>
+                <input id="radio3" type="radio" name="estrellas" value="3">
+                  <label for="radio3">★</label>
+                  <input id="radio4" type="radio" name="estrellas" value="2">
+                    <label for="radio4">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="1">
+                      <label for="radio5">★</label>
+                    </p>
+    
+                  </form>
+                </div>
+                </div>
       </main>
       <footer>
         <ul class="pagination">
