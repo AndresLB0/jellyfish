@@ -70,32 +70,36 @@ document.getElementById('menu').innerHTML=
     '</h5>'+
       //registro
         '<form class="col s12">'+
-          '<div class="row">'+
-            '<div class="input-field col s6">'+
-              '<input placeholder="Jelly" id="name" type="text" class="validate" />'+
-              '<label for="name">nombre</label>'+
-            '</div>'+
-            '<div class="input-field col s6">'+
-            '<input placeholder="fish" id="apellido" type="text" class="validate" />'+
-            '<label for="apellido">apellido</label>'+
-            '</div>'+
-          '</div>'+
-          '<div class="row">'+
-            '<div class="input-field col s6">'+
-              '<input placeholder="••••••••••••••••••••" id="password" type="password" class="validate" />'+
-              '<label for="password">contraseña</label>'+
-            '</div>'+
-            '<div class="input-field col s6">'+
-            '<input placeholder="Jelly_fish_by_2022" id="user" type="text" class="validate" />'+
-              '<label for="user">usuario</label>'+
-              
-          '</div>'+
-          '<div class="row">'+
-            '<div class="input-field col s6">'+
-              '<input placeholder="Jellyfish@info.com" id="email" type="email" class="validate" />'+
-              '<label for="email">Email</label>'+
-            '</div>'+
-          '</div>'+
+        '<div class="row">'+
+        '<div class="input-field col s6">'+
+          '<input placeholder="Jelly" id="nombre" type="text" class="validate" />'+
+          '<label for="name">nombre</label>'+
+        '</div>'+
+        '<div class="input-field col s6">'+
+          '<input placeholder="fish" id="apellido" type="text" class="validate" />'+
+          '<label for="user">apellido</label>'+
+        '</div>'+
+      '</div>'+
+      '<div class="row">'+
+        '<div class="input-field col s6">'+
+          '<input placeholder="••••••••••••••••••••" id="clave" type="password" class="validate" />'+
+          '<label for="password">contraseña</label>'+
+        '</div>'+
+        '<div class="input-field col s6">'+
+          '<input placeholder="Jelly_fish_by_2022" id="usuario" type="text" class="validate" />'+
+          '<label for="user">usuario</label>'+
+        '</div>'+
+      '</div>'+
+      '<div class="row">'+
+        '<div class="input-field col s6">'+
+          '<input placeholder="Jellyfish@info.com" id="email" type="email" class="validate" />'+
+          '<label for="email">Email</label>'+
+        '</div>'+
+        '<div class="input-field col s6">'+
+          '<input placeholder="78906554" id="tel" type="tel" class="validate" />'+
+          '<label for="email"></label>'+
+        '</div>'+
+      '</div>'+
           '<a class="waves-effect indigo btn">modificar perfil</a>'+
           '<a class="waves-effect indigo btn" href="../publico/index.html">cerrar secion</a>'+
         '</form>'

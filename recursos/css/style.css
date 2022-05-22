@@ -1,3 +1,25 @@
+.clasificacion {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.clasificacion input {
+  position: absolute;
+  top: -100px;
+}
+
+.clasificacion label {
+  float: right;
+  color: #333;
+  font-size: 48px;
+}
+
+.clasificacion label:hover,
+.clasificacion label:hover ~ label,
+.clasificacion input:checked ~ label {
+  color: #dd4;
+}
 /*separar el menu de footer */
 body {
   display: flex;
