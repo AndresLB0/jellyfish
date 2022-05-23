@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var instances = M.Tabs.init(document.querySelector('.tabs',{
    swipeable:true,
       }));
+  var instances = M.FormSelect.init(document.querySelectorAll('select'));
   });
   document.getElementById('pag1').innerHTML='<a class="grey-text text-lighten-3" href="dashboard.html">dashboard</a>'
   document.getElementById('pag2').innerHTML='<a class="grey-text text-lighten-3" href="empleados.html">empleados</a>'

@@ -3,100 +3,89 @@
 
 <head>
     <meta charset="UTF-8">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="../../recursos/css/materialize.min.css" media="screen,projection" />
-  <link type="text/css" rel="stylesheet" href="../../recursos/css/style.css" />
-  <link rel="icon" href="../../recursos/img/icono/icono jellyfih.png">
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/style.css" />
+    <link rel="icon" href="../../recursos/img/icono/icono jellyfih.png">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-  <header>
+    <header>
 
-    <div class="navbar-fixed">
-      <nav>
-        <div class="navbar-fixed" id="menu">
-      
+        <div class="navbar-fixed">
+            <nav>
+                <div class="navbar-fixed" id="menu">
+
+                </div>
         </div>
-    </div>
-    <!--menu movil-->
-    <!--agrega un gif en el menu de la version mobil-->
-    <ul class="sidenav indigo darken-2" id="mobile-demo">
-    </ul>
-  </header>
-  <main>
-    <code>
+        <!--menu movil-->
+        <!--agrega un gif en el menu de la version mobil-->
+        <ul class="sidenav indigo darken-2" id="mobile-demo">
+        </ul>
+    </header>
+    <main>
         <div class="container">
             <div class="title">Registro Producto</div>
-            <form action="#">
+            <form action="#" id="producto">
+                <div class="producto-detalles">
+                    <div class="input-box">
+                        <span class="detalles">imagen</span>
+                        <input type="file" required>
+                    </div>
+                </div>
                 <div class="producto-detalles">
                     <div class="input-box">
                         <span class="detalles">Nombre</span>
                         <input type="text" placeholder="Nombre Producto" required>
                     </div>
                 </div>
-            </form>
-
-
-
-                        <div class="producto-detalles">
+                    <div class="producto-detalles">
                                 <span class="detalles">Marca</span>
-                                <input type="text" list="browsers" />
-                                <datalist id="browsers">
-                                    <option>Cooler Master</option>
-                                    <option>Intel</option>
-                                    <option>Geforce</option>
-                                    
-                                </datalist>
-
+                                <select id="marcas">
+                                    <option value="1">Option 1</option>
+                                    <option value="1">Option 2</option>
+                                    <option value="1">Option 3</option>
+                                </select>
                         </div>
-                
-                
-            
-
-
-    
-
-                            <form action="#">
                                 <div class="producto-detalles">
                                     <div class="input-box">
                                         <span class="detalles">Precio</span>
                                         <input type="text" placeholder="Precio Producto" required>
                                     </div>
                                 </div>
-                            </form>
-                        
-                        
-                        
-            
-
-
-
-                        
-                                 
-                                    <form action="#">
                                         <div class="producto-detalles">
                                             <div class="input-box">
                                                 <span class="detalles">Cantidad</span>
                                                 <input type="text" placeholder="Cantidad Producto" required>
                                             </div>
                                         </div>
+
+                                            <label>
+                                              <input name="group1" type="radio" checked />
+                                              <span>disponible</span>
+                                            </label>
+                                         
+                                            <label>
+                                              <input name="group1" type="radio"/>
+                                              <span>agotado</span>
+                                            </label>
+                                          
                                     </form>
+        </div>
                                 
                                 
                                 
-                        
-    
-</code>
-  </main>
-  <footer class="page-footer indigo darken-2" id="pie">
-  </footer>
-  <!--JavaScript at end of body for optimized loading-->
-  <script type="text/javascript" src="../../recursos/js/materialize.min.js"></script> 
-  <script type="text/javascript" src="../../controladores//privado/elementospriv.js"></script>
-  <script type="text/javascript" src="../../controladores/privado/addproduct.js"></script>
- 
+        
+    </main>
+    <footer class="page-footer indigo darken-2" id="pie">
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="../../recursos/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../../controladores//privado/elementospriv.js"></script>
+    <script type="text/javascript" src="../../controladores/privado/addproduct.js"></script>
+
 </body>
 
 </html>
