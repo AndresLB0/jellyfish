@@ -24,7 +24,7 @@
     </ul>
   </header>
   <main>
-    <div class="row">
+    <div class="row" id="empleados">
       <div class="col s4">
         <ul class="collection with-header">
           <li class="collection-header">
@@ -32,104 +32,27 @@
           </li>
           <li class="collection-item"></li>
           <li class="collection-item"></li>
-          <li class="collection-item"></li>
-          <li class="collection-item"></li>
+          <li class="collection-item"></li> 
+          <li class="collection-item"></li> 
+        </ul> 
+      </div> 
+      <div class="col s4 center"> 
+        <!-- formulario de registro de empleados --> 
+        <ul id="tabs-swipe-demo" class="tabs tabs-fixed-width tab-demo"> 
+          <li class="tab col s3 m4"><a href="#agregar">registrar empleados</a></li> 
+          <li class="tab col s3 m4"><a href="#modificar">modificar empleados</a></li> 
         </ul>
-      </div>
-      <div class="col s4 center">
-        <!-- formulario de registro de empleados -->
-        <ul id="tabs-swipe-demo" class="tabs tabs-fixed-width tab-demo">
-          <li class="tab col s3 m4"><a href="#test-swipe-3">registrar empleados</a></li>
-          <li class="tab col s3 m4"><a href="#test-swipe-4">modificar empleados</a></li>
-        </ul>
-        <code>
-            <div id="test-swipe-3" class="col s12 m11 l10">
-              <form action="" class="form-register">
-                <h1 class="form__tittle">Registrar empleados</h1>
-                <div class="container--flex">
-                  <label for="" class="form__label">Nombre</label>
-                  <input type="text" class="form__input" name="Nombre">
-                </div>
-                <div class="container--flex">
-                  <label for="" class="form__label">Apellido</label>
-                  <input type="text" class="form__input" name="Apellido">
-                </div>
-                <div class="container--flex">
-                  <label for="" class="form__label">Correo</label>
-                  <input type="text" class="form__input" name="Correo">
-                </div>
-                <div class="container--flex">
-                  <label for="" class="form__label">Telefono</label>
-                  <input type="text" class="form__input" name="Telefono">
-                </div>
-                <h4>Tipo Empleado</h4>
-                <select class = "form-select w-75 mt-2" id="inputtipoempleado">
-                    <option seleced>Administrador</option>
-                    <option seleced>Gerente</option>
-                    <option seleced>Vendedor</option>
-                </select>
-                <div class="container--flex">
-                  <label for="" class="form__label">Usuario</label>
-                  <input type="text" class="form__input" name="Telefono">
-                </div>
-                <div class="container--flex">
-                  <label for="" class="form__label">Clave</label>
-                  <input type="text" class="form__input" name="Telefono">
-                </div>
-                <div class="form-group row">
-                  <div class="col-lg-12 text center">
-                    <input type="button" class="btn btn-secondary" value="Crear">
-                  </div>
-                </div>
-              </form>
+        
+            <div id="agregar" class="col s12 m11 l10">
+             
             </div>
-          </code>
-        <code>
+
             <!--formulario de modificacio-->
-            <div id="test-swipe-4" class="col s12 m11 l10">
-              <form action="" class="form-register">
-                <h1 class="form__tittle">modificar empleados</h1>
-                <div class="container--flex">
-                  <label for="" class="form__label">Nombre</label>
-                  <input type="text" class="form__input" name="Nombre">
-                </div>
-                <div class="container--flex">
-                  <label for="" class="form__label">Apellido</label>
-                  <input type="text" class="form__input" name="Apellido">
-                </div>
-                <div class="container--flex">
-                  <label for="" class="form__label">Correo</label>
-                  <input type="text" class="form__input" name="Correo">
-                </div>
-                <div class="container--flex">
-                  <label for="" class="form__label">Telefono</label>
-                  <input type="text" class="form__input" name="Telefono">
-                </div>
-                <h4>Tipo Empleado</h4>
-                <select class = "form-select w-75 mt-2" id="inputtipoempleado">
-                    <option seleced>Administrador</option>
-                    <option seleced>Gerente</option>
-                    <option seleced>Vendedor</option>
-                </select>
-                  <div class="container--flex">
-                    <label for="" class="form__label">Usuario</label>
-                    <input type="text" class="form__input" name="Telefono">
-                  </div>
-                  <div class="container--flex">
-                    <label for="" class="form__label">Clave</label>
-                    <input type="text" class="form__input" name="Telefono">
-                  </div>
-                <div class="form-group row">
-                  <div class="col-lg-12 text center">
-                    <input type="button" class="btn btn-secondary" value="Actualizar">
-                    <input type="button" class="btn btn-primary" value="Eliminar">
-                  </div>
-              </form>
+            <div id="modificar" class="col s12 m11 l10">
             </div>
-          </code>
         <div class="col s4">
 
-          <!-- Promo Content 3 goes here -->
+
         </div>
 
       </div>

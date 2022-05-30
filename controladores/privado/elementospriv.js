@@ -121,3 +121,89 @@ document.getElementById('menu').innerHTML=
   '<li>'+
     '<a href="#modal1" class="modal-trigger"><span class="material-icons md-light">account_circle</span></a>'+
   '</li>'
+
+  document.getElementById('agregar').innerHTML=
+  '<form action="" class="form-register">'+
+'<h1 class="form__tittle">Registrar empleados</h1>'+
+'<div class="container--flex">'+
+  '<label for="" class="form__label">Nombre</label>'+
+  '<input type="text" class="form__input" name="Nombre">'+
+'</div>'+
+'<div class="container--flex">'+
+  '<label for="" class="form__label">Apellido</label>'+
+  '<input type="text" class="form__input" name="Apellido">'+
+'</div>'+
+'<div class="container--flex">'+
+  '<label for="" class="form__label">Correo</label>'+
+  '<input type="text" class="form__input" name="Correo">'+
+'</div>'+
+'<div class="container--flex">'+
+  '<label for="" class="form__label">Telefono</label>'+
+  '<input type="text" class="form__input" name="Telefono">'+
+'</div>'+
+'<div class="input-field">'+
+'<select id="inputtipoempleado">'+
+  '<option value="" disabled selected> seleccione tipo de emplead</option>'+
+    '<option value="1">Administrador</option>'+
+    '<option value="2">Gerente</option>'+
+    '<option value="3">Vendedor</option>'+
+'</select>'+
+'</div>'+
+'<div class="container--flex">'+
+  '<label for="" class="form__label">Usuario</label>'+
+  '<input type="text" class="form__input" name="Telefono">'+
+'</div>'+
+'<div class="container--flex">'+
+  '<label for="" class="form__label">Clave</label>'+
+  '<input type="text" class="form__input" name="Telefono">'+
+'</div>'+
+'<div class="form-group row">'+
+  '<div class="col s12 center">'+
+    '<input type="button" class="btn btn-secondary" value="Crear">'
+  '</div>'+
+'</div>'+
+'</form>'
+
+
+document.getElementById('modificar').innerHTML=
+'<form action="" class="form-register">'+
+'<h1 class="form__tittle">modificar empleados</h1>'+
+'<div class="container--flex">'+
+'<label for="" class="form__label">Nombre</label>'+
+'<input type="text" class="form__input" name="Nombre">'+
+'</div>'+
+'<div class="container--flex">'+
+'<label for="" class="form__label">Apellido</label>'+
+'<input type="text" class="form__input" name="Apellido">'+
+'</div>'+
+'<div class="container--flex">'+
+'<label for="" class="form__label">Correo</label>'+
+'<input type="text" class="form__input" name="Correo">'+
+'</div>'+
+'<div class="container--flex">'+
+'<label for="" class="form__label">Telefono</label>'+
+'<input type="text" class="form__input" name="Telefono">'+
+'</div>'+
+'<div class="input-field">'+
+'<select id="inputtipoempleado">'+
+'<option value="" disabled selected> seleccione tipo de emplead</option>'+
+  '<option value="1">Administrador</option>'+
+  '<option value="2">Gerente</option>'+
+  '<option value="3">Vendedor</option>'+
+'</select>'+
+'</div>'+
+'<div class="container--flex">'+
+'<label for="" class="form__label">Usuario</label>'+
+'<input type="text" class="form__input" name="Telefono">'+
+'</div>'+
+'<div class="container--flex">'+
+'<label for="" class="form__label">Clave</label>'+
+'<input type="text" class="form__input" name="Telefono">'+
+'</div>'+
+'<div class="form-group row">'+
+'<div class="col s12 center">'+
+'<input type="button" class="btn btn-secondary" value="Actualizar">'+
+'<input type="button" class="btn btn-primary" value="Eliminar">'+
+'</div>'+
+'</div>'+
+'</form>'
