@@ -13,75 +13,12 @@
 <body>
   <header>
 
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper indigo darken-2">
-          <div class="row">
-            <div class="col s2"><a href="index.html" class=""><img src="../images/logos/jellyfishlogob.png"
-                  height="64px" alt=""></a>
-            </div>
-            <!--adapta el slogan-->
-            <div class="col s8 m7 l6"><img src="../../recursos/img/logos/lema.png" class="adaptable m l s"></div>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="hide-on-med-and-down right">
-              <!--(a1)pone el texto de color claro-->
-              <li><a class="grey-text text-lighten-3" href="#">productos</a></li>
-              <!--(a2) cambia el color de los iconos a blanco-->
-              <li><a href="#modal1" class="modal-trigger"><span
-                    class="material-icons md-light">account_circle</span></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- popup de registro -->
-        <div id="modal1" class="modal indigo darken-2">
-          <div class="modal-content center-align">
-            <div class="row">
-              <!--pestañas-->
-              <h3>perfil</h3>
-              <!--registro-->
-              <div class="file-field input-field">
-                <img src="../images/about/andres.jpeg" class="circle" height="200px">
-                <input type="file" accept="image/*">
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-                </div>
-              </div>
+    <div class="navbar-fixed" id="menu">
 
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <p>Andres Mauricio Lara Borja</p>
-                    <label for="name">nombre</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <p>administrator</p>
-                    <label for="user">usuario</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s6">
-                    <p>20200707@ricaldone.edu.sv</p>
-                    <label for="email">Email</label>
-                  </div>
-                </div>
-                <a href="../index.html" class="waves-effect  indigo btn">salir</a>
-              </form>
-            </div>
-          </div>
-        </div>
-      </nav>
     </div>
     <!--menu movil-->
     <!--agrega un gif en el menu de la version mobil-->
     <ul class="sidenav indigo darken-2" id="mobile-demo">
-      <li><img src="../images/logos/jellyfishanimated.gif" width="90%"></li>
-      <!--(b1)hace lo mismo que a1 pero en version movil-->
-      <li><a class="grey-text text-lighten-3" href="#">productos</a></li>
-      <li><a class="grey-text text-lighten-3" href="#">sobre nosotros</a></li>
-      <!--(b2) hace lo mismo que a2 pero en versiones moviles-->
-      <li><a href="#"><span class="material-icons md-light">add_shopping_cart</span></a></li>
-      <li><a href="#"><span class="material-icons md-light">account_circle</span></a></li>
     </ul>
   </header>
   <main>
