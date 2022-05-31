@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
   'jellyfish hardware &reg' +
   '</div>' +
   '</div>'
-  
+
 document.getElementById('menu').innerHTML =
   '<nav>' +
   '<div class="nav-wrapper indigo darken-2">' +
@@ -138,8 +138,7 @@ document.getElementById('menu').innerHTML =
   '<label for="password">contraseña</label>' +
   '</div>' +
   '</div>' +
-  '<div id="login">' +
-  '</div>' +
+  '<a class="waves-effect indigo btn">iniciar secion</a>'+
   '</form>' +
   '</div>' +
   '</div>' +
