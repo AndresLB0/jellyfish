@@ -12,7 +12,6 @@ class Clientes extends Validator
     private $correo = null;
     private $telefono = null;
     private $clave = null;
-    private $estado = null; // Valor por defecto en la base de datos: true
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -75,17 +74,6 @@ class Clientes extends Validator
             return false;
         }
     }
-
-    public function setEstado($value)
-    {
-        if ($this->validateBoolean($value)) {
-            $this->estado = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -119,21 +107,15 @@ class Clientes extends Validator
         return $this->clave;
     }
 
-    public function getEstado()
-    {
-        return $this->estado;
-    }
-
     /*
     *   Métodos para gestionar la cuenta del cliente.
     */
     public function checkUser($correo)
     {
-        $sql = 'SELECT id_cliente, estado_cliente FROM clientes WHERE correo = ?';
+        $sql = 'SELECT id_cliente FROM cliente WHERE correo = ?';
         $params = array($correo);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_cliente'];
-            $this->estado = $data['estado_cliente'];
             $this->correo = $correo;
             return true;
         } else {
@@ -143,7 +125,7 @@ class Clientes extends Validator
 
     public function checkPassword($password)
     {
-        $sql = 'SELECT clave_cliente FROM clientes WHERE id_cliente = ?';
+        $sql = 'SELECT clave FROM cliente WHERE id_cliente = ?';
         $params = array($this->id);
         $data = Database::getRow($sql, $params);
         if (password_verify($password, $data['clave_cliente'])) {
@@ -155,7 +137,7 @@ class Clientes extends Validator
 
     public function changePassword()
     {
-        $sql = 'UPDATE clientes SET clave_cliente = ? WHERE id_cliente = ?';
+        $sql = 'UPDATE cliente SET clave = ? WHERE id_cliente = ?';
         $params = array($this->clave, $this->id);
         return Database::executeRow($sql, $params);
     }
@@ -163,7 +145,7 @@ class Clientes extends Validator
     public function editProfile()
     {
         $sql = 'UPDATE clientes
-                SET nombres_cliente = ?, apellidos_cliente = ?, correo_cliente = ?, dui_cliente = ?, telefono_cliente = ?, nacimiento_cliente = ?, direccion_cliente = ?
+                SET nombre = ?, apellidos_cliente = ?, correo_cliente = ?, dui_cliente = ?, telefono_cliente = ?, nacimiento_cliente = ?, direccion_cliente = ?
                 WHERE id_cliente = ?';
         $params = array($this->nombres, $this->apellidos, $this->correo, $this->dui, $this->telefono, $this->nacimiento, $this->direccion, $this->id);
         return Database::executeRow($sql, $params);
