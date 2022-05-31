@@ -1,9 +1,9 @@
 <?php
 /*
-*	Clase para manejar la tabla clientes de la base de datos.
+*	Clase para manejar la tabla cliente de la base de datos.
 *   Es clase hija de Validator.
 */
-class Clientes extends Validator
+class cliente extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
@@ -144,56 +144,46 @@ class Clientes extends Validator
 
     public function editProfile()
     {
-        $sql = 'UPDATE clientes
-                SET nombre = ?, apellidos_cliente = ?, correo_cliente = ?, dui_cliente = ?, telefono_cliente = ?, nacimiento_cliente = ?, direccion_cliente = ?
+        $sql = 'UPDATE cliente
+                SET nombre = ?, apellido = ?, correo= ?, telefono = ?
                 WHERE id_cliente = ?';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $this->dui, $this->telefono, $this->nacimiento, $this->direccion, $this->id);
+        $params = array($this->nombres, $this->apellidos, $this->correo, $this->telefono, $this->id);
         return Database::executeRow($sql, $params);
     }
-
-    public function changeStatus()
-    {
-        $sql = 'UPDATE clientes
-                SET estado_cliente = ?
-                WHERE id_cliente = ?';
-        $params = array($this->estado, $this->id);
-        return Database::executeRow($sql, $params);
-    }
-
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_cliente, nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente
-                FROM clientes
-                WHERE apellidos_cliente ILIKE ? OR nombres_cliente ILIKE ? OR correo_cliente ILIKE ?
-                ORDER BY apellidos_cliente';
+        $sql = 'SELECT id_cliente, nombre, apellido, correo, telefono
+                FROM cliente
+                WHERE apellido ILIKE ? OR nombre ILIKE ? OR correo ILIKE ?
+                ORDER BY apellido';
         $params = array("%$value%", "%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
 
     public function createRow()
     {
-        $sql = 'INSERT INTO clientes(nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente, clave_cliente)
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $this->dui, $this->telefono, $this->nacimiento, $this->direccion, $this->clave);
+        $sql = 'INSERT INTO cliente(nombre, apellido, correo, telefono, clave)
+                VALUES(?, ?, ?, ?, ?)';
+        $params = array($this->nombres, $this->apellidos, $this->correo, $this->telefono, $this->clave);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_cliente, nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, estado_cliente
-                FROM clientes
-                ORDER BY apellidos_cliente';
+        $sql = 'SELECT id_cliente, nombre, apellido, correo
+                FROM cliente
+                ORDER BY apellido';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_cliente, nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente, estado_cliente
-                FROM clientes
+        $sql = 'SELECT id_cliente, nombre, apellido, correo, telefono
+                FROM cliente
                 WHERE id_cliente = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -201,16 +191,16 @@ class Clientes extends Validator
 
     public function updateRow()
     {
-        $sql = 'UPDATE clientes
-                SET nombres_cliente = ?, apellidos_cliente = ?, dui_cliente = ?, estado_cliente = ?, telefono_cliente = ?, nacimiento_cliente = ?, direccion_cliente = ?
+        $sql = 'UPDATE cliente
+                SET nombre = ?, apellido = ?, telefono = ?
                 WHERE id_cliente = ?';
-        $params = array($this->nombres, $this->apellidos, $this->dui, $this->estado, $this->telefono, $this->nacimiento, $this->direccion, $this->id);
+        $params = array($this->nombres, $this->apellidos, $this->telefono, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM clientes
+        $sql = 'DELETE FROM cliente
                 WHERE id_cliente = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
