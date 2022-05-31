@@ -92,7 +92,7 @@ document.getElementById('menu').innerHTML =
   '</ul>' +
   //registro
   '<div id="test-swipe-1" class="col s12 indigo darken-2">' +
-  '<form class="col s12">' +
+  '<form class="col s12" id="registro">' +
   '<div class="row">' +
   '<div class="input-field col s6">' +
   '<input placeholder="Jelly" id="nombre" type="text" class="validate" />' +

@@ -15,13 +15,13 @@ function reCAPTCHA() {
 }
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de registrar cliente.
-document.getElementById('register-form').addEventListener('submit', function (event) {
+document.getElementById('registro').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Petición para registrar un usuario como cliente.
     fetch(API_CLIENTES + 'register', {
         method: 'post',
-        body: new FormData(document.getElementById('register-form'))
+        body: new FormData(document.getElementById('registro'))
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
         if (request.ok) {

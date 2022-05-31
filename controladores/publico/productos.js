@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById('menu').innerHTML =
   '<nav>' +
-  '<div class="nav-wrapper indigo darken-2">' +
+  '<div class="nav-wrapper indigo darken-2" id="registro">' +
   '<div class="row">' +
   '<div class="col s2">' +
   '<a href="#!" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>' +
