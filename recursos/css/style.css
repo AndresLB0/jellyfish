@@ -1,3 +1,10 @@
+
+iframe.noScrolling{
+  width:900px; 
+  height:360px;
+  overflow: hidden;
+}
+/* css de formulario de clasificacion */
 .clasificacion {
   position: relative;
   overflow: hidden;
