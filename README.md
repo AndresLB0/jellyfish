@@ -53,5 +53,5 @@
    <li type=I>realizar la pagina de "detalle pedido"(sitio publico)</li>
      <li type=I>realiza todos los formularios de acuerdo con el <abbr title="diagrama enitidad relacion">DER</abbr></li>
        <li type=I>modificar el <abbr title="diagrama enitidad relacion">DER</abbr> segun observaciones</li>
-         <li type=I>hacer mision y vision</li>
+         <li type=I><del>hacer mision y vision</del></li>
 
