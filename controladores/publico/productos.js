@@ -14,7 +14,7 @@ document.getElementById('menu').innerHTML =
   '<div class="nav-wrapper indigo darken-2" id="registro">' +
   '<div class="row">' +
   '<div class="col s2">' +
-  '<a href="#!" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>' +
+  '<a href="index.html" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>' +
   '</div>' +
   //adapta el slogan
   '<div class="col s8 m7 l6">' +
@@ -23,9 +23,6 @@ document.getElementById('menu').innerHTML =
   '<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>' +
   '<ul class="hide-on-med-and-down right">' +
   //(a1)pone el texto de color claro
-  '<li>' +
-'<a class="grey-text text-lighten-3" href="index.html">inicio</a>'+
-  '</li>' +
   '<li>' +
 '<a class="grey-text text-lighten-3" href="about.html">sobre nosotros</a>'+
   '</li>' +

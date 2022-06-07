@@ -11,8 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // Se inicializa el componente Modal para que funcionen las cajas de diálogo.
     M.Modal.init(document.querySelectorAll('.modal'), options);
+      var instances = M.Sidenav.init(document.querySelectorAll('.sidenav'));
+  //inicializa las pstañas del modal
+var instances = M.Tabs.init(document.querySelectorAll('.tabs',{
+ swipeable:true
+	}));
 });
-
 // Función para obtener el detalle del pedido (carrito de compras).
 function readOrderDetail() {
     // Petición para solicitar los datos del pedido en proceso.

@@ -14,7 +14,7 @@ document.getElementById('menu').innerHTML =
   '<div class="nav-wrapper indigo darken-2">' +
   '<div class="row">' +
   '<div class="col s2">' +
-  '<a href="#!" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>' +
+  '<a href="index.html" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>' +
   '</div>' +
   //adapta el slogan
   '<div class="col s8 m7 l6">' +
@@ -25,9 +25,6 @@ document.getElementById('menu').innerHTML =
   //(a1)pone el texto de color claro
   '<li>' +
 '<a class="grey-text text-lighten-3" href="productos.html">productos</a>'+
-  '</li>' +
-  '<li>' +
-'<a class="grey-text text-lighten-3" href="index.html">inicio</a>'+
   '</li>' +
   //(a2) cambia el color de los iconos a blanco
   '<li>' +
