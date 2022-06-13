@@ -1,22 +1,21 @@
-// Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_PEDIDOS = SERVER + 'public/pedidos.php?action=';
+document.addEventListener('DOMContentLoaded', function () {
+    var instances = M.Parallax.init(document.querySelectorAll('.parallax'));
+    //inicializa el modal
+    var instances = M.Modal.init(document.querySelectorAll('.modal'));
+    //inicializa el menu para moviles
+    var instances = M.Sidenav.init(document.querySelectorAll('.sidenav'));
+    //inicializa las pstañas del modal
+    var instances = M.Tabs.init(document.querySelectorAll('.tabs', {
+      swipeable: true
+    }));
+    var instances = M.Carousel.init(document.querySelectorAll('.carousel'));
+  });
+  // Constante para establecer la ruta y parámetros de comunicación con la API.
+const API_PEDIDOS = SERVER + 'publico/pedidos.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
-document.addEventListener('DOMContentLoaded', function () {
-    // Se llama a la función que obtiene los productos del carrito de compras para llenar la tabla en la vista.
-    readOrderDetail();
-    // Se define una variable para establecer las opciones del componente Modal.
-    let options = {
-        dismissible: false
-    }
-    // Se inicializa el componente Modal para que funcionen las cajas de diálogo.
-    M.Modal.init(document.querySelectorAll('.modal'), options);
-      var instances = M.Sidenav.init(document.querySelectorAll('.sidenav'));
-  //inicializa las pstañas del modal
-var instances = M.Tabs.init(document.querySelectorAll('.tabs',{
- swipeable:true
-	}));
-});
+
+ readOrderDetail();
 // Función para obtener el detalle del pedido (carrito de compras).
 function readOrderDetail() {
     // Petición para solicitar los datos del pedido en proceso.

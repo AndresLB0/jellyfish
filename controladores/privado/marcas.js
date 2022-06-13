@@ -8,41 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
    swipeable:true,
       }));
   });
-  document.getElementById('pie').innerHTML=' <div class="container">'+
-  '<div class="row">'+
-    '<div class="col l6 s12">'+
-      '<h5 class="white-text">contactanos</h5>'+
-      '<ul>'+
-        '<a href="mailto:jellyfish@info.com"><span class="material-icons md-light">email</span></a>'+
-        '<a href="tel:+50374686573"><span class="material-icons md-light">call</span></a>'+
-      '</ul>'+
-    '</div>'+
-    '<div class="col l4 offset-l2 s12">'+
-      '<h5 class="white-text">redes sociales</h5>'+
-      '<ul>'+
-        '<li>'+
-          '<a class="grey-text text-lighten-3" href="https://www.instagram.com/"><img class="social" src="../../recursos/img/social/instagram2.png" width="20 px" heigth="20px" />instagram</a>'+
-        '</li>'+
-        '<li>'+
-          '<a class="grey-text text-lighten-3" href="https://www.facebook.com/"><img class="social" src="../../recursos/img/social/facebook2.png" width="20 px" heigth="20px" />facebook</a>'+
-        '</li>'+
-        '<li>'+
-          '<a class="grey-text text-lighten-3" href="https://api.whatsapp.com/send?phone=+503 74686573"><img class="social" src="../../recursos/img/social/whatsapp2.png" width="20 px" heigth="20px" />whatsapp</a>'+
-        '</li>'+
-         '<li>'+
-          '<a class="grey-text text-lighten-3" href="https://www.twitter.com/"><img class="social" src="../../recursos/img/social/twitter2.png" width="20 px" heigth="20px" />twitter</a>'+
-        '</li>'+
-      '</ul>'+
-    '</div>'+
-  '</div>'+
-  '</div>'+
-  '<div class="footer-copyright">'+
-  '<div class="container">'+
-    '&reg 2022 jellyfish hardware,todos los derechos reservados "tecnologia'+
-    'de calidad en un solo lugar" y el logo son marcas registras de '+
-    'jellyfish hardware &reg'+
-  '</div>'+
-  '</div>'
+ 
 
   document.getElementById('menu').innerHTML=
   '<nav>'+
