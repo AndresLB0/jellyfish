@@ -18,12 +18,11 @@ class Database
         $server = 'localhost';
         $database = 'jellyfish';
         $username = 'postgres';
-        $password = 'admin';
+        $password = '123';
 
         // Se crea la conexión mediante la extensión PDO y el controlador para PostgreSQL.
         self::$connection = new PDO('pgsql:host=' . $server . ';dbname=' . $database . ';port=5432', $username, $password);
     }
-
     /*
     *   Método para ejecutar las siguientes sentencias SQL: insert, update y delete.
     *
@@ -40,12 +39,14 @@ class Database
             // Se anula la conexión con el servidor de base de datos.
             self::$connection = null;
             return $state;
+            
         } catch (PDOException $error) {
             // Se obtiene el código y el mensaje de la excepción para establecer un error personalizado.
             self::setException($error->getCode(), $error->getMessage());
             return false;
         }
     }
+    
 
     /*
     *   Método para obtener el valor de la llave primaria del último registro insertado.

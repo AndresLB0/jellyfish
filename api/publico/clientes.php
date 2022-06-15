@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
 
                 if (!$captcha['success']) {
                     $result['recaptcha'] = 1;
-                    $result['exception'] = 'No eres un humano';
+                    $result['exception'] = 'no eres humano,eres un robot,un animal o un extraterrestre';
                 } elseif (!$cliente->setNombres($_POST['nombres'])) {
                     $result['exception'] = 'Nombres incorrectos';
                 } elseif (!$cliente->setApellidos($_POST['apellidos'])) {
