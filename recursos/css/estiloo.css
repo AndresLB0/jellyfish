@@ -7,34 +7,9 @@ body{
     font-family: sans-serif;
     background-color: #ddd;
     display: flex;
-    justify-self: center;
     min-height: 100vh;
 }
-.form-register{
-    width:110%;
-    background: white;
-    padding: 29px;
-}
 
-.form__tittle{
-    margin-top: 0;
-    font-size: 1.7em;
-    text-align: center;
-}
-
-.form__label, .form__input {
-    display: block;
-}
-
-.form__label {
-    width: 30%;
-}
-
-.form__input {
-    width: 70%; 
-    padding: 10px;
-    font-size: 1em;
-}
 
 .container--flex {
     display: flex;

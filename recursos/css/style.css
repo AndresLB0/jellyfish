@@ -41,16 +41,6 @@ body {
   position: relative;
 }
 
-.container .title::before{
-  content:´´ ;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 30px;
-  background: #9b59b6;
-}
-
 .container form .detalles-producto{
   display: flex;
   flex-wrap: wrap;
@@ -94,15 +84,6 @@ main {
 
   /*adaptable para pantallas medianas*/
   @media only screen and (min-width: 601px) {
-    /*adapta el caroucel*/
-  .carousel.perso.m .carousel-item {
-    width:35%;
-    height:25%;
-    min-height: 310px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
   /*adapta el eslogan*/
   .adaptable.m{
     height:72px;
@@ -111,15 +92,6 @@ main {
 }
 /*adaptable para pantallas grandes*/
 @media only screen and (min-width: 1367px) {
-  /*adapta el caroucel*/
-  .carousel.perso.l .carousel-item {
-    width:25%;
-    height:15%;
-    min-height: 400px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
    /*adapta el eslogan*/
   .adaptable.l{
     height:64px;
