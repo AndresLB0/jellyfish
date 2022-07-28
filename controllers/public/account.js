@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
                       <div class="nav-wrapper indigo darken-2">
                         <div class="row">
                           <div class="col s2">
-                            <a href="#!" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>
+                            <a href="#!" class=""><img src="../../resources/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>
                           </div>
                           <!-- adapta el slogan -->
                           <div class="col s8 m7 l6">
-                            <img class="adaptable m l s" src="../../recursos/img/logos/lema.png" />
+                            <img class="adaptable m l s" src="../../resources/img/logos/lema.png" />
                           </div>
                           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                           <ul class="hide-on-med-and-down right">
@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', function () {
                       <div class="nav-wrapper indigo darken-2">
                         <div class="row">
                           <div class="col s2">
-                            <a href="#!" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>
+                            <a href="#!" class=""><img src="../../resources/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>
                           </div>
                           <!-- adapta el slogan -->
                           <div class="col s8 m7 l6">
-                            <img class="adaptable m l s" src="../../recursos/img/logos/lema.png" />
+                            <img class="adaptable m l s" src="../../resources/img/logos/lema.png" />
                           </div>
                           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                           <ul class="hide-on-med-and-down right">
@@ -119,16 +119,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h5 class="white-text">redes sociales</h5>
                         <ul>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://www.instagram.com/" target="_blank"><img class="social" src="../../recursos/img/social/instagram2.png" width="20 px" heigth="20px" />instagram</a>
+                                <a class="grey-text text-lighten-3" href="https://www.instagram.com/" target="_blank"><img class="social" src="../../resources/img/social/instagram2.png" width="20 px" heigth="20px" />instagram</a>
                                 </li>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://www.facebook.com/" target="_blank"><img class="social" src="../../recursos/img/social/facebook2.png" width="20 px" heigth="20px" />facebook</a>
+                                <a class="grey-text text-lighten-3" href="https://www.facebook.com/" target="_blank"><img class="social" src="../../resources/img/social/facebook2.png" width="20 px" heigth="20px" />facebook</a>
                                 </li>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://api.whatsapp.com/send?phone=50374686573" target="_blank"><img class="social" src="../../recursos/img/social/whatsapp2.png" width="20 px"heigth="20px" />whatsapp</a>
+                                <a class="grey-text text-lighten-3" href="https://api.whatsapp.com/send?phone=50374686573" target="_blank"><img class="social" src="../../resources/img/social/whatsapp2.png" width="20 px"heigth="20px" />whatsapp</a>
                             </li>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://www.twitter.com/" target="_blank"><img class="social" src="../../recursos/img/social/twitter2.png" width="20 px" heigth="20px" />twitter</a>
+                                <a class="grey-text text-lighten-3" href="https://www.twitter.com/" target="_blank"><img class="social" src="../../resources/img/social/twitter2.png" width="20 px" heigth="20px" />twitter</a>
                             </li>
                         </ul>
                     </div>
