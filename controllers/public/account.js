@@ -21,75 +21,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Se comprueba si el usuario está autenticado para establecer el encabezado respectivo.
                 if (response.session) {
                     header = `
-                    <div class="navbar-fixed" id="menu">
-                    <nav>
-                      <div class="nav-wrapper indigo darken-2">
-                        <div class="row">
-                          <div class="col s2">
-                            <a href="#!" class=""><img src="../../resources/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>
-                          </div>
-                          <!-- adapta el slogan -->
-                          <div class="col s8 m7 l6">
-                            <img class="adaptable m l s" src="../../resources/img/logos/lema.png" />
-                          </div>
-                          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                          <ul class="hide-on-med-and-down right">
-                            <!-- (a1)pone el texto de color claro -->
-                            <li>
-                              <a class="grey-text text-lighten-3" href="productos.html">productos</a>
-                            </li>
-                            <li>
-                              <a class="grey-text text-lighten-3" href="about.html">sobre nosotros</a>
-                            </li>
-                            <!-- (a2) cambia el color de los iconos a blanco -->
-                            <li>
-                              <a href="cart.html"><span class="material-icons md-light">add_shopping_cart</span></a>
-                            </li>
-                            <li>
-                              <a href="../../plantilla/login.html"><span class="material-icons md-light">account_circle</span></a>
-                            </li>
-                          </ul>
+                        <div class="navbar-fixed">
+                            <nav class="indigo darken-2">
+                                <div class="nav-wrapper">
+                                    <a href="index.html" class="brand-logo"><img src="${SERVER}/images/logo.png" height="60"></a>
+                                    <a data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                                    <ul class="right hide-on-med-and-down">
+                                    <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                                        <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
+                                        <li><a href="cart.html"><i class="material-icons left">shopping_cart</i>Carrito</a></li>
+                                        <li><a onclick="logOut()"><i class="material-icons left">close</i>Cerrar sesión</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
                         </div>
-                      </div>
-                    </nav>
-              
-                  </div>
+                        <ul class="sidenav indigo darken-2" id="mobile">
+                        <li><img src="../../resources/img/jellyfishanimated.gif" width="90%" /></li>
+                        <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                            <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
+                            <li><a href="cart.html"><i class="material-icons left">shopping_cart</i>Carrito</a></li>
+                            <li><a onclick="logOut()"><i class="material-icons left">close</i>Cerrar sesión</a></li>
+                        </ul>
                     `;
                 } else {
                     header = `
-                    <div class="navbar-fixed" id="menu">
-                    <nav>
-                      <div class="nav-wrapper indigo darken-2">
-                        <div class="row">
-                          <div class="col s2">
-                            <a href="#!" class=""><img src="../../resources/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>
-                          </div>
-                          <!-- adapta el slogan -->
-                          <div class="col s8 m7 l6">
-                            <img class="adaptable m l s" src="../../resources/img/logos/lema.png" />
-                          </div>
-                          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                          <ul class="hide-on-med-and-down right">
-                            <!-- (a1)pone el texto de color claro -->
-                            <li>
-                              <a class="grey-text text-lighten-3" href="productos.html">productos</a>
-                            </li>
-                            <li>
-                              <a class="grey-text text-lighten-3" href="about.html">sobre nosotros</a>
-                            </li>
-                            <!-- (a2) cambia el color de los iconos a blanco -->
-                            <li>
-                              <a href="cart.html"><span class="material-icons md-light">add_shopping_cart</span></a>
-                            </li>
-                            <li>
-                              <a href="../../plantilla/login.html"><span class="material-icons md-light">account_circle</span></a>
-                            </li>
-                          </ul>
+                        <div class="navbar-fixed">
+                            <nav class="indigo darken-2">
+                                <div class="nav-wrapper">
+                                    <a href="index.html" class="brand-logo"><img src="${SERVER}images/logo.png" height="60"></a>
+                                    <a data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                                    <ul class="right hide-on-med-and-down">
+                                    <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                                        <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
+                                        <li><a href="signup.html"><i class="material-icons left">person</i>Crear cuenta</a></li>
+                                        <li><a href="login.html"><i class="material-icons left">login</i>Iniciar sesión</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
                         </div>
-                      </div>
-                    </nav>
-              
-                  </div>
+                        <ul class="sidenav indigo darken-2" id="mobile">
+                        <li><img src="../../resources/img/jellyfishanimated.gif" width="90%" /></li>
+                        <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                            <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
+                            <li><a href="signup.html"><i class="material-icons left">person</i>Crear cuenta</a></li>
+                            <li><a href="login.html"><i class="material-icons left">login</i>Iniciar sesión</a></li>
+                        </ul>
                     `;
                 }
                 // Se asigna a la página web el contenido del encabezado.
@@ -103,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
                 // Se asigna el componente Parallax antes de la etiqueta footer.
-                document.querySelector('footer').insertAdjacentHTML('beforebegin', parallax);
+                document.querySelector('main').insertAdjacentHTML('beforebegin', parallax);
                 // Se establece el pie del encabezado.
                 const footer = `
                 <div class="container">
@@ -147,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Se inicializa el componente Sidenav para que funcione la navegación lateral.
                 M.Sidenav.init(document.querySelectorAll('.sidenav'));
                 // Se declara e inicializa un arreglo con los nombres de las imagenes que se pueden utilizar en el efecto parallax.
-                let images = ['img01.jpg', 'img02.jpg', 'img03.jpg', 'img04.jpg', 'img05.jpg'];
+                let images = ['img01.jpeg', 'img02.jpg', 'img03.jpg', 'img04.jpg', 'img05.jpg'];
                 // Se declara e inicializa una variable para obtener un elemento del arreglo de forma aleatoria.
                 let element = Math.floor(Math.random() * images.length);
                 // Se asigna la imagen a la etiqueta img por medio del atributo src.

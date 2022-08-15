@@ -8,7 +8,7 @@ if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $producto = new producto;
+    $producto = new Productos;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
@@ -127,6 +127,20 @@ if (isset($_GET['action'])) {
                     }
                 } else {
                     $result['exception'] = Database::getException();
+                }
+                break;
+            case 'cantidadProductosCategoria':
+                if ($result['dataset'] = $producto->cantidadProductosCategoria()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
+            case 'porcentajeProductosCategoria':
+                if ($result['dataset'] = $producto->porcentajeProductosCategoria()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
                 }
                 break;
             default:

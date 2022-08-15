@@ -11,27 +11,3 @@ main {
 .parallax-container {
     height: 300px;
 }
-@media only screen and (min-width: 601px) {
-    /*adapta el eslogan*/
-    .adaptable.m{
-      height:72px;
-      width:100%;
-    }
-  }
-/*adaptable para pantallas grandes*/
-@media only screen and (min-width: 1367px) {
-    /*adapta el eslogan*/
-   .adaptable.l{
-     height:64px;
-     width:60%;
-     float:right;
-   }
- }
- /*adaptable para pantallas pequeñas*/
- @media only screen and (max-width: 600px) {
-    /*adapta el eslogan*/
-   .adaptable.s{
-     height:35%;
-     width:110%;
-   }
-   }

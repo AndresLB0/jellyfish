@@ -1,5 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_USUARIOS = SERVER + 'dashboard/productos.php?action=';
+const API_PRODUCTOS = SERVER + 'dashboard/productos.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -20,14 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Se muestra un saludo en la página web.
     document.getElementById('greeting').textContent = greeting;
     // Se llaman a la funciones que generan los gráficos en la página web.
-    graficoBarrasEmpleados();
+    graficoBarrasCategorias();
     graficoPastelCategorias();
 });
 
 // Función para mostrar la cantidad de productos por categoría en un gráfico de barras.
-function graficoBarrasEmpleados() {
+function graficoBarrasCategorias() {
     // Petición para obtener los datos del gráfico.
-    fetch(API_USUARIOS + 'candidadvecesatendido', {
+    fetch(API_PRODUCTOS + 'cantidadProductosCategoria', {
         method: 'get'
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
@@ -36,16 +36,16 @@ function graficoBarrasEmpleados() {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
                 if (response.status) {
                     // Se declaran los arreglos para guardar los datos a graficar.
-                    let empleados = [];
-                    let vecesatendido = [];
+                    let categorias = [];
+                    let cantidades = [];
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                     response.dataset.map(function (row) {
                         // Se agregan los datos a los arreglos.
-                        empleados.push(row.nombre_empleado);
-                        vecesatendido.push(row.veces_atendido);
+                        categorias.push(row.nombre_categoria);
+                        cantidades.push(row.cantidad);
                     });
                     // Se llama a la función que genera y muestra un gráfico de barras. Se encuentra en el archivo components.js
-                    barGraph('chart1', empleados,vecesatendido, 'empleados', 'veces que ha atendido');
+                    barGraph('chart1', categorias, cantidades, 'Cantidad de productos', 'Cantidad de productos por categoría');
                 } else {
                     document.getElementById('chart1').remove();
                     console.log(response.exception);

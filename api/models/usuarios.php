@@ -218,12 +218,4 @@ class Usuarios extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
-    public function candidadvecesatendido()
-    {
-        $sql = 'SELECT e.nombre_empleado,count(pe.id_empleado) as veces_atendido from empleado e inner join pedido pe using (id_empleado)
-        group by id_empleado order by id_empleado desc';
-        $params = null;
-        return Database::getRows($sql, $params);
-    }
 }
-

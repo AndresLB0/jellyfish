@@ -262,7 +262,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title) {
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar el gráfico con los datos recibidos.
     const chart = new Chart(context, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: xAxis,
             datasets: [{
@@ -315,7 +315,7 @@ function pieGraph(canvas, legends, values, title) {
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar el gráfico con los datos recibidos.
     const chart = new Chart(context, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             labels: legends,
             datasets: [{
