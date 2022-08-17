@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="../../recursos/css/estiloo.css">
+    <link rel="icon" href="../../recursos/img/icono/icono-jellyfih.ico">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <header>
+
+        <div class="navbar-fixed">
+            <nav>
+                <div class="navbar-fixed" id="menu">
+
+                </div>
+        </div>
+        <!--menu movil-->
+        <!--agrega un gif en el menu de la version mobil-->
+        <ul class="sidenav indigo darken-2" id="mobile-demo">
+        </ul>
+    </header>
+    <main>
+        <div class="container">
+            <div class="title">Registro Producto</div>
+            <form action="#" id="producto">
+                <div class="producto-detalles">
+                    <div class="input-box">
+                        <span class="detalles">imagen</span>
+                        <input type="file" required>
+                    </div>
+                </div>
+                <div class="producto-detalles">
+                    <div class="input-box">
+                        <span class="detalles">Nombre</span>
+                        <input type="text" placeholder="Nombre Producto" required>
+                    </div>
+                </div>
+                <div class="producto-detalles">
+                    <span class="detalles">Marca</span>
+                    <select id="marcas">
+                        <option value="1">Option 1</option>
+                        <option value="1">Option 2</option>
+                        <option value="1">Option 3</option>
+                    </select>
+                </div>
+                <div class="producto-detalles">
+                    <span class="detalles">tipo de producto</span>
+                    <select id="detallep">
+                        <option value="1">Option 1</option>
+                        <option value="1">Option 2</option>
+                        <option value="1">Option 3</option>
+                    </select>
+                </div>
+                <div class="producto-detalles">
+                    <div class="input-box">
+                        <span class="detalles">Precio</span>
+                        <input type="number" placeholder="Precio Producto" required>
+                    </div>
+                </div>
+                <div class="producto-detalles">
+                <div class="input-box">
+                    <span class="detalles">Descripcion</span>
+                    <input type="text" placeholder="Precio Producto" required>
+                </div>
+        </div>
+        <div class="producto-detalles">
+            <div class="input-box">
+                <span class="detalles">Cantidad</span>
+                <input type="number" placeholder="Cantidad Producto" required>
+            </div>
+        </div>
+
+        <label>
+            <input name="group1" type="radio" checked />
+            <span>disponible</span>
+        </label>
+
+        <label>
+            <input name="group1" type="radio" />
+            <span>agotado</span>
+        </label>
+
+        </form>
+        </div>
+
+
+
+
+    </main>
+    <footer class="page-footer indigo darken-2" id="pie">
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="../../recursos/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../../controladores/privado/addproduct.js"></script>
+
+</body>
+
+</html>

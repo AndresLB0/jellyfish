@@ -1,0 +1,56 @@
+<?php
+
+class TipoProducto extends validator 
+{
+    private $idtipoproducto = null;
+    private $nombre= null;
+    private $Modelo = null;
+
+    public function setidtipo_producto($value)
+    {
+        if ($this->validateNaturalNumber($value)){
+            $this->idTipo_Producto = $value;
+            return true;
+        } else{
+           return false;
+        }
+    }
+
+    public function setNombre($value)
+    {
+        $set = (nombre);
+        if (setNombre(Nombre=?)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setModelo($value)
+    {
+        if ($this->setModelo($value)){
+            $this->idModelo = $value;
+            return true;
+        } else{
+           return false;
+        }
+    }
+
+
+
+    public function getIdMarca()
+    {
+        return $this->idMarca;
+    }
+
+    public function getNombre()
+    {
+        return $this->setNombre;
+    }
+
+    public function getIdModelo()
+    {
+        return $this->setModelo;
+    }
+
+

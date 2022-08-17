@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- Declaración del idioma para el documento -->
+<html lang="es">
+
+<head>
+    <!-- Codificación de caracteres para el documento -->
+    <meta charset="utf-8">
+    <!-- Título del documento -->
+    <title>Jelly fish - Carrito de compras</title>
+    <!-- Optimización de la página web para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Llamada de archivo como icono -->
+    <link type="image/png" rel="icon" href="../../recursos/img/icono/icono-jellyfih.ico">
+    <!-- Importación de archivos CSS -->
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/style.css" />
+</head>
+
+<body>
+    <!-- Encabezado del documento -->
+    <header>
+        <div class="navbar-fixed" id="menu">
+            <nav>
+                <div class="nav-wrapper indigo darken-2">
+                  <div class="row">
+                    <div class="col s2">
+                      <a href="index.html" class=""><img src="../../recursos/img/logos/jellyfishlogob.png" height="64px" alt="" /></a>
+                    </div>
+                    <!-- adapta el slogan -->
+                    <div class="col s8 m7 l6">
+                      <img class="adaptable m l s" src="../../recursos/img/logos/lema.png" />
+                    </div>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="hide-on-med-and-down right">
+                      <!-- (a1)pone el texto de color claro -->
+                      <li>
+                        <a class="grey-text text-lighten-3" href="productos.html">productos</a>
+                      </li>
+                      <li>
+                        <a class="grey-text text-lighten-3" href="about.html">sobre nosotros</a>
+                      </li>
+                      <!-- (a2) cambia el color de los iconos a blanco -->
+                      <li>
+                        <a href="#modal1" class="modal-trigger"><span class="material-icons md-light">account_circle</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- popup de registro -->
+                <div id="modal1" class="modal indigo darken-2">
+                  <div class="modal-content center-align">
+                    <div class="row">
+                      <!-- pestañas -->
+                      <ul id="tabs-swipe-demo" class="tabs indigo darken-2">
+                        <li class="tab col s3">
+                          <a href="#test-swipe-1">registrarse</a>
+                        </li>
+                        <li class="tab col s3">
+                          <a class="active" href="#test-swipe-2">iniciar sesion</a>
+                        </li>
+                      </ul>
+                      <!-- registro -->
+                      <div id="test-swipe-1" class="col s12 indigo darken-2">
+                        <iframe src="../../plantilla/singup.html" class="noScrolling" sandbox="allow-forms" style="border:none;"
+                          seamless></iframe>
+                      </div>
+                      <!-- inicio de sesion -->
+                      <div id="test-swipe-2" class="col s12 indigo darken-2">
+                        <iframe src="../../plantilla/login.html" class="noScrolling" sandbox="allow-forms" style="border:none;"
+                          seamless></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+        </div>
+        <!--menu movil-->
+        <ul class="sidenav indigo darken-2" id="mobile-demo">
+        </ul>
+    </header>
+    <!-- Contenido principal del documento -->
+    <main class="container">
+        <!-- Título del contenido principal -->
+        <h4 class="center-align dark-text bold-text">Carrito de compras</h4>
+        <!-- Tabla para mostrar el detalle de los productos agregados al carrito de compras -->
+        <table class="striped">
+            <!-- Cabeza de la tabla para mostrar los títulos de las columnas -->
+            <thead>
+                <tr>
+                    <th>PRODUCTO</th>
+                    <th>CANTIDAD</th>
+                    <th>PRECIO (US$)</th>
+                    <th>SUBTOTAL (US$)</th>
+                    <th>TIPO PRODUCTO</th>
+
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+            <tbody id="tbody-rows"></tbody>
+        </table>
+        <!-- Fila para mostrar el monto total a pagar -->
+        <div class="row right-align">
+            <p>TOTAL A PAGAR (US$) <b id="pago"></b></p>
+        </div>
+        <!-- Fila para mostrar un botón que finaliza el pedido -->
+        <div class="row right-align">
+            <a onclick="finishOrder()" class="btn waves-effect green accent-2 tooltipped"
+                data-tooltip="Finalizar pedido">
+                <i class="material-icons">payment</i>
+            </a>
+        </div>
+        <!-- Fila para mostrar un enlace con la dirección de la página web principal para seguir comprando -->
+        <div class="row right-align">
+            <a href="productos.html" class="btn waves-effect  blue darken-1tooltipped" data-tooltip="Seguir comprando">
+                <i class="material-icons">dashboard</i>
+            </a>
+        </div>
+        <!-- Componente Modal para mostrar una caja de diálogo -->
+        <div id="item-modal" class="modal">
+            <div class="modal-content">
+                <!-- Título para la caja de diálogo -->
+                <h4 class="center-align">Cambiar cantidad</h4>
+                <!-- Formulario para cambiar la cantidad de producto -->
+                <form class="row" method="post" id="item-form">
+                    <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                    <input type="number" id="id_detalle" name="id_detalle" class="hide">
+                    <div class="input-field col s12 m4 offset-m4">
+                        <i class="material-icons prefix">list</i>
+                        <input type="number" id="cantidad" name="cantidad" min="1" class="validate" required>
+                        <label for="cantidad">Cantidad</label>
+                    </div>
+                    <div class="col s12 center-align">
+                        <!-- Enlace para cerrar el componente Modal -->
+                        <a class="btn waves-effect grey tooltipped modal-close" data-tooltip="Cancelar">
+                            <i class="material-icons">cancel</i>
+                        </a>
+                        <!-- Botón para enviar el formulario -->
+                        <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar">
+                            <i class="material-icons">save</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Pie del documento -->
+    <footer class="page-footer indigo darken-2">
+        <iframe src="../../plantilla/footer.html" width="100%" height="250px" style="border:none;"></iframe>
+    </footer>
+    <!-- Importación de archivos JavaScript -->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../../controladores/publico/cart.js"></script>
+</body>
+
+</html>
