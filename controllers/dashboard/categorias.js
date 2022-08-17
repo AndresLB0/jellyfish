@@ -1,10 +1,10 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_CATEGORIAS = SERVER + 'dashboard/categorias.php?action=';
+const API_MARCAS = SERVER + 'dashboard/marcas.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows(API_CATEGORIAS);
+    readRows(API_MARCAS);
     // Se define una variable para establecer las opciones del componente Modal.
     let options = {
         dismissible: false,
@@ -25,17 +25,16 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
-                <td><img src="${SERVER}images/categorias/${row.imagen_categoria}" class="materialboxed" height="100"></td>
-                <td>${row.nombre_categoria}</td>
-                <td>${row.descripcion_categoria}</td>
+                <td><img src="${SERVER}images/carrousel/${row.imagen }" class="materialboxed" height="100"></td>
+                <td>${row.nombre_marca}</td>
                 <td>
-                    <a onclick="openUpdate(${row.id_categoria})" class="btn-floating blue tooltipped" data-tooltip="Actualizar">
+                    <a onclick="openUpdate(${row.id_marca})" class="btn-floating blue tooltipped" data-tooltip="Actualizar">
                         <i class="material-icons">mode_edit</i>
                     </a>
-                    <a onclick="openDelete(${row.id_categoria})" class="btn-floating red tooltipped" data-tooltip="Eliminar">
+                    <a onclick="openDelete(${row.id_marca})" class="btn-floating red tooltipped" data-tooltip="Eliminar">
                         <i class="material-icons">delete</i>
                     </a>
-                    <a onclick="openReport(${row.id_categoria})" class="btn-floating amber tooltipped" data-tooltip="Reporte">
+                    <a onclick="openReport(${row.id_marca})" class="btn-floating amber tooltipped" data-tooltip="Reporte">
                         <i class="material-icons">assignment</i>
                     </a>
                 </td>
@@ -55,7 +54,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    searchRows(API_CATEGORIAS, 'search-form');
+    searchRows(API_MARCAS, 'search-form');
 });
 
 // Función para preparar el formulario al momento de insertar un registro.
@@ -73,7 +72,7 @@ function openReport(id) {
     // Se define una variable para inicializar los parámetros del reporte.
     let params = '?id=' + id;
     // Se establece la ruta del reporte en el servidor.
-    let url = SERVER + 'reports/dashboard/productos_categoria.php';
+    let url = SERVER + 'reports/dashboard/productos_marca.php';
     // Se abre el reporte en una nueva pestaña del navegador web.
     window.open(url + params);
 }
@@ -90,7 +89,7 @@ function openUpdate(id) {
     const data = new FormData();
     data.append('id', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_CATEGORIAS + 'readOne', {
+    fetch(API_MARCAS + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -101,9 +100,8 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id').value = response.dataset.id_categoria;
-                    document.getElementById('nombre').value = response.dataset.nombre_categoria;
-                    document.getElementById('descripcion').value = response.dataset.descripcion_categoria;
+                    document.getElementById('id').value = response.dataset.id_marca;
+                    document.getElementById('nombre').value = response.dataset.nombre_marca;
                     // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
                     M.updateTextFields();
                 } else {
@@ -125,7 +123,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_CATEGORIAS, action, 'save-form', 'save-modal');
+    saveRow(API_MARCAS, action, 'save-form', 'save-modal');
 });
 
 // Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
@@ -134,5 +132,5 @@ function openDelete(id) {
     const data = new FormData();
     data.append('id', id);
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete(API_CATEGORIAS, data);
+    confirmDelete(API_MARCAS, data);
 }

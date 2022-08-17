@@ -4,17 +4,13 @@ const API_CATALOGO = SERVER + 'public/catalogo.php?action=';
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que muestra las categorías disponibles.
-    readAllCategorias();
+    readAllMarcas();
     // Se define una variable para establecer las opciones del componente Slider.
-    let options = {
-        height: 300
-    }
     // Se inicializa el componente Slider para que funcione el carrusel de imágenes.
-    M.Carousel.init(document.querySelectorAll('.caroucel'), options);
 });
 
 // Función para obtener y mostrar las categorías disponibles.
-function readAllCategorias() {
+function readAllMarcas() {
     // Petición para solicitar los datos de las categorías.
     fetch(API_CATALOGO + 'readAll', {
         method: 'get'
@@ -30,16 +26,17 @@ function readAllCategorias() {
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                     response.dataset.map(function (row) {
                         // Se define una dirección con los datos de cada categoría para mostrar sus productos en otra página web.
-                        url = `articles.html?id=${row.id_categoria}&nombre=${row.nombre_categoria}`;
+                        url = `articles.html?id=${row.id_marca}&nombre=${row.nombre_marca}`;
                         // Se crean y concatenan las tarjetas con los datos de cada categoría.
                         content += `
-    <a class="carousel-item" href="${url}"><img src="${SERVER}images/categorias/${row.imagen_categoria}" class="activator"></a>
+                        <a class="carousel-item" href="${url}"><img src="${SERVER}images/carrousel/${row.imagen}" class="activator"></a>
                         `;
                     });
                     // Se agregan las tarjetas a la etiqueta div mediante su id para mostrar las categorías.
-                    document.getElementById('categorias').innerHTML = content;
+                    document.getElementById('marcas').innerHTML = content;
                     // Se inicializa el componente Tooltip para que funcionen las sugerencias textuales.
                     M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+                    M.Carousel.init(document.querySelectorAll('.carousel'));
                 } else {
                     // Se asigna al título del contenido un mensaje de error cuando no existen datos para mostrar.
                     let title = `<i class="material-icons small">cloud_off</i><span class="red-text">${response.exception}</span>`;

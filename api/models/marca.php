@@ -8,6 +8,8 @@ class marca extends Validator
     // Declaración de atributos (propiedades).
     private $id = null;
     private $nombre = null;
+    private $imagen = null;
+    private $ruta = '../images/carrousel/';
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -31,6 +33,15 @@ class marca extends Validator
             return false;
         }
     }
+    public function setImagen($file)
+    {
+        if ($this->validateImageFile($file, 1000, 1000)) {
+            $this->imagen = $this->getFileName();
+            return true;
+        } else {
+            return false;
+        }
+    }
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -43,13 +54,21 @@ class marca extends Validator
     {
         return $this->marca;
     }
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+    public function getRuta()
+    {
+        return $this->ruta;
+    }
 
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_marca, nombre_marca
+        $sql = 'SELECT id_marca, nombre_marca,imagen
                 FROM marca
                 WHERE marca ILIKE ?
                 ORDER BY marca';
@@ -59,15 +78,15 @@ class marca extends Validator
 
     public function createRow()
     {
-        $sql = 'INSERT INTO marca(nombre_marca)
-                VALUES(?)';
-        $params = array($this->marca);
+        $sql = 'INSERT INTO marca(nombre_marca,imagen)
+                VALUES(?,?)';
+        $params = array($this->marca,$this->imagen,);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_marca, nombre_marca
+        $sql = 'SELECT id_marca, nombre_marca,imagen
                 FROM marca
                 ORDER BY marca';
         $params = null;
@@ -76,7 +95,7 @@ class marca extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_marca, nombre_marca
+        $sql = 'SELECT id_marca, nombre_marca,imagen
                 FROM marca
                 WHERE id_marca = ?';
         $params = array($this->id);
@@ -85,11 +104,12 @@ class marca extends Validator
 
     public function updateRow($current_image)
     {
+        ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
         $sql = 'UPDATE marca
-                SET nombre_marca = ?
+                SET nombre_marca = ?,imagen=?
                 WHERE id_marca = ?';
-        $params = array($this->marca,$this->id);
+        $params = array($this->marca,$this->id,$this->imagen,);
         return Database::executeRow($sql, $params);
     }
 
@@ -97,6 +117,7 @@ class marca extends Validator
     {
         $sql = 'DELETE FROM marca
                 WHERE id_marca = ?';
+
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

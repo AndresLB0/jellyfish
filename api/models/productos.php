@@ -11,8 +11,9 @@ class Productos extends Validator
     private $descripcion = null;
     private $precio = null;
     private $imagen = null;
-    private $categoria = null;
+    private $marca = null;
     private $estado = null;
+    private $existencias=null;
     private $ruta = '../images/productos/';
 
     /*
@@ -68,10 +69,10 @@ class Productos extends Validator
         }
     }
 
-    public function setCategoria($value)
+    public function setMarca($value)
     {
         if ($this->validateNaturalNumber($value)) {
-            $this->categoria = $value;
+            $this->marca = $value;
             return true;
         } else {
             return false;
@@ -87,6 +88,16 @@ class Productos extends Validator
             return false;
         }
     }
+    public function setExistencias($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->existencias = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 
     /*
     *   Métodos para obtener valores de los atributos.
@@ -116,9 +127,9 @@ class Productos extends Validator
         return $this->imagen;
     }
 
-    public function getCategoria()
+    public function getMarca()
     {
-        return $this->categoria;
+        return $this->marca;
     }
 
     public function getEstado()
@@ -130,14 +141,18 @@ class Productos extends Validator
     {
         return $this->ruta;
     }
+    public function getExistencias()
+    {
+        return $this->existencias;
+    }
 
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
-                FROM productos INNER JOIN categorias USING(id_categoria)
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_marca, estado_producto
+                FROM productos INNER JOIN marca USING(id_marca)
                 WHERE nombre_producto ILIKE ? OR descripcion_producto ILIKE ?
                 ORDER BY nombre_producto';
         $params = array("%$value%", "%$value%");
@@ -146,16 +161,16 @@ class Productos extends Validator
 
     public function createRow()
     {
-        $sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_categoria, id_usuario)
+        $sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_marca, id_usuario)
                 VALUES(?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->categoria, $_SESSION['id_usuario']);
+        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->marca, $_SESSION['id_usuario']);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
-                FROM productos INNER JOIN categorias USING(id_categoria)
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_marca, estado_producto
+                FROM productos INNER JOIN marca USING(id_marca)
                 ORDER BY nombre_producto';
         $params = null;
         return Database::getRows($sql, $params);
@@ -163,7 +178,7 @@ class Productos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, imagen_producto, id_categoria, estado_producto
+        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, imagen_producto, id_marca, estado_producto
                 FROM productos
                 WHERE id_producto = ?';
         $params = array($this->id);
@@ -176,9 +191,9 @@ class Productos extends Validator
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
         $sql = 'UPDATE productos
-                SET imagen_producto = ?, nombre_producto = ?, descripcion_producto = ?, precio_producto = ?, estado_producto = ?, id_categoria = ?
+                SET imagen_producto = ?, nombre_producto = ?, descripcion_producto = ?, precio_producto = ?, estado_producto = ?, id_marca = ?
                 WHERE id_producto = ?';
-        $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->categoria, $this->id);
+        $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->marca, $this->id);
         return Database::executeRow($sql, $params);
     }
 
@@ -190,13 +205,22 @@ class Productos extends Validator
         return Database::executeRow($sql, $params);
     }
 
-    public function readProductosCategoria()
+    public function readProductosMarca()
     {
         $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto
-                FROM productos INNER JOIN categorias USING(id_categoria)
-                WHERE id_categoria = ? AND estado_producto = true
+                FROM productos INNER JOIN marca USING(id_marca)
+                WHERE id_marca = ? AND estado_producto = true
                 ORDER BY nombre_producto';
         $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
+    public function Productosmarca()
+    {
+        $sql = 'SELECT nombre_producto, precio_producto,existencias
+                FROM productos INNER JOIN marca USING(id_marca)
+                WHERE id_marca = ?
+                ORDER BY nombre_producto';
+        $params = array($this->marca);
         return Database::getRows($sql, $params);
     }
 
@@ -215,7 +239,7 @@ class Productos extends Validator
     {
         $sql = 'SELECT nombre_categoria, ROUND((COUNT(id_producto) * 100.0 / (SELECT COUNT(id_producto) FROM productos)), 2) porcentaje
                 FROM productos INNER JOIN categorias USING(id_categoria)
-                GROUP BY nombre_categoria ORDER BY porcentaje DESC';
+                GROUP BY nombre_Marca ORDER BY porcentaje DESC';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -226,10 +250,10 @@ class Productos extends Validator
     public function productosCategoria()
     {
         $sql = 'SELECT nombre_producto, precio_producto, estado_producto
-                FROM productos INNER JOIN categorias USING(id_categoria)
-                WHERE id_categoria = ?
+                FROM productos INNER JOIN marca USING(id_Marca)
+                WHERE id_Marca = ?
                 ORDER BY nombre_producto';
-        $params = array($this->categoria);
+        $params = array($this->Marca);
         return Database::getRows($sql, $params);
     }
 }
