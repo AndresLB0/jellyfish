@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         height: 300
     }
     // Se inicializa el componente Slider para que funcione el carrusel de imágenes.
-    M.Slider.init(document.querySelectorAll('.slider'), options);
+    M.Carousel.init(document.querySelectorAll('.caroucel'), options);
 });
 
 // Función para obtener y mostrar las categorías disponibles.
@@ -33,31 +33,7 @@ function readAllCategorias() {
                         url = `articles.html?id=${row.id_categoria}&nombre=${row.nombre_categoria}`;
                         // Se crean y concatenan las tarjetas con los datos de cada categoría.
                         content += `
-                            <div class="col s12 m6 l4">
-                                <div class="card hoverable">
-                                    <div class="card-image waves-effect waves-block waves-light">
-                                        <img src="${SERVER}images/categorias/${row.imagen_categoria}" class="activator">
-                                    </div>
-                                    <div class="card-content">
-                                        <span class="card-title activator grey-text text-darken-4">
-                                            <b>${row.nombre_categoria}</b>
-                                            <i class="material-icons right tooltipped" data-tooltip="Descripción">more_vert</i>
-                                        </span>
-                                        <p class="center">
-                                            <a href="${url}" class="tooltipped" data-tooltip="Ver productos">
-                                                <i class="material-icons">local_cafe</i>
-                                            </a>
-                                        </p>
-                                    </div>
-                                    <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4">
-                                            <b>${row.nombre_categoria}</b>
-                                            <i class="material-icons right tooltipped" data-tooltip="Cerrar">close</i>
-                                        </span>
-                                        <p>${row.descripcion_categoria}</p>
-                                    </div>
-                                </div>
-                            </div>
+    <a class="carousel-item" href="${url}"><img src="${SERVER}images/categorias/${row.imagen_categoria}" class="activator"></a>
                         `;
                     });
                     // Se agregan las tarjetas a la etiqueta div mediante su id para mostrar las categorías.
