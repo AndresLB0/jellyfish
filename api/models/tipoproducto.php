@@ -39,7 +39,7 @@ class tipo_producto extends Validator
         return $this->id;
     }
 
-    public function gettipo_producto()
+    public function getTipo_producto()
     {
         return $this->tipo_producto;
     }

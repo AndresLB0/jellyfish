@@ -27,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                         <a href="main.html" class="brand-logo"><img src="${SERVER}images/logo.png" height="60"></a>
                                         <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                         <ul class="right hide-on-med-and-down">
+                                        <li><a href="tipoproducto.html"><i class="material-icons left">shop_two</i>Tipos de productos</a></li>
                                             <li><a href="productos.html"><i class="material-icons left">shop</i>Productos</a></li>
-                                            <li><a href="marca.html"><i class="material-icons left">store</i>marcas</a></li>
+                                            <li><a href="marca.html"><i class="material-icons left">store</i>Marcas</a></li>
                                             <li><a href="usuarios.html"><i class="material-icons left">group</i>Usuarios</a></li>
                                             <li>
                                                 <a href="#" class="dropdown-trigger" data-target="desktop-dropdown">
@@ -45,8 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </ul>
                             </div>
                             <ul id="mobile-menu" class="sidenav">
+                            <li><a href="tipoproducto.html"><i class="material-icons left">shop_two</i>Tipos de productos</a></li>
                                 <li><a href="productos.html"><i class="material-icons">shop</i>Productos</a></li>
-                                <li><a href="marca.html"><i class="material-icons">store</i>marcas</a></li>
+                                <li><a href="marca.html"><i class="material-icons">store</i>Marcas</a></li>
                                 <li><a href="usuarios.html"><i class="material-icons">group</i>Usuarios</a></li>
                                 <li>
                                     <a class="dropdown-trigger" href="#" data-target="mobile-dropdown">
@@ -62,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         `;
                         const footer = `
                         <div class="container">
+                        <div class="row">
+                        <div class="col s12">
                             <div class="center">
                                 <h5 class="white-text">contacto</h5>
                                 <ul>
@@ -69,8 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <a href="tel:+50374686573"><span class="material-icons md-light">call</span></a>
                                     </ul>
                                 </div>
-
+                        </div>
                     </div>
+                            </div>
                         `;
                         document.querySelector('header').innerHTML = header;
                         document.querySelector('footer').innerHTML = footer;

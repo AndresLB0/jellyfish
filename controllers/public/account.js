@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <a href="index.html" class="brand-logo"><img src="${SERVER}/images/logo.png" height="60"></a>
                                     <a data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                     <ul class="right hide-on-med-and-down">
-                                    <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                                    <li><a href="about.html"><i class="material-icons left">info</i>Sobre nosotros</a></li>
                                         <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
                                         <li><a href="cart.html"><i class="material-icons left">shopping_cart</i>Carrito</a></li>
                                         <li><a onclick="logOut()"><i class="material-icons left">close</i>Cerrar sesión</a></li>
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <ul class="sidenav indigo darken-2" id="mobile">
                         <li><img src="../../resources/img/jellyfishanimated.gif" width="90%" /></li>
-                        <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                        <li><a href="about.html"><i class="material-icons left">info</i>Sobre nosotros</a></li>
                             <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
                             <li><a href="cart.html"><i class="material-icons left">shopping_cart</i>Carrito</a></li>
                             <li><a onclick="logOut()"><i class="material-icons left">close</i>Cerrar sesión</a></li>
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <a href="index.html" class="brand-logo"><img src="${SERVER}images/logo.png" height="60"></a>
                                     <a data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                     <ul class="right hide-on-med-and-down">
-                                    <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                                    <li><a href="about.html"><i class="material-icons left">info</i>Sobre nosotros</a></li>
                                         <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
                                         <li><a href="signup.html"><i class="material-icons left">person</i>Crear cuenta</a></li>
                                         <li><a href="login.html"><i class="material-icons left">login</i>Iniciar sesión</a></li>
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <ul class="sidenav indigo darken-2" id="mobile">
                         <li><img src="../../resources/img/jellyfishanimated.gif" width="90%" /></li>
-                        <li><a href="about.html"><i class="material-icons left">info</i>sobre nosotros</a></li>
+                        <li><a href="about.html"><i class="material-icons left">info</i>Sobre nosotros</a></li>
                             <li><a href="index.html"><i class="material-icons left">view_module</i>Catálogo</a></li>
                             <li><a href="signup.html"><i class="material-icons left">person</i>Crear cuenta</a></li>
                             <li><a href="login.html"><i class="material-icons left">login</i>Iniciar sesión</a></li>
