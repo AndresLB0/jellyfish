@@ -12,6 +12,7 @@ class Productos extends Validator
     private $precio = null;
     private $imagen = null;
     private $marca = null;
+    private $tipoproducto = null;
     private $estado = null;
     private $existencias=null;
     private $ruta = '../images/productos/';
@@ -68,7 +69,15 @@ class Productos extends Validator
             return false;
         }
     }
-
+    public function setTipoproducto($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->tipoproducto = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function setMarca($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -145,6 +154,10 @@ class Productos extends Validator
     {
         return $this->existencias;
     }
+    public function getTipoproducto()
+    {
+        return $this->tipoproducto;
+    }
 
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
@@ -214,13 +227,13 @@ class Productos extends Validator
         $params = array($this->id);
         return Database::getRows($sql, $params);
     }
-    public function Productosmarca()
+    public function readproductoTipo()
     {
-        $sql = 'SELECT nombre_producto, precio_producto,existencias
-                FROM productos INNER JOIN marca USING(id_marca)
-                WHERE id_marca = ?
-                ORDER BY nombre_producto';
-        $params = array($this->marca);
+        $sql = 'SELECT id_producto, imagen, nombre, descripcion, precio
+                FROM producto INNER JOIN tipo_producto USING(idtipo_producto)
+                WHERE idtipo_producto = ? AND estado = true
+                ORDER BY nombre';
+        $params = array($this->id);
         return Database::getRows($sql, $params);
     }
 
@@ -254,6 +267,24 @@ class Productos extends Validator
                 WHERE id_Marca = ?
                 ORDER BY nombre_producto';
         $params = array($this->Marca);
+        return Database::getRows($sql, $params);
+    }
+    public function ProductosTipo()
+    {
+        $sql = 'SELECT nombre_producto, precio_producto,nombre_marca
+                FROM productos INNER JOIN marca using(id_marca)INNER JOIN tipo_producto USING(idtipo_producto)
+                WHERE idtipo_producto = ?
+                ORDER BY nombre_producto';
+        $params = array($this->tipoproducto);
+        return Database::getRows($sql, $params);
+    }   
+     public function Productosmarca()
+    {
+        $sql = 'SELECT nombre_producto, precio_producto,existencias
+                FROM productos INNER JOIN marca USING(id_marca)
+                WHERE id_marca = ?
+                ORDER BY nombre_producto';
+        $params = array($this->marca);
         return Database::getRows($sql, $params);
     }
 }

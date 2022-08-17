@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                         <ul class="right hide-on-med-and-down">
                                             <li><a href="productos.html"><i class="material-icons left">shop</i>Productos</a></li>
-                                            <li><a href="categorias.html"><i class="material-icons left">shop_two</i>Categorías</a></li>
+                                            <li><a href="marca.html"><i class="material-icons left">store</i>marcas</a></li>
                                             <li><a href="usuarios.html"><i class="material-icons left">group</i>Usuarios</a></li>
                                             <li>
                                                 <a href="#" class="dropdown-trigger" data-target="desktop-dropdown">
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                             <ul id="mobile-menu" class="sidenav">
                                 <li><a href="productos.html"><i class="material-icons">shop</i>Productos</a></li>
-                                <li><a href="categorias.html"><i class="material-icons">shop_two</i>Categorías</a></li>
+                                <li><a href="marca.html"><i class="material-icons">store</i>marcas</a></li>
                                 <li><a href="usuarios.html"><i class="material-icons">group</i>Usuarios</a></li>
                                 <li>
                                     <a class="dropdown-trigger" href="#" data-target="mobile-dropdown">
