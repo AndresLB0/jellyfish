@@ -58,8 +58,10 @@
                     <th>IMAGEN</th>
                     <th>NOMBRE</th>
                     <th>PRECIO (US$)</th>
-                    <th>CATEGORÍA</th>
+                    <th>TIPO DE PRODUCTO</th>
+                    <th>MARCA</th>
                     <th>ESTADO</th>
+                    <th>CANTIDAD</th>
                     <th>ACCIONES</th>
                 </tr>
             </thead>
@@ -99,9 +101,18 @@
                         <label for="descripcion">Descripción</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <select id="categoria" name="categoria">
+                        <select id="marca" name="marca">
                         </select>
-                        <label>Categoría</label>
+                        <label>marca</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select id="tipoproducto" name="tipoproducto">
+                        </select>
+                        <label>tipo de producto</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="existencia" type="number" name="existencia" class="validate" required>
+                        <label for="existencia">existencias</label>
                     </div>
                     <div class="file-field input-field col s12 m6">
                         <div class="btn waves-effect tooltipped" data-tooltip="Elegir imagen de al menos 500x500 px">

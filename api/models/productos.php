@@ -164,8 +164,8 @@ class Productos extends Validator
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_marca, estado_producto
-                FROM productos INNER JOIN marca USING(id_marca)
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto,tipo_producto,nombre_marca,existencias, estado_producto
+                FROM productos INNER JOIN marca USING(id_marca) INNER join tipo_producto using(id_tipoproducto)
                 WHERE nombre_producto ILIKE ? OR descripcion_producto ILIKE ?
                 ORDER BY nombre_producto';
         $params = array("%$value%", "%$value%");
@@ -182,8 +182,8 @@ class Productos extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_marca, estado_producto
-                FROM productos INNER JOIN marca USING(id_marca)
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_marca,existencias,tipo_producto, estado_producto
+                FROM productos INNER JOIN marca USING(id_marca) inner join tipo_producto using(idtipo_producto)
                 ORDER BY nombre_producto';
         $params = null;
         return Database::getRows($sql, $params);
@@ -191,7 +191,7 @@ class Productos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, imagen_producto, id_marca, estado_producto
+        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, imagen_producto, id_marca, estado_producto,existencias,idtipo_producto
                 FROM productos
                 WHERE id_producto = ?';
         $params = array($this->id);
@@ -204,7 +204,7 @@ class Productos extends Validator
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
         $sql = 'UPDATE productos
-                SET imagen_producto = ?, nombre_producto = ?, descripcion_producto = ?, precio_producto = ?, estado_producto = ?, id_marca = ?
+                SET imagen_producto = ?, nombre_producto = ?, descripcion_producto = ?, precio_producto = ?, estado_producto = ?, id_marca = ?,idtipo_producto=?,existencias=?
                 WHERE id_producto = ?';
         $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->marca, $this->id);
         return Database::executeRow($sql, $params);

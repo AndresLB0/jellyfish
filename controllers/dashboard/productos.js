@@ -35,8 +35,10 @@ function fillTable(dataset) {
                 <td><img src="${SERVER}images/productos/${row.imagen_producto}" class="materialboxed" height="100"></td>
                 <td>${row.nombre_producto}</td>
                 <td>${row.precio_producto}</td>
-                <td>${row.nombre_categoria}</td>
+                <td>${row.tipo_producto}</td>
+                <td>${row.nombre_marca}</td>
                 <td><i class="material-icons">${icon}</i></td>
+                <td>${row.existencias}</td>
                 <td>
                     <a onclick="openUpdate(${row.id_producto})" class="btn-floating waves-effect blue tooltipped" data-tooltip="Actualizar">
                         <i class="material-icons">mode_edit</i>
@@ -110,8 +112,10 @@ function openUpdate(id) {
                     document.getElementById('id').value = response.dataset.id_producto;
                     document.getElementById('nombre').value = response.dataset.nombre_producto;
                     document.getElementById('precio').value = response.dataset.precio_producto;
+                    document.getElementById('existencia').value = response.dataset.existencias;
                     document.getElementById('descripcion').value = response.dataset.descripcion_producto;
-                    fillSelect(ENDPOINT_CATEGORIAS, 'categoria', response.dataset.id_categoria);
+                    fillSelect(ENDPOINT_CATEGORIAS, 'marca', response.dataset.id_marca);
+                    fillSelect(ENDPOINT_CATEGORIAS, 'tipoproducto', response.dataset.idtipo_producto);
                     if (response.dataset.estado_producto) {
                         document.getElementById('estado').checked = true;
                     } else {
