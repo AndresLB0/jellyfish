@@ -85,26 +85,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">contactanos</h5>
+                        <h5 class="white-text">Contáctanos</h5>
                         <ul>
                             <a href="mailto:jellyfish@info.com"><span class="material-icons md-light">email</span></a>
                             <a href="tel:+50374686573"><span class="material-icons md-light">call</span></a>
                             </ul>
                         </div>
                     <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">redes sociales</h5>
+                        <h5 class="white-text">Redes sociales</h5>
                         <ul>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://www.instagram.com/" target="_blank"><img class="social" src="../../resources/img/social/instagram2.png" width="20 px" heigth="20px" />instagram</a>
+                                <a class="grey-text text-lighten-3" href="https://www.instagram.com/" target="_blank"><img class="social" src="../../resources/img/social/instagram2.png" width="20 px" heigth="20px" />Instagram</a>
                                 </li>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://www.facebook.com/" target="_blank"><img class="social" src="../../resources/img/social/facebook2.png" width="20 px" heigth="20px" />facebook</a>
+                                <a class="grey-text text-lighten-3" href="https://www.facebook.com/" target="_blank"><img class="social" src="../../resources/img/social/facebook2.png" width="20 px" heigth="20px" />Facebook</a>
                                 </li>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://api.whatsapp.com/send?phone=50374686573" target="_blank"><img class="social" src="../../resources/img/social/whatsapp2.png" width="20 px"heigth="20px" />whatsapp</a>
+                                <a class="grey-text text-lighten-3" href="https://api.whatsapp.com/send?phone=50374686573" target="_blank"><img class="social" src="../../resources/img/social/whatsapp2.png" width="20 px"heigth="20px" />Whatsapp</a>
                             </li>
                             <li>
-                                <a class="grey-text text-lighten-3" href="https://www.twitter.com/" target="_blank"><img class="social" src="../../resources/img/social/twitter2.png" width="20 px" heigth="20px" />twitter</a>
+                                <a class="grey-text text-lighten-3" href="https://www.twitter.com/" target="_blank"><img class="social" src="../../resources/img/social/twitter2.png" width="20 px" heigth="20px" />Twitter</a>
                             </li>
                         </ul>
                     </div>
@@ -112,9 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="footer-copyright">
                 <div class="container white-text">
-                    &reg 2022 jellyfish hardware,todos los derechos reservados "tecnologia
-                    de calidad en un solo lugar" y el logo son marcas registras de
-                    jellyfish hardware &reg
+                    &reg 2022 Jellyfish hardware, todos los derechos reservados "tecnología de calidad en un solo lugar" y el logo son marcas registras de Jellyfish hardware
                 </div>
             </div>
                 `;

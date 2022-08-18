@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="row">
                         <div class="col s12">
                             <div class="center">
-                                <h5 class="white-text">contacto</h5>
+                                <h5 class="white-text">Contacto</h5>
                                 <ul>
                                     <a href="mailto:jellyfish@info.com"><span class="material-icons md-light">email</span></a>
                                     <a href="tel:+50374686573"><span class="material-icons md-light">call</span></a>
