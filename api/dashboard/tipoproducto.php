@@ -67,7 +67,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Producto inexistente';
                 } elseif (!$tipoproducto->setTipoproducto($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrecto';
-                }if ($tipoproducto->updateRow()) {
+                }if ($tipoproducto->updateRow('id')) {
                         $result['status'] = 1;
                         $result['message'] = 'Producto modificado correctamente';
                     } else {

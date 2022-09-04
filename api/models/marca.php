@@ -24,7 +24,7 @@ class marca extends Validator
         }
     }
 
-    public function setTipoproducto($value)
+    public function setMarca($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
             $this->marca = $value;

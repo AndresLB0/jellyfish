@@ -39,7 +39,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $marca->validateForm($_POST);
-                if (!$marca->setNombre($_POST['nombre'])) {
+                if (!$marca->setMarca($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrecto';
                 } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                     $result['exception'] = 'Seleccione una imagen';
@@ -73,11 +73,9 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Categoría incorrecta';
                 } elseif (!$data = $marca->readOne()) {
                     $result['exception'] = 'Categoría inexistente';
-                } elseif (!$marca->setNombre($_POST['nombre'])) {
+                } elseif (!$marca->setMarca($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrecto';
-                } elseif (!$marca->setDescripcion($_POST['descripcion'])) {
-                    $result['exception'] = 'Descripción incorrecta';
-                } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                }elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                     if ($marca->updateRow($data['imagen'])) {
                         $result['status'] = 1;
                         $result['message'] = 'Categoría modificada correctamente';

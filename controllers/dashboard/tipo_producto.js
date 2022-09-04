@@ -1,10 +1,10 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_Tipoproducto = SERVER + 'dashboard/tipoproducto.php?action=';
+const API_Tipo = SERVER + 'dashboard/tipoproducto.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows(API_Tipoproducto);
+    readRows(API_Tipo);
     // Se define una variable para establecer las opciones del componente Modal.
     let options = {
         dismissible: false,
@@ -27,13 +27,13 @@ function fillTable(dataset) {
             <tr>
                 <td>${row.tipo_producto}</td>
                 <td>
-                    <a onclick="openUpdate(${row.id_marca})" class="btn-floating blue tooltipped" data-tooltip="Actualizar">
+                    <a onclick="openUpdate(${row.idtipo_producto})" class="btn-floating blue tooltipped" data-tooltip="Actualizar">
                         <i class="material-icons">mode_edit</i>
                     </a>
-                    <a onclick="openDelete(${row.id_marca})" class="btn-floating red tooltipped" data-tooltip="Eliminar">
+                    <a onclick="openDelete(${row.idtipo_producto})" class="btn-floating red tooltipped" data-tooltip="Eliminar">
                         <i class="material-icons">delete</i>
                     </a>
-                    <a onclick="openReport(${row.id_marca})" class="btn-floating amber tooltipped" data-tooltip="Reporte">
+                    <a onclick="openReport(${row.idtipo_producto})" class="btn-floating amber tooltipped" data-tooltip="Reporte">
                         <i class="material-icons">assignment</i>
                     </a>
                 </td>
@@ -53,7 +53,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    searchRows(API_Tipoproducto, 'search-form');
+    searchRows(API_Tipo, 'search-form');
 });
 
 // Función para preparar el formulario al momento de insertar un registro.
@@ -63,7 +63,6 @@ function openCreate() {
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('modal-title').textContent = 'Crear categoría';
     // Se establece el campo de archivo como obligatorio.
-    document.getElementById('archivo').required = true;
 }
 
 // Función para abrir el reporte de productos por categoría.
@@ -122,7 +121,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_Tipoproducto, action, 'save-form', 'save-modal');
+    saveRow(API_Tipo, action, 'save-form', 'save-modal');
 });
 
 // Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
@@ -131,5 +130,5 @@ function openDelete(id) {
     const data = new FormData();
     data.append('id', id);
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete(API_Tipoproducto, data);
+    confirmDelete(API_Tipo, data);
 }

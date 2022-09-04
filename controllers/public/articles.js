@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
 function readProductosCategoria(id, categoria) {
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
-    data.append('id_categoria', id);
+    data.append('id_marca', id);
     // Petición para solicitar los productos de la categoría seleccionada.
-    fetch(API_CATALOGO + 'readProductosCategoria', {
+    fetch(API_CATALOGO + 'readProductosMarca', {
         method: 'post',
         body: data
     }).then(function (request) {

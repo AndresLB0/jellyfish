@@ -1,6 +1,7 @@
 // Constantes para establecer las rutas y parámetros de comunicación con la API.
 const API_PRODUCTOS = SERVER + 'dashboard/productos.php?action=';
-const ENDPOINT_CATEGORIAS = SERVER + 'dashboard/categorias.php?action=readAll';
+const ENDPOINT_MARCAS = SERVER + 'dashboard/marcas.php?action=readAll';
+const ENDPOINT_TIPO = SERVER + 'dashboard/tipoproducto.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -75,7 +76,8 @@ function openCreate() {
     // Se establece el campo de archivo como obligatorio.
     document.getElementById('archivo').required = true;
     // Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js
-    fillSelect(ENDPOINT_CATEGORIAS, 'categoria', null);
+    fillSelect(ENDPOINT_MARCAS, 'marca', null);
+    fillSelect(ENDPOINT_TIPO, 'tipoproducto', null);
 }
 
 // Función para abrir el reporte de productos.
@@ -114,8 +116,8 @@ function openUpdate(id) {
                     document.getElementById('precio').value = response.dataset.precio_producto;
                     document.getElementById('existencia').value = response.dataset.existencias;
                     document.getElementById('descripcion').value = response.dataset.descripcion_producto;
-                    fillSelect(ENDPOINT_CATEGORIAS, 'marca', response.dataset.id_marca);
-                    fillSelect(ENDPOINT_CATEGORIAS, 'tipoproducto', response.dataset.idtipo_producto);
+                    fillSelect(ENDPOINT_MARCAS, 'marca', response.dataset.id_marca);
+                    fillSelect(ENDPOINT_TIPO, 'tipoproducto', response.dataset.idtipo_producto);
                     if (response.dataset.estado_producto) {
                         document.getElementById('estado').checked = true;
                     } else {

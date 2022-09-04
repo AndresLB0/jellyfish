@@ -45,13 +45,15 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Descripción incorrecta';
                 } elseif (!$producto->setPrecio($_POST['precio'])) {
                     $result['exception'] = 'Precio incorrecto';
-                } elseif (!isset($_POST['categoria'])) {
-                    $result['exception'] = 'Seleccione una categoría';
-                } elseif (!$producto->setCategoria($_POST['categoria'])) {
-                    $result['exception'] = 'Categoría incorrecta';
-                } elseif (!$producto->setEstado(isset($_POST['estado']) ? 1 : 0)) {
+                }  elseif (!$producto->setEstado(isset($_POST['estado']) ? 1 : 0)) {
                     $result['exception'] = 'Estado incorrecto';
-                } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                }elseif (!$producto->setMarca($_POST['marca'])) {
+                    $result['exception'] = 'Marca incorrecta';
+                } elseif (!$producto->setTipoproducto($_POST['tipoproducto'])) {
+                    $result['exception'] = 'Tipo de producto incorrecto';
+                }elseif (!$producto->setExistencias($_POST['existencia'])) {
+                    $result['exception'] = 'Cantidad incorrecta';
+                }elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                     $result['exception'] = 'Seleccione una imagen';
                 } elseif (!$producto->setImagen($_FILES['archivo'])) {
                     $result['exception'] = $producto->getFileError();
@@ -89,8 +91,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Descripción incorrecta';
                 } elseif (!$producto->setPrecio($_POST['precio'])) {
                     $result['exception'] = 'Precio incorrecto';
-                } elseif (!$producto->setCategoria($_POST['categoria'])) {
-                    $result['exception'] = 'Seleccione una categoría';
                 } elseif (!$producto->setEstado(isset($_POST['estado']) ? 1 : 0)) {
                     $result['exception'] = 'Estado incorrecto';
                 } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {

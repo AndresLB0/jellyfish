@@ -174,9 +174,9 @@ class Productos extends Validator
 
     public function createRow()
     {
-        $sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_marca, id_usuario)
-                VALUES(?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->marca, $_SESSION['id_usuario']);
+        $sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_usuario,id_marca,idtipo_producto,existencias)
+                VALUES(?, ?, ?, ?, ?, ?, ?,?,?)';
+        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado,$_SESSION['id_usuario'], $this->marca,$this->tipoproducto,$this->existencias);
         return Database::executeRow($sql, $params);
     }
 
@@ -260,15 +260,6 @@ class Productos extends Validator
     /*
     *   Métodos para generar reportes.
     */
-    public function productosCategoria()
-    {
-        $sql = 'SELECT nombre_producto, precio_producto, estado_producto
-                FROM productos INNER JOIN marca USING(id_Marca)
-                WHERE id_Marca = ?
-                ORDER BY nombre_producto';
-        $params = array($this->Marca);
-        return Database::getRows($sql, $params);
-    }
     public function ProductosTipo()
     {
         $sql = 'SELECT nombre_producto, precio_producto,nombre_marca
