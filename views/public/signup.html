@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../../resources/css/public.css">
+    <link rel="icon" href="../imagenes/icono/sgvm.png" />
 </head>
 
 <body>
@@ -30,7 +31,7 @@
             <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">account_box</i>
-                <input type="text" id="nombres" name="nombres" class="validate" required>
+                <input type="text" id="nombres" name="nombres" class="validate" required autocomplete="name">
                 <label for="nombres">Nombres</label>
             </div>
             <div class="input-field col s12 m6">
@@ -40,18 +41,38 @@
             </div>
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">email</i>
-                <input type="email" id="correo" name="correo" maxlength="100" class="validate" required>
+                <input type="email" id="correo" name="correo" maxlength="100" class="validate" required autocomplete="off">
                 <label for="correo">Correo electrónico</label>
             </div>
             <div class="input-field col s12 m6">
-                <i class="material-icons prefix">security</i>
-                <input type="password" id="clave" name="clave" class="validate" required>
-                <label for="clave">Clave</label>
+                <i class="material-icons prefix">call</i>
+                <input type="tel" id="telefono" name="telefono" maxlength="100" class="validate" required autocomplete="off">
+                <label for="telefono">Telefono</label>
             </div>
             <div class="input-field col s12 m6">
+                <i class="material-icons prefix">person</i>
+                <input type="text" id="usuario" name="usuario" maxlength="100" class="validate" required autocomplete="off">
+                <label for="usuario">Usuario</label>
+            </div>
+            <div class="input-field col s12 m5">
                 <i class="material-icons prefix">security</i>
-                <input type="password" id="confirmar_clave" name="confirmar_clave" class="validate" required>
+                <input type="password" id="clave" name="clave" class="validate" required autocomplete="new-password">
+                <label for="clave">Clave</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <button id="show1" type="button" class="btn-floating waves-effect indigo tooltipped" data-tooltip="ver contraseña">
+                    <i id="icono1" class="material-icons">visibility</i>
+                </button>  
+            </div>
+            <div class="input-field col s12 m5">
+                <i class="material-icons prefix">security</i>
+                <input type="password" id="confirmar_clave" name="confirmar_clave" class="validate" required">
                 <label for="confirmar_clave">Confirmar clave</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <button id="show2" type="button" class="btn-floating waves-effect indigo tooltipped" data-tooltip="ver contraseña">
+                    <i id="icono2" class="material-icons">visibility</i>
+                </button>  
             </div>
             <label class="col s12 center-align">
                 <input type="checkbox" id="condicion" name="condicion" required>
@@ -71,7 +92,7 @@
     </main>
     <footer class="page-footer indigo darken-2"></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
     <script type="text/javascript" src="../../controllers/components.js"></script>
     <script type="text/javascript" src="../../controllers/public/account.js"></script>
     <script type="text/javascript" src="../../controllers/public/signup.js"></script>

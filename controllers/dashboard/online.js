@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <li><a onclick="logOut()"><i class="material-icons">clear</i>Salir</a></li>
                                 </ul>
                             </div>
-                            <ul id="mobile-menu" class="sidenav">
+                            <ul id="mobile-menu" class="sidenav indigo">
+                            <li><img src="../../resources/img/jellyfishanimated.gif" width="90%" /></li>
                             <li><a href="tipoproducto.html"><i class="material-icons left">shop_two</i>Tipos de productos</a></li>
                                 <li><a href="productos.html"><i class="material-icons">shop</i>Productos</a></li>
                                 <li><a href="marca.html"><i class="material-icons">store</i>Marcas</a></li>
@@ -95,3 +96,50 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+var timer, currSeconds = 0;
+//esta funcion tiene un cronometro
+function resetTimer() {
+    clearInterval(timer);
+    currSeconds = 0;
+    timer =
+        setInterval(startIdleTimer, 1000);
+
+
+}
+
+//cada vez que la pagina detecta acciones,el cronometro se reinicia
+window.onload = resetTimer;
+window.onmousemove = resetTimer;
+window.onmousedown = resetTimer;
+window.ontouchstart = resetTimer;
+window.onclick = resetTimer;
+window.onkeypress = resetTimer;
+/* cuando este "cronometro" llega a 300s(5 min) se cierra sesion de forma
+automatica*/
+function startIdleTimer() {
+
+    /* Increment the
+        timer seconds */
+    currSeconds++;
+
+    if (currSeconds ==300) {
+        fetch(API + 'logOut', {
+            method: 'get'
+        }).then(function (request) {
+            // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+            if (request.ok) {
+                // Se obtiene la respuesta en formato JSON.
+                request.json().then(function (response) {
+                    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                    if (response.status) {
+                        sweetAlert(1, response.message, 'index.html');
+                    } else {
+                        sweetAlert(2, response.exception, null);
+                    }
+                });
+            } else {
+                console.log(request.status + ' ' + request.statusText);
+            }
+        });
+    }
+}

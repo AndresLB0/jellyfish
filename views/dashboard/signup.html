@@ -25,7 +25,7 @@
         <!-- Título del contenido principal -->
         <h3 class="center-align">Registrar primer usuario</h3>
         <!-- Formulario para registrar el primer usuario del dashboard -->
-        <form class="row" method="post" id="register-form">
+        <form class="row" method="post" id="register-form" autocomplete="off">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">person</i>
                 <input id="nombres" type="text" name="nombres" class="validate" required>
@@ -45,6 +45,11 @@
                 <i class="material-icons prefix">person_pin</i>
                 <input id="alias" type="text" name="alias" class="validate" required>
                 <label for="alias">Alias</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">call</i>
+                <input id="telefono" type="tel" name="telefono" class="validate" required>
+                <label for="telefono">Telefono</label>
             </div>
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">security</i>

@@ -14,8 +14,12 @@ class Clientes extends Validator
     private $dui = null;
     private $nacimiento = null;
     private $direccion = null;
+    private $usuario = null;
     private $clave = null;
-    private $estado = null; // Valor por defecto en la base de datos: true
+    private $token = null;
+    private $intentos = null;
+    private $fecha_intentos = null;
+    private $dias_clave = null;
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -69,31 +73,10 @@ class Clientes extends Validator
             return false;
         }
     }
-
-    public function setDUI($value)
+    public function setUsuario($value)
     {
-        if ($this->validateDUI($value)) {
-            $this->dui = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setNacimiento($value)
-    {
-        if ($this->validateDate($value)) {
-            $this->nacimiento = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setDireccion($value)
-    {
-        if ($this->validateString($value, 1, 200)) {
-            $this->direccion = $value;
+        if ($this->validateAlphanumeric($value,1,200)) {
+            $this->usuario= $value;
             return true;
         } else {
             return false;
@@ -109,11 +92,19 @@ class Clientes extends Validator
             return false;
         }
     }
-
-    public function setEstado($value)
+    public function setToken($value)
     {
-        if ($this->validateBoolean($value)) {
-            $this->estado = $value;
+        if ($this->validateToken($value)) {
+            $this->token = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function setIntentos($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->intentos = $value;
             return true;
         } else {
             return false;
@@ -138,6 +129,10 @@ class Clientes extends Validator
         return $this->apellidos;
     }
 
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
     public function getCorreo()
     {
         return $this->correo;
@@ -148,64 +143,98 @@ class Clientes extends Validator
         return $this->telefono;
     }
 
-    public function getDUI()
-    {
-        return $this->dui;
-    }
-
-    public function getNacimiento()
-    {
-        return $this->nacimiento;
-    }
-
-    public function getDireccion()
-    {
-        return $this->direccion;
-    }
-
     public function getClave()
     {
         return $this->clave;
     }
-
-    public function getEstado()
+    public function getToken()
     {
-        return $this->estado;
+        return $this->token;
+    }
+    public function getIntentos()
+    {
+        return $this->intentos;
     }
 
+    public function getFechaIntentos()
+    {
+        return $this->fecha_intentos;
+    }
+    public function getDiasClave()
+    {
+        return $this->dias_clave;
+    }
     /*
     *   Métodos para gestionar la cuenta del cliente.
     */
-    public function checkUser($correo)
+ 
+    public function checkToken($token)
     {
-        $sql = 'SELECT id_cliente, estado_cliente FROM clientes WHERE correo_cliente = ?';
+        $sql = 'SELECT id_cliente FROM cliente WHERE token = ?';
+        $params = array($token);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['id_cliente'];
+            $this->token = $_SESSION['codigo'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function checkPassword($password)
+    {
+        $sql = 'SELECT contraseña,nombre,usuario,EXTRACT(days from (CURRENT_DATE - fecha_clave)) as dias FROM cliente WHERE id_cliente = ?';
+        $params = array($this->id);
+        $data = Database::getRow($sql, $params);
+        // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
+        if (password_verify($password, $data['contraseña'])) {
+            $this->dias_clave = $data['dias'];
+            $this->nombres = $data['nombre'];
+            $this->usuario = $data['usuario'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function deleteToken()
+    {
+        $sql = 'UPDATE cliente SET token = NULL WHERE id_cliente = ?';
+        $params = array($this->id);
+        return Database::executeRow($sql, $params);
+    }
+    public function forgetPassword()
+    {
+        date_default_timezone_set('America/El_Salvador');
+        $date = date('Y-m-d');
+        $sql = 'UPDATE cliente SET contraseña = ?, fecha_clave=? WHERE id_cliente = ?';
+        $params = array($this->clave,$date, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+    public function checkEmail($correo)
+    {
+        $sql = 'SELECT id_cliente,intentos,EXTRACT(days from (CURRENT_DATE - fecha_intentos)) as intent FROM cliente WHERE correo = ?';
         $params = array($correo);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_cliente'];
-            $this->estado = $data['estado_cliente'];
-            $this->correo = $correo;
+            $this->intentos = $data['intentos'];
+            $this->fecha_intentos = $data['intent'];
+            $this->correo=$correo;
             return true;
         } else {
             return false;
         }
     }
-
-    public function checkPassword($password)
+    public function saveToken()
     {
-        $sql = 'SELECT clave_cliente FROM clientes WHERE id_cliente = ?';
-        $params = array($this->id);
-        $data = Database::getRow($sql, $params);
-        if (password_verify($password, $data['clave_cliente'])) {
-            return true;
-        } else {
-            return false;
-        }
+        $sql = 'UPDATE cliente SET token = ? WHERE id_cliente = ?';
+        $params = array($_SESSION['codigo'], $this->id);
+        return Database::executeRow($sql, $params);
     }
-
     public function changePassword()
     {
-        $sql = 'UPDATE clientes SET clave_cliente = ? WHERE id_cliente = ?';
-        $params = array($this->clave, $this->id);
+        date_default_timezone_set('America/El_Salvador');
+        $date = date('Y-m-d');
+        $sql = 'UPDATE cliente SET contraseña = ?,fecha_clave=? WHERE id_cliente = ?';
+        $params = array($this->clave,$date, $this->id);
         return Database::executeRow($sql, $params);
     }
 
@@ -242,15 +271,15 @@ class Clientes extends Validator
 
     public function createRow()
     {
-        $sql = 'INSERT INTO clientes(nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente, clave_cliente)
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $this->dui, $this->telefono, $this->nacimiento, $this->direccion, $this->clave);
+        $sql = 'INSERT INTO cliente(nombre, apellido, correo, telefono,usuario,contraseña)
+                VALUES(?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombres, $this->apellidos, $this->correo, $this->telefono,$this->usuario, $this->clave);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_cliente, nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, estado_cliente
+        $sql = 'SELECT id_cliente, nombre, apellido, correo, dui_cliente, estado_cliente
                 FROM clientes
                 ORDER BY apellidos_cliente';
         $params = null;
@@ -280,6 +309,38 @@ class Clientes extends Validator
         $sql = 'DELETE FROM clientes
                 WHERE id_cliente = ?';
         $params = array($this->id);
+        return Database::executeRow($sql, $params);
+    }
+    public function intentoFallido($correo)
+    {
+        $sql = 'UPDATE cliente
+    set intentos = intentos + 1
+    WHERE correo = ? ';
+        $params = array($correo);
+        $this->correo = $correo;
+        Database::executeRow($sql, $params);
+    }
+    //Método para agregar una unidad a los intentos fallidos e ingresar la fehca y hora del ultimo intento fallido
+    public function bloqueoIntentos($correo)
+    {
+        date_default_timezone_set('America/El_Salvador');
+        $future_date = date("Y-m-d");
+        $sql = 'UPDATE cliente
+    set intentos = 0, fecha_intentos = ?
+    WHERE correo = ?;';
+        $params = array($future_date, $correo);
+        $this->correo = $correo;
+        return Database::executeRow($sql, $params);
+    }
+
+    //Método para agregar una unidad a los intentos fallidos e ingresar la fehca y hora del ultimo intento fallido
+    public function reinicioConteoIntentos($correo)
+    {
+        $sql = 'UPDATE cliente
+    set intentos = 0
+    WHERE correo = ?';
+        $params = array($correo);
+        $this->correo = $correo;
         return Database::executeRow($sql, $params);
     }
 }

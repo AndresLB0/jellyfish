@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Declaración del idioma para el documento -->
+<html lang="es">
+
+<head>
+    <!-- Codificación de caracteres para el documento -->
+    <meta charset="utf-8">
+    <!-- Título del documento -->
+    <title>jellyfish - Iniciar sesión</title>
+    <!-- Optimización de la página web para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Llamada de archivo como icono -->
+    <link type="image/png" rel="icon" href="../../resources/img/icon.ico">
+    <!-- Importación de archivos CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+    <!-- Encabezado del documento -->
+    <header></header>
+    <!-- Contenido principal del documento -->
+    <main>
+        <div class="container">
+            <div class="contenedor blanco" style="height:500px;">
+                <div class="row center">
+                    <div class="col m1">
+                        <a href="index.html" class="cerrar"><span class="material-icons md-38">cancel</span></a>
+                      </div>
+                    <div class="col offset-m2 m6 s12" style="margin-top:100px;">
+                        <h4 class="center" id="texto" >recuperar contraseña</h4>
+                        <div class="container">
+                            <form action="correos.php" method="post" id="recovery-pswd">
+                                <p>ingrese el correo asociado a su cuenta</p>
+                                <input id="mensaje" name="mensaje" type="hidden" class="validate text">
+                                <input id="asunto" name="asunto" type="hidden" class="validate text">
+                                <input placeholder="correo electronico" id="correo" name="correo" type="email" class="validate text">
+                                <button type="submit" class="btn-floating waves-effect blue tooltipped" data-tooltip="Ingresar">
+                                    <i class="material-icons">send</i>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- Pie del documento -->
+    <footer class="page-footer indigo darken-2"></footer>
+    <!-- Importación de archivos JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/components.js"></script>
+    <script type="text/javascript" src="../../controllers/public/account.js"></script>
+    <script type="text/javascript" src="../../controllers/public/pswdrec.js"></script>
+</body>
+
+</html>

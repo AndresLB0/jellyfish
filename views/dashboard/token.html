@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Declaración del idioma para el documento -->
+<html lang="es">
+
+<head>
+    <!-- Codificación de caracteres para el documento -->
+    <meta charset="utf-8">
+    <!-- Título del documento -->
+    <title>Dashboard - Iniciar sesión</title>
+    <!-- Optimización de la página web para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Llamada de archivo como icono -->
+    <link type="image/png" rel="icon" href="../../resources/img/icon.ico">
+    <!-- Importación de archivos CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../resources/css/dashboard.css">
+</head>
+
+<body>
+    <!-- Encabezado del documento -->
+    <header></header>
+    <!-- Contenido principal del documento -->
+    <main class="container">
+        <div class="container">
+            <div class="contenedor blanco" style="height:500px;">
+                <div class="row center">
+                    <div class="col offset-m2 m6 s12" style="margin-top:100px;">
+                        <h4 class="center" id="texto" >Ingresar token</h4>
+                        <div class="container">
+                            <form method="post" id="recovery-pswd">
+                                <p>Ingrese el token que esta en su correo</p>
+                                <input  placeholder="TOKEN" id="token"  name="token" type="text" class="validate text center">
+                                <button type="submit" class="btn-floating waves-effect blue tooltipped" data-tooltip="Ingresar">
+                                    <i class="material-icons">send</i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Pie del documento -->
+    <footer class="page-footer indigo"></footer>
+    <!-- Importación de archivos JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../controllers/components.js"></script>
+    <script src="../../controllers/dashboard/offline.js"></script>
+    <script src="../../controllers/dashboard/token.js"></script>
+</body>
+
+</html>

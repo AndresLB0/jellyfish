@@ -1,5 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_USUARIOS = SERVER + 'dashboard/usuarios.php?action=';
+const API_CLIENT = SERVER + 'public/clientes.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -12,7 +12,7 @@ document.getElementById('password-form').addEventListener('submit', function (ev
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Petición para actualizar la contraseña.
-    fetch(API_USUARIOS + 'changePassword', {
+    fetch(API_CLIENT + 'changePassword', {
         method: 'post',
         body: new FormData(document.getElementById('password-form'))
     }).then(function (request) {
@@ -23,7 +23,7 @@ document.getElementById('password-form').addEventListener('submit', function (ev
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se muestra un mensaje de éxito.
-                    sweetAlert(1, response.message, 'main.html');
+                    sweetAlert(1, response.message, 'index.html');
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -33,6 +33,6 @@ document.getElementById('password-form').addEventListener('submit', function (ev
         }
     });
 });
-    mostrarContrasena("actual","icono","show");
+    mostrarContrasena("actual","icono","show")
     mostrarContrasena("nueva","icono1","show1");
     mostrarContrasena("confirmar","icono2","show2");

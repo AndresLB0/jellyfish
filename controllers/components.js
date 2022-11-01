@@ -68,7 +68,22 @@ function searchRows(api, form) {
         }
     });
 }
-
+//funcion para mostrar y ocultar claves con un boton, 
+function mostrarContrasena(campo,icono,boton){
+    var tipo = document.getElementById(campo);
+    var icon= document.getElementById(icono);
+    var button= document.getElementById(boton);
+        document.getElementById(boton).onmousedown=function(){
+        tipo.type = "text";
+        icon.innerHTML="visibility_off"
+        button.setAttribute("data-tooltip","ocultar contraseña")
+        }
+        document.getElementById(boton).onmouseup=function(){
+        tipo.type = "password";
+        icon.innerHTML="visibility"
+        button.setAttribute("data-tooltip","ver contraseña")
+    }
+}
 /*
 *   Función para crear o actualizar un registro en los mantenimientos de tablas (operación create y update).
 *

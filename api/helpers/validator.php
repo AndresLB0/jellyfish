@@ -49,7 +49,20 @@ class Validator
         }
         return $fields;
     }
+    public function validateToken($value)
+    {
+        // Se verifica que el número tenga el formato 00000.
+        if (preg_match('/^[0-9]{5}$/', $value)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    public function logout($value)
+    {
+        unset($value);
+    }
     /*
     *   Método para validar un número natural como por ejemplo llave primaria, llave foránea, entre otros.
     *
@@ -208,7 +221,21 @@ class Validator
             return false;
         }
     }
-
+    //funcion para comprobar que la clave sea diferente a los demas valores
+    function multihaystacks_stripos($haystack, $needles) {
+        foreach($needles as $needle) {
+            $found[$needle." en ".$haystack] = stristr($haystack,$needle);
+            foreach ($found as $field) {
+                if ($field==false) {
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return $found;
+    }
+    
     /*
     *   Método para validar una contraseña.
     *
@@ -219,20 +246,28 @@ class Validator
     public function validatePassword($value)
     {
         // Se verifica la longitud mínima.
-        if (strlen($value) >= 6) {
-            // Se verifica la longitud máxima.
-            if (strlen($value) <= 72) {
-                return true;
-            } else {
-                $this->passwordError = 'Clave mayor a 72 caracteres';
-                return false;
-            }
-        } else {
-            $this->passwordError = 'Clave menor a 6 caracteres';
+        if (strlen($value) < 8) {
+            $this->passwordError = 'Clave menor a 8 caracteres';
             return false;
+        } elseif (strlen($value) > 72) {
+            $this->passwordError = 'Clave mayor a 72 caracteres';
+            return false;
+        } elseif (!preg_match('/[0-9]/', $value)) {
+            $this->passwordError = 'Debe tener por lo menos un digito';
+            return false;
+        } elseif (!preg_match('/[a-z]/', $value)) {
+            $this->passwordError = 'Debe tener por lo menos una letra minúscula';
+            return false;
+        } elseif (!preg_match('/[A-ZÑ]/', $value)) {
+            $this->passwordError = 'Debe tener por lo menos una letra mayúscula';
+            return false;
+        } elseif (!preg_match('/[!#*_$%&@()?¿¡ñáäÁÄéëÉËíïÏÍóÓÖöÚÜúü-]/', $value)) {
+            $this->passwordError = 'Debe tener por lo menos un caracter especial';
+            return false;
+        } else {
+            return true;
         }
     }
-
     /*
     *   Método para validar el formato del DUI (Documento Único de Identidad).
     *
