@@ -14,7 +14,7 @@ class Productos extends Validator
     private $marca = null;
     private $tipoproducto = null;
     private $estado = null;
-    private $existencias=null;
+    private $existencias = null;
     private $ruta = '../images/productos/';
 
     /*
@@ -106,7 +106,7 @@ class Productos extends Validator
             return false;
         }
     }
-    
+
 
     /*
     *   Métodos para obtener valores de los atributos.
@@ -162,6 +162,16 @@ class Productos extends Validator
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
+    public function searchRows($value)
+    {
+        $sql = 'SELECT id_producto, imagen_producto, nombre, descripcion, precio, tipo_producto, nombre_marca, existencias, estado
+        FROM producto INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto using(idtipo_producto)
+        WHERE nombre ILIKE ? OR descripcion ILIKE ? OR tipo_producto ILIKE ?
+        ORDER BY nombre';
+        $params = array("%$value%", "%$value%", "%$value%");
+        return Database::getRows($sql, $params);
+    }
+
     public function readAll()
     {
         $sql = 'SELECT id_producto, imagen_producto, nombre, descripcion, precio, nombre_marca,existencias,tipo_producto
@@ -176,7 +186,7 @@ class Productos extends Validator
     {
         $sql = 'INSERT INTO producto(nombre, descripcion, precio, imagen_producto, estado, id_marca,idtipo_producto,existencias)
                 VALUES(?, ?, ?, ?, ?, ?, ?,?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->marca,$this->tipoproducto,$this->existencias);
+        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->marca, $this->tipoproducto, $this->existencias);
         return Database::executeRow($sql, $params);
     }
 
@@ -260,8 +270,8 @@ class Productos extends Validator
                 ORDER BY nombre_producto';
         $params = array($this->tipoproducto);
         return Database::getRows($sql, $params);
-    }   
-     public function Productosmarca()
+    }
+    public function Productosmarca()
     {
         $sql = 'SELECT nombre_producto, precio_producto,existencias
                 FROM productos INNER JOIN marca USING(id_marca)
