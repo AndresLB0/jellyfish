@@ -162,37 +162,29 @@ class Productos extends Validator
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
-    public function searchRows($value)
-    {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto,tipo_producto,nombre_marca,existencias, estado_producto
-                FROM productos INNER JOIN marca USING(id_marca) INNER join tipo_producto using(id_tipoproducto)
-                WHERE nombre_producto ILIKE ? OR descripcion_producto ILIKE ?
-                ORDER BY nombre_producto';
-        $params = array("%$value%", "%$value%");
-        return Database::getRows($sql, $params);
-    }
-
-    public function createRow()
-    {
-        $sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_usuario,id_marca,idtipo_producto,existencias)
-                VALUES(?, ?, ?, ?, ?, ?, ?,?,?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado,$_SESSION['id_usuario'], $this->marca,$this->tipoproducto,$this->existencias);
-        return Database::executeRow($sql, $params);
-    }
-
     public function readAll()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_marca,existencias,tipo_producto, estado_producto
-                FROM productos INNER JOIN marca USING(id_marca) inner join tipo_producto using(idtipo_producto)
-                ORDER BY nombre_producto';
+        $sql = 'SELECT id_producto, imagen_producto, nombre, descripcion, precio, nombre_marca,existencias,tipo_producto
+        FROM producto INNER JOIN marca USING(id_marca) inner join tipo_producto using(idtipo_producto)
+        ORDER BY nombre';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
+
+    public function createRow()
+    {
+        $sql = 'INSERT INTO producto(nombre, descripcion, precio, imagen_producto, estado, id_marca,idtipo_producto,existencias)
+                VALUES(?, ?, ?, ?, ?, ?, ?,?)';
+        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->marca,$this->tipoproducto,$this->existencias);
+        return Database::executeRow($sql, $params);
+    }
+
+
     public function readOne()
     {
-        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, imagen_producto, id_marca, estado_producto,existencias,idtipo_producto
-                FROM productos
+        $sql = 'SELECT id_producto, nombre, descripcion, precio, imagen_producto, id_marca, estado,existencias,idtipo_producto
+                FROM producto
                 WHERE id_producto = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -212,7 +204,7 @@ class Productos extends Validator
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM productos
+        $sql = 'DELETE FROM producto
                 WHERE id_producto = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

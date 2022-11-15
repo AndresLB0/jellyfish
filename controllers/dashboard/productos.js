@@ -34,8 +34,8 @@ function fillTable(dataset) {
         content += `
             <tr>
                 <td><img src="${SERVER}images/productos/${row.imagen_producto}" class="materialboxed" height="100"></td>
-                <td>${row.nombre_producto}</td>
-                <td>${row.precio_producto}</td>
+                <td>${row.nombre}</td>
+                <td>${row.precio}</td>
                 <td>${row.tipo_producto}</td>
                 <td>${row.nombre_marca}</td>
                 <td><i class="material-icons">${icon}</i></td>
