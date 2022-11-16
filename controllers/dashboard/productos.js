@@ -1,7 +1,6 @@
 // Constantes para establecer las rutas y parámetros de comunicación con la API.
 const API_PRODUCTOS = SERVER + 'dashboard/productos.php?action=';
-const ENDPOINT_MARCAS = SERVER + 'dashboard/marcas.php?action=readAll';
-const ENDPOINT_TIPO = SERVER + 'dashboard/tipoproducto.php?action=readAll';
+const ENDPOINT_CATEGORIAS = SERVER + 'dashboard/categorias.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -29,17 +28,15 @@ function fillTable(dataset) {
     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
     dataset.map(function (row) {
         // Se establece un icono para el estado del producto.
-        (row.estado) ? icon = 'visibility' : icon = 'visibility_off';
+        (row.estado_producto) ? icon = 'visibility' : icon = 'visibility_off';
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
                 <td><img src="${SERVER}images/productos/${row.imagen_producto}" class="materialboxed" height="100"></td>
-                <td>${row.nombre}</td>
-                <td>${row.precio}</td>
-                <td>${row.tipo_producto}</td>
-                <td>${row.nombre_marca}</td>
+                <td>${row.nombre_producto}</td>
+                <td>${row.precio_producto}</td>
+                <td>${row.nombre_categoria}</td>
                 <td><i class="material-icons">${icon}</i></td>
-                <td>${row.existencias}</td>
                 <td>
                     <a onclick="openUpdate(${row.id_producto})" class="btn-floating waves-effect blue tooltipped" data-tooltip="Actualizar">
                         <i class="material-icons">mode_edit</i>
@@ -76,8 +73,7 @@ function openCreate() {
     // Se establece el campo de archivo como obligatorio.
     document.getElementById('archivo').required = true;
     // Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js
-    fillSelect(ENDPOINT_MARCAS, 'marca', null);
-    fillSelect(ENDPOINT_TIPO, 'tipoproducto', null);
+    fillSelect(ENDPOINT_CATEGORIAS, 'categoria', null);
 }
 
 // Función para abrir el reporte de productos.
@@ -112,12 +108,10 @@ function openUpdate(id) {
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
                     document.getElementById('id').value = response.dataset.id_producto;
-                    document.getElementById('nombre').value = response.dataset.nombre;
-                    document.getElementById('precio').value = response.dataset.precio;
-                    document.getElementById('existencia').value = response.dataset.existencias;
-                    document.getElementById('descripcion').value = response.dataset.descripcion;
-                    fillSelect(ENDPOINT_MARCAS, 'marca', response.dataset.id_marca);
-                    fillSelect(ENDPOINT_TIPO, 'tipoproducto', response.dataset.idtipo_producto);
+                    document.getElementById('nombre').value = response.dataset.nombre_producto;
+                    document.getElementById('precio').value = response.dataset.precio_producto;
+                    document.getElementById('descripcion').value = response.dataset.descripcion_producto;
+                    fillSelect(ENDPOINT_CATEGORIAS, 'categoria', response.dataset.id_categoria);
                     if (response.dataset.estado_producto) {
                         document.getElementById('estado').checked = true;
                     } else {

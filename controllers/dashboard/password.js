@@ -33,6 +33,3 @@ document.getElementById('password-form').addEventListener('submit', function (ev
         }
     });
 });
-    mostrarContrasena("actual","icono","show");
-    mostrarContrasena("nueva","icono1","show1");
-    mostrarContrasena("confirmar","icono2","show2");
