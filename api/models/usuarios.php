@@ -306,26 +306,26 @@ class Usuarios extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_usuario, nombres_usuario, apellidos_usuario, correo_usuario, alias_usuario
-                FROM usuarios
-                WHERE id_usuario = ?';
+        $sql = 'SELECT id_empleado, nombre_empleado, apellido, correo, usuario
+                FROM empleado
+                WHERE id_empleado = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
 
     public function updateRow()
     {
-        $sql = 'UPDATE usuarios 
-                SET nombres_usuario = ?, apellidos_usuario = ?, correo_usuario = ?
-                WHERE id_usuario = ?';
+        $sql = 'UPDATE empleado 
+                SET nombre_empleado = ?, apellido = ?, correo = ?
+                WHERE id_empleado = ?';
         $params = array($this->nombres, $this->apellidos, $this->correo, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM usuarios
-                WHERE id_usuario = ?';
+        $sql = 'DELETE FROM empleado
+                WHERE id_empleado = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

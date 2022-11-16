@@ -70,7 +70,7 @@ class marca extends Validator
     {
         $sql = 'SELECT id_marca, nombre_marca,imagen
                 FROM marca
-                WHERE marca ILIKE ?
+                WHERE nombre_marca ILIKE ?
                 ORDER BY marca';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
@@ -109,7 +109,7 @@ class marca extends Validator
         $sql = 'UPDATE marca
                 SET nombre_marca = ?,imagen=?
                 WHERE id_marca = ?';
-        $params = array($this->marca,$this->id,$this->imagen,);
+        $params = array($this->marca,$this->imagen,$this->id);
         return Database::executeRow($sql, $params);
     }
 

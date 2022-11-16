@@ -42,8 +42,8 @@ function readProductosCategoria(id, categoria) {
                                         </a>
                                     </div>
                                     <div class="card-content">
-                                        <span class="card-title">${row.nombre_producto}</span>
-                                        <p>Precio(US$) ${row.precio_producto}</p>
+                                        <span class="card-title">${row.nombre}</span>
+                                        <p>Precio(US$) ${row.precio}</p>
                                     </div>
                                 </div>
                             </div>

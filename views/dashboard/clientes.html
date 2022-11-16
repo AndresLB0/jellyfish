@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Declaración del idioma para el documento -->
+<html lang="es">
+
+<head>
+    <!-- Codificación de caracteres para el documento -->
+    <meta charset="utf-8">
+    <!-- Título del documento -->
+    <title>Dashboard - Administrar usuarios</title>
+    <!-- Optimización de la página web para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Llamada de archivo como icono -->
+    <link type="image/png" rel="icon" href="../../resources/img/icon.ico">
+    <!-- Importación de archivos CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../resources/css/dashboard.css">
+</head>
+
+<body>
+    <!-- Encabezado del documento -->
+    <header></header>
+    <!-- Contenido principal del documento -->
+    <main class="container">
+        <!-- Título del contenido principal -->
+        <h3 class="center-align">Administrar Clientes</h3>
+        <div class="row">
+            <!-- Formulario de búsqueda -->
+            <form method="post" id="search-form">
+                <div class="input-field col s6 m4">
+                    <i class="material-icons prefix">search</i>
+                    <input id="search" type="text" name="search" required>
+                    <label for="search">Buscador</label>
+                </div>
+                <div class="input-field col s6 m4">
+                    <button type="submit" class="btn-floating waves-effect green tooltipped" data-tooltip="Buscar">
+                        <i class="material-icons">check</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tabla para mostrar los registros existentes -->
+        <table class="highlight">
+            <!-- Cabeza de la tabla para mostrar los títulos de las columnas -->
+            <thead>
+                <tr>
+                    <th>APELLIDOS</th>
+                    <th>NOMBRES</th>
+                    <th>CORREO</th>
+                    <th>ALIAS</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+            <tbody id="tbody-rows"></tbody>
+        </table>
+
+        <!-- Componente Modal para mostrar una caja de diálogo -->
+    </main>
+    <!-- Pie del documento -->
+    <footer class="page-footer indigo"></footer>
+    <!-- Importación de archivos JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../controllers/components.js"></script>
+    <script src="../../controllers/dashboard/online.js"></script>
+    <script src="../../controllers/dashboard/clientes.js"></script>
+</body>
+
+</html>

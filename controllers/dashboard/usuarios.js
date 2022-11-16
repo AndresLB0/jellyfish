@@ -25,15 +25,15 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
-                <td>${row.apellidos_usuario}</td>
-                <td>${row.nombres_usuario}</td>
-                <td>${row.correo_usuario}</td>
-                <td>${row.alias_usuario}</td>
+                <td>${row.apellido}</td>
+                <td>${row.nombre_empleado}</td>
+                <td>${row.correo}</td>
+                <td>${row.usuario}</td>
                 <td>
-                    <a onclick="openUpdate(${row.id_usuario})" class="btn-floating waves-effect blue tooltipped" data-tooltip="Actualizar">
+                    <a onclick="openUpdate(${row.id_empleado})" class="btn-floating waves-effect blue tooltipped" data-tooltip="Actualizar">
                         <i class="material-icons">mode_edit</i>
                     </a>
-                    <a onclick="openDelete(${row.id_usuario})" class="btn-floating waves-effect red tooltipped" data-tooltip="Eliminar">
+                    <a onclick="openDelete(${row.id_empleado})" class="btn-floating waves-effect red tooltipped" data-tooltip="Eliminar">
                         <i class="material-icons">delete</i>
                     </a>
                 </td>
@@ -90,11 +90,11 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id').value = response.dataset.id_usuario;
-                    document.getElementById('nombres').value = response.dataset.nombres_usuario;
-                    document.getElementById('apellidos').value = response.dataset.apellidos_usuario;
-                    document.getElementById('correo').value = response.dataset.correo_usuario;
-                    document.getElementById('alias').value = response.dataset.alias_usuario;
+                    document.getElementById('id').value = response.dataset.id_empleado;
+                    document.getElementById('nombres').value = response.dataset.nombre_empleado;
+                    document.getElementById('apellidos').value = response.dataset.apellido;
+                    document.getElementById('correo').value = response.dataset.correo;
+                    document.getElementById('alias').value = response.dataset.usuario;
                     // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
                     M.updateTextFields();
                 } else {

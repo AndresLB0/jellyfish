@@ -5,7 +5,7 @@
 /*
  *   Constante para establecer la ruta del servidor.
  */
-const SERVER = 'http://localhost/libreria/jellyfish/api/';
+const SERVER = 'http://localhost/jellyfish/api/';
 
 /*
  *   Función para obtener todos los registros disponibles en los mantenimientos de tablas (operación read).
@@ -103,7 +103,9 @@ function saveRow(api, action, form, modal) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
-                    M.Modal.getInstance(document.getElementById(modal)).close();
+                    if (document.getElementById(modal)) {
+                        M.Modal.getInstance(document.getElementById(modal)).close();
+                    }
                     // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
                     readRows(api);
                     sweetAlert(1, response.message, null);

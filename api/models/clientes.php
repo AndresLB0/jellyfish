@@ -20,6 +20,7 @@ class Clientes extends Validator
     private $intentos = null;
     private $fecha_intentos = null;
     private $dias_clave = null;
+    private $estado = null;
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -48,6 +49,16 @@ class Clientes extends Validator
     {
         if ($this->validateAlphabetic($value, 1, 50)) {
             $this->apellidos = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setEstado($value)
+    {
+        if ($this->validateBoolean($value)) {
+            $this->estado = $value;
             return true;
         } else {
             return false;
@@ -117,6 +128,11 @@ class Clientes extends Validator
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getEstado()
+    {
+        return $this->estado;
     }
 
     public function getNombres()
@@ -211,12 +227,13 @@ class Clientes extends Validator
     }
     public function checkEmail($correo)
     {
-        $sql = 'SELECT id_cliente,intentos,EXTRACT(days from (CURRENT_DATE - fecha_intentos)) as intent FROM cliente WHERE correo = ?';
+        $sql = 'SELECT id_cliente,intentos,estado,EXTRACT(days from (CURRENT_DATE - fecha_intentos)) as intent FROM cliente WHERE correo = ?';
         $params = array($correo);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_cliente'];
             $this->intentos = $data['intentos'];
             $this->fecha_intentos = $data['intent'];
+            $this->estado = $data['estado'];
             $this->correo=$correo;
             return true;
         } else {
@@ -249,8 +266,8 @@ class Clientes extends Validator
 
     public function changeStatus()
     {
-        $sql = 'UPDATE clientes
-                SET estado_cliente = ?
+        $sql = 'UPDATE cliente
+                SET estado = ?
                 WHERE id_cliente = ?';
         $params = array($this->estado, $this->id);
         return Database::executeRow($sql, $params);
@@ -261,8 +278,8 @@ class Clientes extends Validator
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_cliente, nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente
-                FROM clientes
+        $sql = 'SELECT id_cliente, nombres_cliente, apellidos_cliente, correo_cliente, telefono_cliente, direccion_cliente
+                FROM cliente
                 WHERE apellidos_cliente ILIKE ? OR nombres_cliente ILIKE ? OR correo_cliente ILIKE ?
                 ORDER BY apellidos_cliente';
         $params = array("%$value%", "%$value%", "%$value%");
@@ -279,9 +296,9 @@ class Clientes extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT id_cliente, nombre, apellido, correo, dui_cliente, estado_cliente
-                FROM clientes
-                ORDER BY apellidos_cliente';
+        $sql = 'SELECT id_cliente, nombre, apellido, correo, estado
+                FROM cliente
+                ORDER BY apellido';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -289,7 +306,7 @@ class Clientes extends Validator
     public function readOne()
     {
         $sql = 'SELECT id_cliente, nombres_cliente, apellidos_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente, estado_cliente
-                FROM clientes
+                FROM cliente
                 WHERE id_cliente = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -297,7 +314,7 @@ class Clientes extends Validator
 
     public function updateRow()
     {
-        $sql = 'UPDATE clientes
+        $sql = 'UPDATE cliente
                 SET nombres_cliente = ?, apellidos_cliente = ?, dui_cliente = ?, estado_cliente = ?, telefono_cliente = ?, nacimiento_cliente = ?, direccion_cliente = ?
                 WHERE id_cliente = ?';
         $params = array($this->nombres, $this->apellidos, $this->dui, $this->estado, $this->telefono, $this->nacimiento, $this->direccion, $this->id);
@@ -306,7 +323,7 @@ class Clientes extends Validator
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM clientes
+        $sql = 'DELETE FROM cliente
                 WHERE id_cliente = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

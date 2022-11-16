@@ -29,7 +29,7 @@ function fillTable(dataset) {
     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
     dataset.map(function (row) {
         // Se establece un icono para el estado del producto.
-        (row.estado_producto) ? icon = 'visibility' : icon = 'visibility_off';
+        (row.estado) ? icon = 'visibility' : icon = 'visibility_off';
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
@@ -112,10 +112,10 @@ function openUpdate(id) {
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
                     document.getElementById('id').value = response.dataset.id_producto;
-                    document.getElementById('nombre').value = response.dataset.nombre_producto;
-                    document.getElementById('precio').value = response.dataset.precio_producto;
+                    document.getElementById('nombre').value = response.dataset.nombre;
+                    document.getElementById('precio').value = response.dataset.precio;
                     document.getElementById('existencia').value = response.dataset.existencias;
-                    document.getElementById('descripcion').value = response.dataset.descripcion_producto;
+                    document.getElementById('descripcion').value = response.dataset.descripcion;
                     fillSelect(ENDPOINT_MARCAS, 'marca', response.dataset.id_marca);
                     fillSelect(ENDPOINT_TIPO, 'tipoproducto', response.dataset.idtipo_producto);
                     if (response.dataset.estado_producto) {

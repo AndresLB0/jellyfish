@@ -192,6 +192,9 @@ if (isset($_GET['action'])) {
                             /*si tiene 1 o 2 intentos fallidos, el conteo se reinia al poner
                              bien sus credenciales*/
                             $cliente->reinicioConteoIntentos($_POST['email']);
+                            if(!$cliente->getEstado()){
+                                $result['exception'] = 'Su cuenta ha sido baneada o borrada, porfavor comuniquese con adminstracion';
+                            }else {
                             /*se envia al correo un codigo de 5 caracteres y lo guarda 
                             en la base de datos*/
                             if(sendemail($cliente->getNombres(),$_POST['email'],'Auntentificacion de inicio de sesion', 'Alguien ha intentado entrar a su cuenta')){
@@ -205,6 +208,7 @@ if (isset($_GET['action'])) {
                               $result['exception']= "El correo no se pudo enviar";
                             }
                             }
+                        }
                         } else {
                             $result['exception'] = 'Correo o Contraseña incorectos';
                             $cliente->intentoFallido($_POST['email']);

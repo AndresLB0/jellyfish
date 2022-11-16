@@ -83,8 +83,14 @@ if (isset($_GET['action'])) {
                 $_POST = $producto->validateForm($_POST);
                 if (!$producto->setId($_POST['id'])) {
                     $result['exception'] = 'Producto incorrecto';
-                } elseif (!$data = $producto->readOne()) {
+                } elseif (!$producto->setMarca($_POST['marca'])) {
+                    $result['exception'] = 'Marca incorrecta';
+                }elseif (!$data = $producto->readOne()) {
                     $result['exception'] = 'Producto inexistente';
+                } elseif (!$producto->setExistencias($_POST['existencia'])) {
+                    $result['exception'] = 'Existencia incorrecto';
+                } elseif (!$producto->setTipoProducto($_POST['tipoproducto'])) {
+                    $result['exception'] = 'Tipo producto incorrecto';
                 } elseif (!$producto->setNombre($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrecto';
                 } elseif (!$producto->setDescripcion($_POST['descripcion'])) {
