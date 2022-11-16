@@ -35,7 +35,6 @@ function readOrderDetail() {
                     response.dataset.map(function (row) {
                         subtotal = row.precio_producto * row.cantidad_producto;
                         total += subtotal;
-                        
                         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
                         content += `
                             <tr>

@@ -12,29 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
             request.json().then(function (response) {
                 // Se comprueba si existe una sesión, de lo contrario se revisa si la respuesta es satisfactoria.
                 if (response.session) {
-                    fetch(API_USUARIOS + 'logOut', {
-                        method: 'get'
-                    }).then(function (request) {
-                        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
-                        if (request.ok) {
-                            // Se obtiene la respuesta en formato JSON.
-                            request.json().then(function (response) {
-                                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                                if (response.status) {
-                                 location.href='index.html'
-                                } else {
-                                    sweetAlert(2, response.exception, null);
-                                }
-                            });
-                        } else {
-                            console.log(request.status + ' ' + request.statusText);
-                        }
-                    });
+                    location.href = 'main.html';
                 } else if (response.status) {
                     sweetAlert(4, 'Debe autenticarse para ingresar', null);
                 } else {
                     sweetAlert(3, response.exception, 'signup.html');
-                    
                 }
             });
         } else {
@@ -56,13 +38,11 @@ document.getElementById('session-form').addEventListener('submit', function (eve
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
         if (request.ok) {
-            request.json().then(function (response) { 
-                if (response.noventa) {
-                    sweetAlert(4, response.exception, 'changepswd.html');
-                }               // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                  else if (response.status) {
-                    sweetAlert(1, response.message, 'token.html');
-                } else { 
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    sweetAlert(1, response.message, 'main.html');
+                } else {
                     sweetAlert(2, response.exception, null);
                 }
             });
@@ -71,5 +51,3 @@ document.getElementById('session-form').addEventListener('submit', function (eve
         }
     });
 });
-
-   mostrarContrasena("clave","icono","show");

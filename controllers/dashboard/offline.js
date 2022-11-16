@@ -7,23 +7,25 @@
 document.addEventListener('DOMContentLoaded', function () {
     const header = `
         <div class="navbar-fixed">
-            <nav class="indigo">
+            <nav class="brown darken-2">
                 <div class="nav-wrapper center-align">
-                    <a href="index.html" class="brand-logo"><i class="material-icons">lock</i></a>
+                    <a href="index.html" class="brand-logo"><i class="material-icons">dashboard</i></a>
                 </div>
             </nav>
         </div>
     `;
     const footer = `
-    <div class="container">
-        <div class="center">
-            <h5 class="white-text">¿Nescesitas ayuda?</h5>
-            <ul>
-                <a href="mailto:jellyfish@info.com"><span class="material-icons md-light">email</span></a>
-                <a href="tel:+50374686573"><span class="material-icons md-light">call</span></a>
-                </ul>
+        <div class="container">
+            <div class="row">
+                <b></b>
             </div>
-</div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center-align">
+                <span>© 2022 Copyright Piano Store. Todos los derechos reservados.</span>
+               
+            </div>
+        </div>
     `;
     document.querySelector('header').innerHTML = header;
     document.querySelector('footer').innerHTML = footer;

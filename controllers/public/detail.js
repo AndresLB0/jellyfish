@@ -32,9 +32,9 @@ function readOneProducto(id) {
                 if (response.status) {
                     // Se colocan los datos en la tarjeta de acuerdo al producto seleccionado previamente.
                     document.getElementById('imagen').setAttribute('src', SERVER + 'images/productos/' + response.dataset.imagen_producto);
-                    document.getElementById('nombre').textContent = response.dataset.nombre;
-                    document.getElementById('descripcion').textContent = response.dataset.descripcion;
-                    document.getElementById('precio').textContent = response.dataset.precio;
+                    document.getElementById('nombre').textContent = response.dataset.nombre_producto;
+                    document.getElementById('descripcion').textContent = response.dataset.descripcion_producto;
+                    document.getElementById('precio').textContent = response.dataset.precio_producto;
                     // Se asigna el valor del id del producto al campo oculto del formulario.
                     document.getElementById('id_producto').value = response.dataset.id_producto;
                 } else {

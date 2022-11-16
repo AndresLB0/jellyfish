@@ -1,10 +1,10 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_USUARIOS = SERVER + 'dashboard/usuarios.php?action=';
+const API_CATEGORIAS = SERVER + 'dashboard/categorias.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows(API_USUARIOS);
+    readRows(API_CATEGORIAS);
     // Se define una variable para establecer las opciones del componente Modal.
     let options = {
         dismissible: false,
@@ -25,16 +25,18 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
-                <td>${row.apellidos_usuario}</td>
-                <td>${row.nombres_usuario}</td>
-                <td>${row.correo_usuario}</td>
-                <td>${row.alias_usuario}</td>
+                <td><img src="${SERVER}images/categorias/${row.imagen_categoria}" class="materialboxed" height="100"></td>
+                <td>${row.nombre_categoria}</td>
+                <td>${row.descripcion_categoria}</td>
                 <td>
-                    <a onclick="openUpdate(${row.id_usuario})" class="btn-floating waves-effect blue tooltipped" data-tooltip="Actualizar">
+                    <a onclick="openUpdate(${row.id_categoria})" class="btn-floating blue tooltipped" data-tooltip="Actualizar">
                         <i class="material-icons">mode_edit</i>
                     </a>
-                    <a onclick="openDelete(${row.id_usuario})" class="btn-floating waves-effect red tooltipped" data-tooltip="Eliminar">
+                    <a onclick="openDelete(${row.id_categoria})" class="btn-floating red tooltipped" data-tooltip="Eliminar">
                         <i class="material-icons">delete</i>
+                    </a>
+                    <a onclick="openReport(${row.id_categoria})" class="btn-floating amber tooltipped" data-tooltip="Reporte">
+                        <i class="material-icons">assignment</i>
                     </a>
                 </td>
             </tr>
@@ -42,6 +44,8 @@ function fillTable(dataset) {
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     document.getElementById('tbody-rows').innerHTML = content;
+    // Se inicializa el componente Material Box para que funcione el efecto Lightbox.
+    M.Materialbox.init(document.querySelectorAll('.materialboxed'));
     // Se inicializa el componente Tooltip para que funcionen las sugerencias textuales.
     M.Tooltip.init(document.querySelectorAll('.tooltipped'));
 }
@@ -51,7 +55,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    searchRows(API_USUARIOS, 'search-form');
+    searchRows(API_CATEGORIAS, 'search-form');
 });
 
 // Función para preparar el formulario al momento de insertar un registro.
@@ -59,11 +63,19 @@ function openCreate() {
     // Se abre la caja de diálogo (modal) que contiene el formulario.
     M.Modal.getInstance(document.getElementById('save-modal')).open();
     // Se asigna el título para la caja de diálogo (modal).
-    document.getElementById('modal-title').textContent = 'Crear usuario';
-    // Se habilitan los campos de alias y contraseña.
-    document.getElementById('alias').disabled = false;
-    document.getElementById('clave').disabled = false;
-    document.getElementById('confirmar').disabled = false;
+    document.getElementById('modal-title').textContent = 'Crear categoría';
+    // Se establece el campo de archivo como obligatorio.
+    document.getElementById('archivo').required = true;
+}
+
+// Función para abrir el reporte de productos por categoría.
+function openReport(id) {
+    // Se define una variable para inicializar los parámetros del reporte.
+    let params = '?id=' + id;
+    // Se establece la ruta del reporte en el servidor.
+    let url = SERVER + 'reports/dashboard/productos_categoria.php';
+    // Se abre el reporte en una nueva pestaña del navegador web.
+    window.open(url + params);
 }
 
 // Función para preparar el formulario al momento de modificar un registro.
@@ -71,30 +83,27 @@ function openUpdate(id) {
     // Se abre la caja de diálogo (modal) que contiene el formulario.
     M.Modal.getInstance(document.getElementById('save-modal')).open();
     // Se asigna el título para la caja de diálogo (modal).
-    document.getElementById('modal-title').textContent = 'Actualizar usuario';
-    // Se deshabilitan los campos de alias y contraseña.
-    document.getElementById('alias').disabled = true;
-    document.getElementById('clave').disabled = true;
-    document.getElementById('confirmar').disabled = true;
+    document.getElementById('modal-title').textContent = 'Actualizar categoría';
+    // Se establece el campo de archivo como opcional.
+    document.getElementById('archivo').required = false;
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
     data.append('id', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_USUARIOS + 'readOne', {
+    fetch(API_CATEGORIAS + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
         if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id').value = response.dataset.id_usuario;
-                    document.getElementById('nombres').value = response.dataset.nombres_usuario;
-                    document.getElementById('apellidos').value = response.dataset.apellidos_usuario;
-                    document.getElementById('correo').value = response.dataset.correo_usuario;
-                    document.getElementById('alias').value = response.dataset.alias_usuario;
+                    document.getElementById('id').value = response.dataset.id_categoria;
+                    document.getElementById('nombre').value = response.dataset.nombre_categoria;
+                    document.getElementById('descripcion').value = response.dataset.descripcion_categoria;
                     // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
                     M.updateTextFields();
                 } else {
@@ -116,7 +125,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_USUARIOS, action, 'save-form', 'save-modal');
+    saveRow(API_CATEGORIAS, action, 'save-form', 'save-modal');
 });
 
 // Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
@@ -125,5 +134,5 @@ function openDelete(id) {
     const data = new FormData();
     data.append('id', id);
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete(API_USUARIOS, data);
+    confirmDelete(API_CATEGORIAS, data);
 }
