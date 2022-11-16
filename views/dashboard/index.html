@@ -10,7 +10,7 @@
     <!-- Optimización de la página web para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Llamada de archivo como icono -->
-    <link type="image/png" rel="icon" href="../../resources/img/icon.ico">
+    <link type="image/png" rel="icon" href="../../resources/img/icon.png">
     <!-- Importación de archivos CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,30 +19,30 @@
 
 <body>
     <!-- Encabezado del documento -->
-    <header></header>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="brown darken-2">
+                <div class="nav-wrapper center-align">
+                    <a href="index.html" class="brand-logo"><i class="material-icons">dashboard</i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
     <!-- Contenido principal del documento -->
     <main class="container">
         <!-- Título del contenido principal -->
         <h3 class="center-align">Iniciar sesión</h3>
         <!-- Formulario para iniciar sesión -->
-        <form class="row" method="post" id="session-form" autocomplete="off">
+        <form class="row" method="post" id="session-form">
             <div class="input-field col s12 m6 offset-m3 l4 offset-l4">
                 <i class="material-icons prefix">person_pin</i>
                 <input id="alias" type="text" name="alias" class="validate" required>
-                <label for="alias">Alias</label>
+                <label for="alias">Usuario</label>
             </div>
             <div class="input-field col s12 m6 offset-m3 l4 offset-l4">
                 <i class="material-icons prefix">security</i>
                 <input id="clave" type="password" name="clave" class="validate" required>
-                <label for="clave">Clave</label> 
-            </div>
-            <div class="col l1">
-                <button id="show" type="button" class="btn-floating waves-effect black tooltipped" data-tooltip="ver contraseña">
-                    <i id="icono" class="material-icons">visibility</i>
-                </button>  
-            </div>
-            <div class="col s12 center-align">
-                  <a href="pswdrecovery.html">¿Olvido su contraseña?</a>
+                <label for="clave">Clave</label>
             </div>
             <div class="col s12 center-align">
                 <button type="submit" class="btn-floating waves-effect blue tooltipped" data-tooltip="Ingresar">
@@ -51,13 +51,25 @@
             </div>
         </form>
     </main>
-    <!-- Pie del documento -->
-    <footer class="page-footer indigo"></footer>
+  <!-- Pie del documento -->
+  <footer class="page-footer brown darken-2">
+    <div class="container">
+        <div class="row">
+            <b>PianoStore dashbaord</b>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <span>© 2022 Copyright PianoStore. Todos los derechos reservados.</span>
+           
+        </div>
+    </div>
+</footer>
     <!-- Importación de archivos JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/components.js"></script>
-    <script src="../../controllers/dashboard/offline.js"></script>
+
     <script src="../../controllers/dashboard/index.js"></script>
 </body>
 

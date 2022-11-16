@@ -6,11 +6,11 @@
     <!-- Codificación de caracteres para el documento -->
     <meta charset="utf-8">
     <!-- Título del documento -->
-    <title>jellyfish - Iniciar sesión</title>
+    <title>PianoStore - Iniciar sesión</title>
     <!-- Optimización de la página web para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Llamada de archivo como icono -->
-    <link type="image/png" rel="icon" href="../../resources/img/icon.ico">
+    <link type="image/png" rel="icon" href="../../resources/img/icon.png">
     <!-- Importación de archivos CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -25,25 +25,16 @@
         <!-- Título del contenido principal -->
         <h4 class="center-align indigo-text">Iniciar sesión</h4>
         <!-- Formulario para iniciar sesión -->
-        <form class="row" method="post" id="session-form" autocomplete="off">
+        <form class="row" method="post" id="session-form">
             <div class="input-field col s12 m4 offset-m4">
-                <i class="material-icons prefix">person</i>
-                <input type="email" id="email" name="email" class="validate" required>
-                <label for="email">Correo</label>
+                <i class="material-icons prefix">email</i>
+                <input type="email" id="usuario" name="usuario" class="validate" required>
+                <label for="usuario">Correo electrónico</label>
             </div>
-            <div class="input-field col s11 m4 offset-m4">
+            <div class="input-field col s12 m4 offset-m4">
                 <i class="material-icons prefix">security</i>
                 <input type="password" id="clave" name="clave" class="validate" required>
                 <label for="clave">Clave</label>
-            </div>
-            <div class="col s1 m1 l1">
-                <button id="show" type="button" class="btn-floating waves-effect indigo tooltipped"
-                    data-tooltip="ver contraseña">
-                    <i id="icono" class="material-icons">visibility</i>
-                </button>
-            </div>
-            <div class="col s12 center-align">
-                <a href="pidecorreo.html">¿Olvido su contraseña?</a>
             </div>
             <div class="col s12 center-align">
                 <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Ingresar">
@@ -59,7 +50,7 @@
         </div>
     </main>
     <!-- Pie del documento -->
-    <footer class="page-footer indigo darken-2"></footer>
+    <footer class="page-footer brown darken-2"></footer>
     <!-- Importación de archivos JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
