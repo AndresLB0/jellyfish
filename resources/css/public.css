@@ -11,3 +11,7 @@ main {
 .parallax-container {
     height: 300px;
 }
+
+.actions-column {
+    width: 125px;
+}
