@@ -8,6 +8,6 @@ main {
     flex: 1 0 auto;
 }
 
-footer{
-    width:100%;
+.actions-column {
+    width: 125px;
 }
